@@ -1,7 +1,7 @@
 init:
 	echo "TODO..."
 
-ci: deps gen-packer-aem-all
+ci: deps gen-packer-aem-all lint
 
 deps:
 	pip install -r requirements.txt
