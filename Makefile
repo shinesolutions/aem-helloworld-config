@@ -57,4 +57,4 @@ define gen_packer_aem
 	cp packer-aem/src/$(3).yaml packer-aem/$(1)-$(2)-$(3)/
 endef
 
-.PHONY: init ci deps gen-packer-aem-all gen-packer-aem-aws-rhel7-aem62 gen-packer-aem-aws-rhel7-aem63 gen-packer-aem-aws-rhel7-aem64 gen-packer-aem-aws-centos7-aem62 gen-packer-aem-aws-centos7-aem63 gen-packer-aem-aws-centos7-aem64 gen-packer-aem-aws-amazon-linux2-aem62 gen-packer-aem-aws-amazon-linux2-aem63 gen-packer-aem-aws-amazon-linux2-aem64 gen-packer-aem-docker-centos7-aem62 gen-packer-aem-docker-centos7-aem63
+.PHONY: init ci deps lint gen-packer-aem-all gen-packer-aem-aws-rhel7-aem62 gen-packer-aem-aws-rhel7-aem63 gen-packer-aem-aws-rhel7-aem64 gen-packer-aem-aws-centos7-aem62 gen-packer-aem-aws-centos7-aem63 gen-packer-aem-aws-centos7-aem64 gen-packer-aem-aws-amazon-linux2-aem62 gen-packer-aem-aws-amazon-linux2-aem63 gen-packer-aem-aws-amazon-linux2-aem64 gen-packer-aem-docker-centos7-aem62 gen-packer-aem-docker-centos7-aem63
