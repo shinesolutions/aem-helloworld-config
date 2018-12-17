@@ -1,7 +1,13 @@
 init:
 	echo "TODO..."
 
-ci: gen-packer-aem-all
+ci: deps gen-packer-aem-all
+
+deps:
+	pip install -r requirements.txt
+
+lint:
+	yamllint packer-aem/*/*.yaml
 
 ################################################################################
 # Packer AEM configuration generator targets.
@@ -51,4 +57,4 @@ define gen_packer_aem
 	cp packer-aem/src/$(3).yaml packer-aem/$(1)-$(2)-$(3)/
 endef
 
-.PHONY: init ci gen-packer-aem-all gen-packer-aem-aws-rhel7-aem62 gen-packer-aem-aws-rhel7-aem63 gen-packer-aem-aws-rhel7-aem64 gen-packer-aem-aws-centos7-aem62 gen-packer-aem-aws-centos7-aem63 gen-packer-aem-aws-centos7-aem64 gen-packer-aem-aws-amazon-linux2-aem62 gen-packer-aem-aws-amazon-linux2-aem63 gen-packer-aem-aws-amazon-linux2-aem64 gen-packer-aem-docker-centos7-aem62 gen-packer-aem-docker-centos7-aem63
+.PHONY: init ci deps gen-packer-aem-all gen-packer-aem-aws-rhel7-aem62 gen-packer-aem-aws-rhel7-aem63 gen-packer-aem-aws-rhel7-aem64 gen-packer-aem-aws-centos7-aem62 gen-packer-aem-aws-centos7-aem63 gen-packer-aem-aws-centos7-aem64 gen-packer-aem-aws-amazon-linux2-aem62 gen-packer-aem-aws-amazon-linux2-aem63 gen-packer-aem-aws-amazon-linux2-aem64 gen-packer-aem-docker-centos7-aem62 gen-packer-aem-docker-centos7-aem63
