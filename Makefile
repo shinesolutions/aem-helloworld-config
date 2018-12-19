@@ -4,15 +4,16 @@ packer_aem_version=3.4.2
 ci: clean deps gen-packer-aem-all lint
 
 clean:
-	rm -rf stage
+	rm -rf stage/
 
 stage:
-	mkdir -p stage
+	mkdir -p stage/
 
 deps: stage
 	pip install -r requirements.txt
+	mkdir -p stage/packer-aem/
 	curl -L -o "stage/packer-aem/packer-aem-${packer_aem_version}.tar.gz" "https://github.com/shinesolutions/packer-aem/releases/download/${packer_aem_version}/packer-aem-${packer_aem_version}.tar.gz"
-	mkdir -p stage/packer-aem && cd stage/packer-aem && tar -xvzf "packer-aem-${packer_aem_version}.tar.gz"
+	cd stage/packer-aem && tar -xvzf "packer-aem-${packer_aem_version}.tar.gz"
 
 lint:
 	yamllint packer-aem/*/*.yaml
