@@ -17,7 +17,7 @@ deps: stage
 
 lint:
 	yamllint \
-	  .travis.yml
+	  .travis.yml \
 	  packer-aem/*/*.yaml \
 	  aem-aws-stack-builder/*/*.yaml \
 		aem-aws-stack-builder/*/*/*.yaml \
