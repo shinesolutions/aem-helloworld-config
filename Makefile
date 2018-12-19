@@ -1,7 +1,7 @@
 # Packer AEM is used to retrieve the IDs of the latest AMIs created by Packer AEM itself
 packer_aem_version=3.4.2
 
-ci: clean deps gen-packer-aem-all lint
+ci: clean deps gen-packer-aem gen-aem-aws-stack-builder lint
 
 clean:
 	rm -rf stage/
