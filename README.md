@@ -12,8 +12,16 @@ Usage
 
 To generate Packer AEM configurations:
 
-    make gen-packer-aem-all
+    make gen-packer-aem
 
 The configuration files will be generated at `packer-aem/<platform_type>-<os_type>-<aem_version>/` .
 
 The permutation of Packer AEM configurations are generated from the source `packer-aem/src/` .
+
+To generate AEM AWS Stack Builder configurations:
+
+    make gen-aem-aws-stack-builder
+
+The configuration files will be generated at `aem-aws-stack-builder/<os_type>-<aem_version>/` .
+
+The permutation of AEM AWS Stack Builder configurations are generated from the source `aem-aws-stack-builder/src/` .
