@@ -109,16 +109,16 @@ system_users:
     path: /home/users/q
   exporter:
     name: exporter
-    path:  /home/users/e
+    path: /home/users/e
   importer:
     name: importer
-    path:  /home/users/i
+    path: /home/users/i
   orchestrator:
     name: orchestrator
-    path:  /home/users/o
+    path: /home/users/o
   replicator:
     name: replicator
-    path:  /home/users/r
+    path: /home/users/r
 
 # Parameters needed for SAML configuration
 saml:

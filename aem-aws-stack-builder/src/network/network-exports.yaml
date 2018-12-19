@@ -1,3 +1,4 @@
+---
 network_exports:
   stack_name: aem-network-exports-stack
   VPCId: vpc-2fc3014b

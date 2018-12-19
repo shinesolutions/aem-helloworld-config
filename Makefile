@@ -16,7 +16,12 @@ deps: stage
 	cd stage/packer-aem && tar -xvzf "packer-aem-${packer_aem_version}.tar.gz"
 
 lint:
-	yamllint packer-aem/*/*.yaml
+	yamllint \
+	  .travis.yml
+	  packer-aem/*/*.yaml \
+	  aem-aws-stack-builder/*/*.yaml \
+		aem-aws-stack-builder/*/*/*.yaml \
+		aem-aws-stack-builder/*/*/*/*.yaml
 
 ################################################################################
 # Packer AEM configuration generator targets.

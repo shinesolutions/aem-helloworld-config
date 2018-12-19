@@ -1,3 +1,4 @@
+---
 bastion:
   stack_name: aem-bastion-stack
   key_pair_name: aemopencloud-sandpit
