@@ -39,6 +39,10 @@ gen-packer-aem:
 	$(call gen_packer_aem,aws,amazon-linux2,aem64)
 	$(call gen_packer_aem,docker,centos7,aem62)
 	$(call gen_packer_aem,docker,centos7,aem63)
+	$(call gen_packer_aem,docker,centos7,aem64)
+	$(call gen_packer_aem,docker,amazon-linux2,aem62)
+	$(call gen_packer_aem,docker,amazon-linux2,aem63)
+	$(call gen_packer_aem,docker,amazon-linux2,aem64)
 
 define gen_packer_aem
   rm -rf packer-aem/$(1)-$(2)-$(3)
