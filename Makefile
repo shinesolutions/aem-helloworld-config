@@ -60,11 +60,16 @@ endef
 gen-aem-aws-stack-builder:
 	$(call gen_aem_aws_stack_builder,aem62,rhel7,full-set)
 	$(call gen_aem_aws_stack_builder,aem62,rhel7,consolidated)
+	$(call gen_aem_aws_stack_builder,aem62,amazon-linux2,full-set)
 	$(call gen_aem_aws_stack_builder,aem62,amazon-linux2,consolidated)
 	$(call gen_aem_aws_stack_builder,aem63,rhel7,full-set)
 	$(call gen_aem_aws_stack_builder,aem63,rhel7,consolidated)
+	$(call gen_aem_aws_stack_builder,aem63,amazon-linux2,full-set)
+	$(call gen_aem_aws_stack_builder,aem63,amazon-linux2,consolidated)
 	$(call gen_aem_aws_stack_builder,aem64,rhel7,full-set)
 	$(call gen_aem_aws_stack_builder,aem64,rhel7,consolidated)
+	$(call gen_aem_aws_stack_builder,aem64,amazon-linux2,full-set)
+	$(call gen_aem_aws_stack_builder,aem64,amazon-linux2,consolidated)
 	$(call gen_aem_aws_stack_builder_aem_stack_manager)
 
 define gen_aem_aws_stack_builder
