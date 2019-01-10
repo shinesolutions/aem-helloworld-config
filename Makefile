@@ -98,6 +98,7 @@ gen-aem-aws-stack-builder-ami-ids:
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem62)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem63)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem64)
+	make gen-aem-aws-stack-builder
 
 define gen_aem_aws_stack_builder_ami_ids
 	cd stage/packer-aem/ && make clean ami-ids config_path=../../packer-aem/$(1)-$(2)-$(3)/

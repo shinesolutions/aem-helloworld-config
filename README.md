@@ -25,3 +25,9 @@ To generate AEM AWS Stack Builder configurations:
 The configuration files will be generated at `aem-aws-stack-builder/<os_type>-<aem_version>/` .
 
 The permutation of AEM AWS Stack Builder configurations are generated from the source `aem-aws-stack-builder/src/` .
+
+To update the AMI IDs with the latest AMIs:
+
+    make gen-aem-aws-stack-builder-ami-ids
+
+This will update the `aem-aws-stack-builder/src/apps/aem/*-stack-builder-ami-ids.yaml` files with the latest AMI IDs for the configured OSes and AEM versions.
