@@ -1,2 +1,5 @@
 ---
 os_type: amazon-linux2
+
+author_publish_dispatcher:
+  instance_type: m5.xlarge
