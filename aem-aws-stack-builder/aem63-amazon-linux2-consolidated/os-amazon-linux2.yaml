@@ -5,16 +5,16 @@ publish_dispatcher:
   instance_type: t3.micro
 
 publish:
-  instance_type: m5.large
+  instance_type: c5.large
 
 author:
-  instance_type: m5.large
+  instance_type: c5.large
 
 author_dispatcher:
   instance_type: t3.micro
 
 author_publish_dispatcher:
-  instance_type: m5.xlarge
+  instance_type: c5.xlarge
 
 orchestrator:
   instance_type: t3.small
