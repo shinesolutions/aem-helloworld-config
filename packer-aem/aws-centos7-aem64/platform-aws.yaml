@@ -3,6 +3,7 @@ platform_type: aws
 
 aem:
   artifacts_base: s3://aem-opencloud/adobeaemcloud
+  certs_base: s3://aem-opencloud/certs
 
 aws:
   region: ap-southeast-2
@@ -21,4 +22,3 @@ aws:
     - Key: Cost Centre
       Value: 12345
   certificate_arn: "arn:aws:acm:ap-southeast-2:918473058104:certificate/3ca948bc-65a7-45c1-a8a5-f922cb7f1ca6"
-  certificate_key_arn: "arn:aws:secretsmanager:ap-southeast-2:918473058104:secret:test/packer/cert/key-PICbM8"
