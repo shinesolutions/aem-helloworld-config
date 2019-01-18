@@ -73,19 +73,19 @@ gen-aem-aws-stack-builder:
 	$(call gen_aem_aws_stack_builder_aem_stack_manager)
 
 define gen_aem_aws_stack_builder
-  rm -rf aem-aws-stack-builder/$(1)-$(2)-$(3)/
-	mkdir -p aem-aws-stack-builder/$(1)-$(2)-$(3)/
-	cp aem-aws-stack-builder/src/common/*.yaml aem-aws-stack-builder/$(1)-$(2)-$(3)/
-	cp aem-aws-stack-builder/src/apps/aem/$(1).yaml aem-aws-stack-builder/$(1)-$(2)-$(3)/
-	cp aem-aws-stack-builder/src/apps/aem/os-$(2).yaml aem-aws-stack-builder/$(1)-$(2)-$(3)/
-	cp aem-aws-stack-builder/src/apps/aem/$(1)*-$(2)-stack-builder-ami-ids.yaml aem-aws-stack-builder/$(1)-$(2)-$(3)/
-	cp aem-aws-stack-builder/src/apps/aem/$(3).yaml aem-aws-stack-builder/$(1)-$(2)-$(3)/
+  rm -rf aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
+	mkdir -p aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
+	cp aem-aws-stack-builder/src/common/*.yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
+	cp aem-aws-stack-builder/src/apps/aem/$(1).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
+	cp aem-aws-stack-builder/src/apps/aem/os-$(2).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
+	cp aem-aws-stack-builder/src/apps/aem/$(1)*-$(2)-stack-builder-ami-ids.yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
+	cp aem-aws-stack-builder/src/apps/aem/$(3).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
 endef
 
 define gen_aem_aws_stack_builder_aem_stack_manager
-	mkdir -p aem-aws-stack-builder/aem-stack-manager/
-	cp aem-aws-stack-builder/src/apps/aem-stack-manager.yaml aem-aws-stack-builder/aem-stack-manager/
-	cp aem-aws-stack-builder/src/common/*.yaml aem-aws-stack-builder/aem-stack-manager/
+	mkdir -p aem-aws-stack-builder/aem-stack-manager/sandpit/
+	cp aem-aws-stack-builder/src/apps/aem-stack-manager.yaml aem-aws-stack-builder/aem-stack-manager/sandpit/
+	cp aem-aws-stack-builder/src/common/*.yaml aem-aws-stack-builder/aem-stack-manager/sandpit/
 endef
 
 ################################################################################
