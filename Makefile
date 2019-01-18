@@ -83,9 +83,9 @@ define gen_aem_aws_stack_builder
 endef
 
 define gen_aem_aws_stack_builder_aem_stack_manager
-	mkdir -p aem-aws-stack-builder/aem-stack-manager/sandpit/
-	cp aem-aws-stack-builder/src/apps/aem-stack-manager.yaml aem-aws-stack-builder/aem-stack-manager/sandpit/
-	cp aem-aws-stack-builder/src/common/*.yaml aem-aws-stack-builder/aem-stack-manager/sandpit/
+	mkdir -p aem-aws-stack-builder/aem-stack-manager-sandpit/
+	cp aem-aws-stack-builder/src/apps/aem-stack-manager.yaml aem-aws-stack-builder/aem-stack-manager-sandpit/
+	cp aem-aws-stack-builder/src/common/*.yaml aem-aws-stack-builder/aem-stack-manager-sandpit/
 endef
 
 ################################################################################
