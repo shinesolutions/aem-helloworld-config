@@ -87,4 +87,4 @@ network:
   private_route_table:
     tag_name: AEM VPC Private Route Table
 
-  hosted_zone: aem.
+  hosted_zone: aemopencloud.
