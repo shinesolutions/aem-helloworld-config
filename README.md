@@ -31,3 +31,12 @@ To update the AMI IDs with the latest AMIs:
     make gen-aem-aws-stack-builder-ami-ids
 
 This will update the `aem-aws-stack-builder/src/apps/aem/*-stack-builder-ami-ids.yaml` files with the latest AMI IDs for the configured OSes and AEM versions.
+
+Naming Convention
+-----------------
+
+### AEM AWS Stack Builder
+
+The directories under `aem-aws-stack-builder` must be prefixed with either one of `aem-consolidated-, `aem-full-set-`, or `aem-stack-manager-`.
+
+The prefix will then be used to identify the profiles drop down list on [AEM OpenCloud Manager](https://github.com/shinesolutions/aem-opencloud-manager) . Please note that this feature is not yet completed as AEM OpenCloud Manager is still being developed.
