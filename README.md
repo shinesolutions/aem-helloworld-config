@@ -32,7 +32,30 @@ To update the AMI IDs with the latest AMIs:
 
 This will update the `aem-aws-stack-builder/src/apps/aem/*-stack-builder-ami-ids.yaml` files with the latest AMI IDs for the configured OSes and AEM versions.
 
-Naming Convention
+Local configuration
+-------------------
+
+If you want to specify a local configuration that wouldn't be pushed to origin, you can create a file named `zzz-local.yaml` and place it on any configuration path. Some use cases for local configuration is for creating an AEM environment with your own EC2 keypair, or for creating an AEM environment with your own AMI IDs.
+
+For example, if you want to create an AEM consolidated environment with RHEL7 and AEM 6.4 and you want to be able to SSH into the EC2 instances. Create the file `aem-aws-stack-builder/aem-consolidated-rhel7-aem64/zzz-local.yaml` with content:
+
+    ---
+    compute:
+      key_pair_name: <your_ec2_keypair>
+
+If you want to use your own AMI IDs:
+
+    ---
+    ami_ids:
+      author: <your_author_ami_id>
+      author_dispatcher: <your_author_dispatcher_ami_id>
+      author_publish_dispatcher: <your_author_publish_dispatcher_ami_id>
+      chaos_monkey: <your_chaos_monkey_ami_id>
+      orchestrator: <your_orchestrator_ami_id>
+      publish: <your_publish_ami_id>
+      publish_dispatcher: <your_publish_dispatcher_ami_id>
+
+Naming convention
 -----------------
 
 ### AEM AWS Stack Builder
