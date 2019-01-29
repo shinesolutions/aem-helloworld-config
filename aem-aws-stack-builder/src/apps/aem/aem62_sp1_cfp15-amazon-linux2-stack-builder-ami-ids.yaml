@@ -2,9 +2,9 @@
 # AMI IDs for AEM profile aem62_sp1_cfp15 on OS type amazon-linux2
 ami_ids:
   author: ami-00f91809364049634
-  author_dispatcher: ami-0249ebf8f21dad69f
+  author_dispatcher: ami-060086d5d9a8e876d
   author_publish_dispatcher: ami-010f1b0b924c596a5
-  chaos_monkey: ami-009e32b583742d902
-  orchestrator: ami-009e32b583742d902
-  publish: ami-0f4a45b771306d225
-  publish_dispatcher: ami-0249ebf8f21dad69f
+  chaos_monkey: ami-0e6da04027f5c54cf
+  orchestrator: ami-0e6da04027f5c54cf
+  publish: ami-03f38254ea37ea3b3
+  publish_dispatcher: ami-060086d5d9a8e876d
