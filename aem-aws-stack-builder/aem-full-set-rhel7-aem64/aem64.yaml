@@ -1,7 +1,6 @@
 ---
 aem:
   version: '6.4'
-  enable_post_start_sleep: true
 
 library:
   aem_password_reset_version: 1.1.0
