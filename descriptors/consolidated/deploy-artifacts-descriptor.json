@@ -19,6 +19,44 @@
         "activate": false,
         "force": false,
         "aem_id": "publish"
+      },
+      {
+        "source": "s3://aem-opencloud/library/aem-guides-wknd_uiapps-001-snapshot.zip",
+        "group": "shinesolutions",
+        "name": "aem-guides-wknd-uiapp",
+        "version": "0.0.1",
+        "replicate": false,
+        "activate": false,
+        "force": false
+      },
+      {
+        "source": "s3://aem-opencloud/library/aem-guides-wknd_uiapps-001-snapshot.zip",
+        "group": "shinesolutions",
+        "name": "aem-guides-wknd-uiapp",
+        "version": "0.0.1",
+        "replicate": false,
+        "activate": false,
+        "force": false,
+        "aem_id": "publish"
+      },
+      {
+        "source": "s3://aem-opencloud/library/aem-guides-wknd_uicontent-001-snapshot.zip",
+        "group": "shinesolutions",
+        "name": "aem-guides-wknd-content",
+        "version": "0.0.1",
+        "replicate": false,
+        "activate": false,
+        "force": false
+      },
+      {
+        "source": "s3://aem-opencloud/library/aem-guides-wknd_uicontent-001-snapshot.zip",
+        "group": "shinesolutions",
+        "name": "aem-guides-wknd-content",
+        "version": "0.0.1",
+        "replicate": false,
+        "activate": false,
+        "force": false,
+        "aem_id": "publish"
       }
     ],
     "artifacts": [
