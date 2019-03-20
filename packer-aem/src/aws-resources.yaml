@@ -1,0 +1,7 @@
+---
+aws:
+  resources:
+    packer_bucket: 'aoc-sandpit-a'
+    enable_secrets_manager: 'true'
+    create_packer_bucket: 'true'
+    create_iam_packer_role: 'true'

@@ -43,6 +43,7 @@ gen-packer-aem:
 	$(call gen_packer_aem,docker,amazon-linux2,aem62)
 	$(call gen_packer_aem,docker,amazon-linux2,aem63)
 	$(call gen_packer_aem,docker,amazon-linux2,aem64)
+	$(call gen_packer_aem_aws_resources,sandpit)
 
 define gen_packer_aem
   rm -rf packer-aem/$(1)-$(2)-$(3)
@@ -51,6 +52,12 @@ define gen_packer_aem
 	cp packer-aem/src/platform-$(1).yaml packer-aem/$(1)-$(2)-$(3)/
 	cp packer-aem/src/os-$(2).yaml packer-aem/$(1)-$(2)-$(3)/
 	cp packer-aem/src/$(3).yaml packer-aem/$(1)-$(2)-$(3)/
+endef
+
+define gen_packer_aem_aws_resources
+  rm -rf packer-aem/aws-resources-$(1)
+	mkdir -p packer-aem/aws-resources-$(1)
+	cp packer-aem/src/aws-resources.yaml packer-aem/aws-resources-$(1)/
 endef
 
 ################################################################################
