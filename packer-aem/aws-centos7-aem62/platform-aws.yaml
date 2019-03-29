@@ -3,6 +3,7 @@ platform_type: aws
 
 aem:
   artifacts_base: s3://aem-opencloud/adobeaemcloud
+  keystore_password_parameter: /aem-opencloud/aoc-sandpit-a/aem-keystore-password
 
 aws:
   region: ap-southeast-2
