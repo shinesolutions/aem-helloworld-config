@@ -19,6 +19,44 @@
         "activate": false,
         "force": false,
         "aem_id": "publish"
+      },
+      {
+        "source": "https://helpx.adobe.com/content/dam/help/en/experience-manager/kt/sites/using/getting-started-wknd-tutorial-develop/jcr_content/main-pars/download_section_1597519812/download-1/aem-guides-wknd_uiapps-001-snapshot.zip",
+        "group": "shinesolutions",
+        "name": "aem-guides-wknd-uiapp",
+        "version": "0.0.1",
+        "replicate": false,
+        "activate": false,
+        "force": false
+      },
+      {
+        "source": "https://helpx.adobe.com/content/dam/help/en/experience-manager/kt/sites/using/getting-started-wknd-tutorial-develop/jcr_content/main-pars/download_section_1597519812/download-1/aem-guides-wknd_uiapps-001-snapshot.zip",
+        "group": "shinesolutions",
+        "name": "aem-guides-wknd-uiapp",
+        "version": "0.0.1",
+        "replicate": false,
+        "activate": false,
+        "force": false,
+        "aem_id": "publish"
+      },
+      {
+        "source": "https://helpx.adobe.com/content/dam/help/en/experience-manager/kt/sites/using/getting-started-wknd-tutorial-develop/jcr_content/main-pars/download_section_1597519812/download-2/aem-guides-wknd_uicontent-001-snapshot.zip",
+        "group": "shinesolutions",
+        "name": "aem-guides-wknd-content",
+        "version": "0.0.1",
+        "replicate": false,
+        "activate": false,
+        "force": false
+      },
+      {
+        "source": "https://helpx.adobe.com/content/dam/help/en/experience-manager/kt/sites/using/getting-started-wknd-tutorial-develop/jcr_content/main-pars/download_section_1597519812/download-2/aem-guides-wknd_uicontent-001-snapshot.zip",
+        "group": "shinesolutions",
+        "name": "aem-guides-wknd-content",
+        "version": "0.0.1",
+        "replicate": false,
+        "activate": false,
+        "force": false,
+        "aem_id": "publish"
       }
     ],
     "artifacts": [
