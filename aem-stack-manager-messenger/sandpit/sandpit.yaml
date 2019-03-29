@@ -6,5 +6,5 @@ show_log_on_failure_only: false
 
 poll_timeout:
   check_command_execution:
-    retries: 120
-    delay: 10
+    retries: 240
+    delay: 60

@@ -1,0 +1,29 @@
+{
+  "author-publish-dispatcher": {
+    "packages": [
+      {
+        "source": "s3://aem-opencloud/adobeaemcloud/AEM-6.4.3.0-6.4.3.zip",
+        "group": "adobe/cq640/servicepack",
+        "name": "aem-service-pkg",
+        "version": "6.4.3",
+        "replicate": false,
+        "activate": false,
+        "force": false,
+        "sleep_seconds": "900"
+      },
+      {
+        "source": "s3://aem-opencloud/adobeaemcloud/AEM-6.4.3.0-6.4.3.zip",
+        "group": "adobe/cq640/servicepack",
+        "name": "aem-service-pkg",
+        "version": "6.4.3",
+        "replicate": false,
+        "activate": false,
+        "force": false,
+        "aem_id": "publish",
+        "sleep_seconds": "900"
+      }
+    ],
+    "artifacts": [
+    ]
+  }
+}
