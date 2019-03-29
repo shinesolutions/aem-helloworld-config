@@ -8,7 +8,6 @@ timezone:
   locality: Melbourne
 
 aem:
-  keystore_password: changeit
   author:
     jvm_mem_opts: "-Xss4m -Xms4096m -Xmx8192m"
     start_opts: "-nofork"
