@@ -83,7 +83,7 @@ snapshots:
 reconfiguration:
   enable_create_system_users: false
   certs_base: s3://aem-opencloud/certs
-  ssl_keystore_password: overwrite-me
+  ssl_keystore_password: 43m0p3ncl0ud
 
 system_users:
   authentication-service:
