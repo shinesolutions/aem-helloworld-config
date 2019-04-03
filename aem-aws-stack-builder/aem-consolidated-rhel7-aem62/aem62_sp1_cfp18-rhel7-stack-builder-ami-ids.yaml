@@ -3,7 +3,7 @@
 ami_ids:
   author: ami-015c087a17b39baa8
   author_dispatcher: ami-097187323537b836c
-  author_publish_dispatcher: ami-07daa56cf3adde835
+  author_publish_dispatcher: ami-08d9cc45a1c15fb46
   chaos_monkey: ami-093a250bca01cfcf3
   orchestrator: ami-093a250bca01cfcf3
   publish: ami-034c0b13c7b1c5a9c
