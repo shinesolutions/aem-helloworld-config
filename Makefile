@@ -18,10 +18,12 @@ deps: stage
 lint:
 	yamllint \
 	  .travis.yml \
+	  aem-opencloud-manager/*/*.yaml \
+	  aem-test-suite/*/*.yaml \
 	  packer-aem/*/*.yaml \
 	  aem-aws-stack-builder/*/*.yaml \
-		aem-aws-stack-builder/*/*/*.yaml \
-		aem-aws-stack-builder/*/*/*/*.yaml
+	  aem-aws-stack-builder/*/*/*.yaml \
+	  aem-aws-stack-builder/*/*/*/*.yaml
 
 	for file in descriptors/*/*; do \
 	  echo "Validating JSON file: $$file"; \
