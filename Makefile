@@ -23,6 +23,11 @@ lint:
 		aem-aws-stack-builder/*/*/*.yaml \
 		aem-aws-stack-builder/*/*/*/*.yaml
 
+	for file in descriptors/*/*; do \
+	  echo "Validating JSON file: $$file"; \
+	  jq "." <<< echo "$$file" || exit 1; \
+	done
+
 ################################################################################
 # Packer AEM configuration generator targets.
 ################################################################################
