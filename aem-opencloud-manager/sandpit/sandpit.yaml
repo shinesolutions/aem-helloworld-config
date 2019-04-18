@@ -23,9 +23,6 @@ aem_opencloud:
       export_descriptor_url: https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/master/descriptors/full-set/export-backup-descriptor.json
       content_healthcheck_descriptor_url: >
         https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/master/descriptors/full-set/content-healthcheck-descriptor.json
-  jenkins_sharedlibs:
-    repo_url: https://github.com/shinesolutions/aem-opencloud-manager
-    repo_branch: master
 
 jenkins:
   username: overwrite-me
