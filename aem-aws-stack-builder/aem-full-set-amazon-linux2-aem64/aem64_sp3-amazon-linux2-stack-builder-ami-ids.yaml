@@ -2,7 +2,7 @@
 # AMI IDs for AEM profile aem64_sp3 on OS type amazon-linux2
 ami_ids:
   author: ami-02638d7864dffb26f
-  author_dispatcher: ami-ami-0ef31e2e5bdff9cfb
+  author_dispatcher: ami-0ef31e2e5bdff9cfb
   author_publish_dispatcher: ami-094f3368b4f3db6e5
   chaos_monkey: ami-0c12baabedc08867e
   orchestrator: ami-0c12baabedc08867e
