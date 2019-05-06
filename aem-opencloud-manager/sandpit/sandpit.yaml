@@ -25,5 +25,7 @@ aem_opencloud:
         https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/master/descriptors/full-set/content-healthcheck-descriptor.json
 
 jenkins:
+  host: localhost
+  port: 8080
   username: overwrite-me
   password: overwrite-me
