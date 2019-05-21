@@ -128,12 +128,14 @@ gen-aem-aws-stack-builder-ami-ids:
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem62)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem63)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem64)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem65)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem62)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem63)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem64)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem62)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem63)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem64)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem65)
 	make gen-aem-aws-stack-builder
 
 define gen_aem_aws_stack_builder_ami_ids
