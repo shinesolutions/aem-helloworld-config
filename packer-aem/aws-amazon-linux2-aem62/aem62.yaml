@@ -3,4 +3,4 @@ aem:
   profile: aem62_sp1_cfp18
 
 aws:
-  aem_license: /aem-opencloud/aoc-sandpit-a/aem-license
+  aem_license: aem-opencloud/aoc-sandpit-a/aem-license
