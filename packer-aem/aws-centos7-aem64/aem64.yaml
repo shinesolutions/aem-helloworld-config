@@ -3,4 +3,4 @@ aem:
   profile: aem64_sp4
 
 aws:
-  aem_license: aem-opencloud/aoc-sandpit-a/aem-license
+  aem_license: /aem-opencloud/aoc-sandpit-a/aem-license
