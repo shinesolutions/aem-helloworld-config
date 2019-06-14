@@ -13,7 +13,7 @@ deps: stage
 	pip install -r requirements.txt
 	mkdir -p stage/packer-aem/
 	curl -L -o "stage/packer-aem/packer-aem-${packer_aem_version}.tar.gz" "https://github.com/shinesolutions/packer-aem/releases/download/${packer_aem_version}/packer-aem-${packer_aem_version}.tar.gz"
-	cd stage/packer-aem && tar -xvzf "packer-aem-${packer_aem_version}.tar.gz"
+	cd stage/packer-aem && tar -xvzf "packer-aem-${packer_aem_version}.tar.gz" && make deps
 
 lint:
 	yamllint \
