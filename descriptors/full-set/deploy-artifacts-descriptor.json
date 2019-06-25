@@ -8,7 +8,18 @@
         "version": "0.0.1",
         "replicate": false,
         "activate": false,
-        "force": false
+        "force": false,
+        "aem_id": "author"
+      },
+      {
+        "source": "https://github.com/shinesolutions/aem-helloworld-osgi-config/releases/download/1.0-SNAPSHOT/aem-helloworld-osgi-config-package-sandpit-1.0-SNAPSHOT.zip",
+        "group": "com.shinesolutions",
+        "name": "aem-helloworld-osgi-config-package-sandpit",
+        "version": "1.0-SNAPSHOT",
+        "replicate": false,
+        "activate": false,
+        "force": false,
+        "aem_id": "author"
       }
     ]
   },
