@@ -1,5 +1,6 @@
 ---
+docker:
+  repository: 918473058104.dkr.ecr.ap-southeast-2.amazonaws.com
+
 aws:
   region: ap-southeast-2
-docker:
-  repository: shinesolutions
