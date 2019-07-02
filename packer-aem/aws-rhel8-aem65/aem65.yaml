@@ -1,0 +1,6 @@
+---
+aem:
+  profile: aem65
+
+aws:
+  aem_license: /aem-opencloud/aoc-sandpit-a/aem-license

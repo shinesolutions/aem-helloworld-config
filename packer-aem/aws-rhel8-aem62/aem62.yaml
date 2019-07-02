@@ -1,0 +1,6 @@
+---
+aem:
+  profile: aem62_sp1_cfp20
+
+aws:
+  aem_license: /aem-opencloud/aoc-sandpit-a/aem-license
