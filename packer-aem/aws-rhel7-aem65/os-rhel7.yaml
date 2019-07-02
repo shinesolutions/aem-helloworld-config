@@ -4,6 +4,6 @@ os_type: rhel7
 aws:
   user: ec2-user
   # RHEL-7.6_HVM_GA-20190128-x86_64-0-Hourly2-GP2
-  source_ami: ami-000db10762d0c4c05
+  source_ami: ami-036b423b657376f5b
   # Shine-hardened RHEL-7.4_HVM
   # source_ami: ami-0a5f16a0df11d50e0
