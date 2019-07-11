@@ -48,7 +48,7 @@ security_groups:
 
 compute:
   key_pair_name: aemopencloud-sandpit
-  inbound_from_bastion_host_security_group: sg-0bf607894ae398b89
+  inbound_from_bastion_host_security_group: sg-0a044aaaad7316b1b
 
 s3:
   data_bucket_name: aem-opencloud
