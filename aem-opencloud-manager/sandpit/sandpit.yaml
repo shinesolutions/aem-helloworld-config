@@ -1,5 +1,6 @@
 ---
 aws:
+  region: ap-southeast-2
   library:
     s3_bucket: aem-opencloud
 
