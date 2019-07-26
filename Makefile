@@ -98,6 +98,7 @@ gen-aem-aws-stack-builder:
 	$(call gen_aem_aws_stack_builder,aem65,amazon-linux2,full-set)
 	$(call gen_aem_aws_stack_builder,aem65,amazon-linux2,consolidated)
 	$(call gen_aem_aws_stack_builder_aem_stack_manager,sandpit)
+	$(call gen_aem_aws_stack_builder_cdn,sandpit)
 	$(call gen_aem_aws_stack_builder_aws_resources,sandpit)
 
 define gen_aem_aws_stack_builder
@@ -115,6 +116,13 @@ define gen_aem_aws_stack_builder_aem_stack_manager
 	mkdir -p aem-aws-stack-builder/aem-stack-manager-$(1)/
 	cp aem-aws-stack-builder/src/apps/aem-stack-manager.yaml aem-aws-stack-builder/aem-stack-manager-$(1)/
 	cp aem-aws-stack-builder/src/common/*.yaml aem-aws-stack-builder/aem-stack-manager-$(1)/
+endef
+
+define gen_aem_aws_stack_builder_cdn
+	rm -rf aem-aws-stack-builder/cdn-$(1)/
+	mkdir -p aem-aws-stack-builder/cdn-$(1)/
+	cp aem-aws-stack-builder/src/apps/cdn.yaml aem-aws-stack-builder/cdn-$(1)/
+	cp aem-aws-stack-builder/src/common/*.yaml aem-aws-stack-builder/cdn-$(1)/
 endef
 
 define gen_aem_aws_stack_builder_aws_resources

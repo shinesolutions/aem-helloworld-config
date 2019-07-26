@@ -1,0 +1,12 @@
+---
+cdn:
+  log_bucket_name: aem-opencloud.s3.amazonaws.com
+  log_bucket_prefix: cdn
+  origin_domain_name: sandpit.aemopencloud.cms
+  root_object: /index.html
+  response_404_page_path: /404.html
+  certificate_arn: arn:aws:iam::918473058104:server-certificate/aem-opencloud
+  certificate_key_arn: overwrite-me
+
+s3:
+  data_bucket_name: aem-opencloud
