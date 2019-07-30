@@ -5,25 +5,26 @@ aws:
 
   tags:
     - Key: Project
-      Value: Open Source AEM Platform
+      Value: AEM OpenCloud
     - Key: Owner
       Value: Shine Solutions AEM Team
     - Key: Cost Centre
       Value: 12345
 
 proxy:
-  enabled: false
+  enabled: true
   protocol: http
-  host: proxy.aws
-  port: 8080
+  host: forward-proxy.aemopencloud.cms
+  port: 3128
   user:
   password:
   noproxy:
     - localhost
     - 127.0.0.1
+    - 169.254.169.254
 
 cron:
   env_path: /sbin:/bin:/usr/sbin:/usr/bin:/opt/puppetlabs/bin
-  http_proxy:
-  https_proxy:
-  no_proxy:
+  http_proxy: http://forward-proxy.aemopencloud.cms:3128
+  https_proxy: http://forward-proxy.aemopencloud.cms:3128
+  no_proxy: localhost,127.0.0.1,169.254.169.254
