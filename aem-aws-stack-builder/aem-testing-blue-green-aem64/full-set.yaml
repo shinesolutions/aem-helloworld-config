@@ -143,9 +143,9 @@ saml:
 
 publish_dispatcher:
   instance_type: t2.micro
-  min_size: 2
-  desired_capacity: 2
-  max_size: 4
+  asg_min_size: 2
+  asg_desired_capacity: 2
+  asg_max_size: 4
   root_vol_size: 20
   data_vol_size: 75
   load_balancer:
@@ -163,9 +163,9 @@ publish_dispatcher:
 
 publish:
   instance_type: m4.xlarge
-  min_size: 2
-  desired_capacity: 2
-  max_size: 4
+  asg_min_size: 2
+  asg_desired_capacity: 2
+  asg_max_size: 4
   root_vol_size: 20
   data_vol_size: 100
   enable_random_termination: false
@@ -179,9 +179,9 @@ author:
 
 author_dispatcher:
   instance_type: t2.micro
-  min_size: 2
-  desired_capacity: 2
-  max_size: 2
+  asg_min_size: 2
+  asg_desired_capacity: 2
+  asg_max_size: 2
   root_vol_size: 20
   data_vol_size: 75
   elb_health_check: HTTPS:443/system/health?tags=shallow
