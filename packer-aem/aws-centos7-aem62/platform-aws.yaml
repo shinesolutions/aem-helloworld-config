@@ -10,7 +10,7 @@ aws:
   vpc_id: ''
   subnet_id: ''
   instance_profile: PackerAemRole
-  packer_temp_security_group_source_cidr: "0.0.0.0/0"
+  temporary_security_group_source_cidr: "0.0.0.0/0"
   ami_users: ''
   install_ssm_agent: true
   root_volume_size: 20
