@@ -5,5 +5,5 @@ aws:
   user: ec2-user
   # RHEL-7.6_HVM_GA-20190128-x86_64-0-Hourly2-GP2
   # source_ami: ami-036b423b657376f5b
-  # Shine-hardened RHEL-7.4_HVM
-  source_ami: ami-0c8d48389a3d19e8a
+  # Shine Packer Infra-Catalog base AMI
+  source_ami: ami-0a5a4a6b9101be843
