@@ -1,29 +1,12 @@
 ---
 cdn:
-  stack_name: cdn-stack
-  default_root_object: index.html
-  default_cache_behavior:
-    allowed_methods: GET,HEAD
-    cached_methods: GET,HEAD
-    compress: 'false'
-    default_ttl: 30
-    forwarded_values:
-      cookies:
-        forward: all
-      query_string: 'false'
-    max_ttl: 60
-    min_ttl: 30
-    smooth_streaming: 'false'
-    viewer_protocol_policy: allow-all
   log_bucket_name: aem-opencloud.s3.amazonaws.com
   log_bucket_prefix: cdn
-  log_include_cookies: 'false'
-  origins:
-    domain_name: sandpit.aemopencloud.cms
-    custom_origin_config:
-      origin_protocol_policy: https-only
-  price_class: PriceClass_All
-  viewer_certificate:
-    cloud_front_default_certificate: 'true'
+  origin_domain_name: sandpit.aemopencloud.cms
+  root_object: /index.html
+  response_404_page_path: /404.html
+  certificate_arn: arn:aws:iam::918473058104:server-certificate/aem-opencloud
+  certificate_key_arn: overwrite-me
+
 s3:
   data_bucket_name: aem-opencloud
