@@ -7,6 +7,9 @@ cdn:
   response_404_page_path: /404.html
   certificate_arn: arn:aws:iam::918473058104:server-certificate/aem-opencloud
   certificate_key_arn: overwrite-me
+  viewer_certificate:
+    cloud_front_default_certificate: 'false'
+    acm_certificate_arn: arn:aws:acm:ap-southeast-2:918473058104:certificate/3ca948bc-65a7-45c1-a8a5-f922cb7f1ca6
 
 s3:
   data_bucket_name: aem-opencloud
