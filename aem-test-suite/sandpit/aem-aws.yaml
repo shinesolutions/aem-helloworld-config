@@ -2,7 +2,7 @@
 aws:
   access_key_id:
   secret_access_key:
-  profile: default
+  profile:
   s3_bucket: aem-opencloud
 aem:
   component:
