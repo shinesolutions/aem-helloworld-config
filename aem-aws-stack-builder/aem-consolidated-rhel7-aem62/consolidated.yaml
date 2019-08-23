@@ -130,7 +130,7 @@ author_publish_dispatcher:
   root_vol_size: 20
   data_vol_size: 100
   tag_name: AEM Author Publish Dispatcher
-  associate_public_ip_address: true
+  associate_public_ip_address: false
 
 dns_records:
   route53_hosted_zone_name: aemopencloud.cms.
