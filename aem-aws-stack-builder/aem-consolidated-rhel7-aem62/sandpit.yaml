@@ -12,15 +12,20 @@ aws:
       Value: 12345
 
 proxy:
-  enabled: false
+  enabled: true
   protocol: http
-  host: proxy.aws
-  port: 8080
+  host: forward-proxy.infracatalog.srv
+  port: 3128
   user:
   password:
   noproxy:
     - localhost
     - 127.0.0.1
+    - 169.254.169.254
+    - 169.254.0.0/16
+    - elb.amazonaws.com
+    - 10.0.8.0/21
+    - aemopencloud.cms
 
 cron:
   env_path: /sbin:/bin:/usr/sbin:/usr/bin:/opt/puppetlabs/bin
