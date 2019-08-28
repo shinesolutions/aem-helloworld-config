@@ -3,5 +3,6 @@ aem:
   version: '6.4'
 
 library:
+  aem_aws_stack_provisioner_version: 4.2.1-pre
   aem_password_reset_version: 1.1.0
   oak_run_version: 1.8.3

@@ -44,7 +44,7 @@ aem:
     jvm_opts: "-Dkey=value"
 
 compute:
-  key_pair_name: aemopencloud-sandpit
+  key_pair_name: michaelb-sandpit
   inbound_from_bastion_host_security_group: sg-098d62e891cd13fab
 
 security_groups:
@@ -167,14 +167,14 @@ publish:
   asg_desired_capacity: 2
   asg_max_size: 4
   root_vol_size: 20
-  data_vol_size: 75
+  data_vol_size: 500
   enable_random_termination: false
 
 author:
   instance_profile: aem-instance-profiles-stack-AuthorInstanceProfile-OYGRS9FHB0L9
   instance_type: m4.xlarge
   root_vol_size: 20
-  data_vol_size: 75
+  data_vol_size: 500
   elb_health_check: HTTPS:5432/system/health?tags=shallow
 
 author_dispatcher:
