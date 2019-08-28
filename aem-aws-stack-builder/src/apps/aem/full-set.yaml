@@ -45,7 +45,7 @@ aem:
 
 compute:
   key_pair_name: aemopencloud-sandpit
-  inbound_from_bastion_host_security_group: sg-098d62e891cd13fab
+  inbound_from_bastion_host_security_group: sg-0c13c937d585ea0ec
 
 security_groups:
   secure_shell:
