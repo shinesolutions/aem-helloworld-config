@@ -6,7 +6,7 @@ aws:
 
 aem_opencloud:
   config:
-    artifact_url: https://github.com/shinesolutions/aem-helloworld-config/archive/master.tar.gz
+    artifact_url: https://github.com/mbloch1986/aem-helloworld-config/archive/master.tar.gz
   custom_manager_steps:
     artifact_url: https://github.com/shinesolutions/aem-helloworld-custom-manager-steps/archive/master.tar.gz
   custom_image_provisioner:
@@ -26,7 +26,7 @@ aem_opencloud:
         https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/master/descriptors/full-set/content-healthcheck-descriptor.json
 
 jenkins:
-  host: localhost
+  host: 192.168.86.32
   port: 8080
-  username: overwrite-me
-  password: overwrite-me
+  username: jadmin
+  password: jadmin
