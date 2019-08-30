@@ -47,7 +47,7 @@ security_groups:
     inbound_cidr_ip: 10.0.8.0/21
 
 compute:
-  key_pair_name: aemopencloud-sandpit
+  key_pair_name: michaelb-sandpit
   inbound_from_bastion_host_security_group: sg-0c13c937d585ea0ec
 
 s3:
@@ -128,7 +128,7 @@ saml:
 author_publish_dispatcher:
   instance_type: m4.xlarge
   root_vol_size: 20
-  data_vol_size: 100
+  data_vol_size: 500
   tag_name: AEM Author Publish Dispatcher
   associate_public_ip_address: false
 
