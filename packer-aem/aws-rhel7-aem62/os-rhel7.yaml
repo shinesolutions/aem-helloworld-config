@@ -6,4 +6,4 @@ aws:
   # RHEL-7.6_HVM_GA-20190128-x86_64-0-Hourly2-GP2
   # source_ami: ami-036b423b657376f5b
   # Shine Packer Infra-Catalog base AMI
-  source_ami: ami-0b936bba13562da6c
+  source_ami: ami-0d632dd85125ffba2
