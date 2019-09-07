@@ -106,6 +106,7 @@ define gen_aem_aws_stack_builder
 	mkdir -p aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
 	cp aem-aws-stack-builder/src/common/*.yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
 	cp aem-aws-stack-builder/src/apps/aem/$(1).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
+	cp aem-aws-stack-builder/src/apps/aem/ssh_keys.yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
 	cp aem-aws-stack-builder/src/apps/aem/os-$(2).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
 	cp aem-aws-stack-builder/src/apps/aem/$(1)*-$(2)-stack-builder-ami-ids.yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
 	cp aem-aws-stack-builder/src/apps/aem/$(3).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
