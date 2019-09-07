@@ -128,7 +128,7 @@ saml:
 author_publish_dispatcher:
   instance_type: m4.xlarge
   root_vol_size: 20
-  data_vol_size: 500
+  data_vol_size: 100
   tag_name: AEM Author Publish Dispatcher
   associate_public_ip_address: false
 
