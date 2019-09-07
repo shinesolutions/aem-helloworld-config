@@ -11,11 +11,7 @@ aem:
   author:
     jvm_mem_opts: "-Xss4m -Xms4096m -Xmx8192m"
     start_opts: "-nofork"
-    run_modes:
-      - dynamicmedia_scene7
   publish:
     jvm_mem_opts: "-Xss4m -Xms4096m -Xmx8192m"
     start_opts: "-nofork"
-    run_modes:
-      - dynamicmedia_scene7
   enable_custom_image_provisioner: true
