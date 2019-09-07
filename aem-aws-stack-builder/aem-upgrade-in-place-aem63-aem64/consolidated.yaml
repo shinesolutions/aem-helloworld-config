@@ -47,7 +47,7 @@ security_groups:
     inbound_cidr_ip: 10.0.8.0/21
 
 compute:
-  key_pair_name: michaelb-sandpit
+  key_pair_name: aemopencloud-sandpit
   inbound_from_bastion_host_security_group: sg-0c13c937d585ea0ec
 
 s3:
