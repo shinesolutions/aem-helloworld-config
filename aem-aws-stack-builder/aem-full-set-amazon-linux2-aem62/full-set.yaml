@@ -179,9 +179,9 @@ author:
 
 author_dispatcher:
   instance_type: t2.micro
-  asg_min_size: 2
-  asg_desired_capacity: 2
-  asg_max_size: 2
+  asg_min_size: 3
+  asg_desired_capacity: 3
+  asg_max_size: 6
   root_vol_size: 20
   data_vol_size: 75
   elb_health_check: HTTPS:443/system/health?tags=shallow
