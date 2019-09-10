@@ -7,3 +7,8 @@ aws:
   # source_ami: ami-036b423b657376f5b
   # Shine Packer Infra-Catalog base AMI
   source_ami: ami-0d632dd85125ffba2
+  install_cloudwatch_metric_agent: true
+  rhel7:
+    devicemap_root: /dev/xvda2
+    devicemap_data_b: /dev/xvdb
+    devicemap_data_c: /dev/xvdc
