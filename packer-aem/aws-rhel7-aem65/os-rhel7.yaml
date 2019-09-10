@@ -9,6 +9,6 @@ aws:
   source_ami: ami-0d632dd85125ffba2
   install_cloudwatch_metric_agent: true
   rhel7:
-    devicemap_root: /dev/xvda2
+    devicemap_root: /dev/xvda1
     devicemap_data_b: /dev/xvdb
     devicemap_data_c: /dev/xvdc
