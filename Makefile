@@ -1,5 +1,5 @@
 # Packer AEM is used to retrieve the IDs of the latest AMIs created by Packer AEM itself
-packer_aem_version=4.3.0
+packer_aem_version=4.11.0
 
 ci: clean deps gen-packer-aem gen-aem-aws-stack-builder lint
 
@@ -152,7 +152,7 @@ gen-aem-aws-stack-builder-ami-ids: stage
 	make gen-aem-aws-stack-builder
 
 define gen_aem_aws_stack_builder_ami_ids
-	cd stage/packer-aem/ && make clean ami-ids config_path=../../packer-aem/$(1)-$(2)-$(3)/
+	cd stage/packer-aem/ && version="ci-master-aws-*" make clean ami-ids config_path=../../packer-aem/$(1)-$(2)-$(3)/
 	cp stage/packer-aem/stage/stack-builder-configs/*.yaml aem-aws-stack-builder/src/apps/aem/
 endef
 
