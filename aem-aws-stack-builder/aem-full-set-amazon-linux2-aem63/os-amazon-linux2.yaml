@@ -21,3 +21,6 @@ orchestrator:
 
 chaos_monkey:
   instance_type: t3.micro
+
+monitoring:
+  include_stack: false

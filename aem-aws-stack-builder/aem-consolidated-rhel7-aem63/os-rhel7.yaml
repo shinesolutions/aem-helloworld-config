@@ -1,2 +1,5 @@
 ---
 os_type: rhel7
+
+monitoring:
+  include_stack: true
