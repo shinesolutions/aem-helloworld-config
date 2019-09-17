@@ -30,3 +30,5 @@ jenkins:
   port: 8080
   username: overwrite-me
   password: overwrite-me
+  agent:
+    docker_args: "--user root -e https_proxy=http://forward-proxy.infracatalog.srv:3128/ -e http_proxy=http://forward-proxy.infracatalog.srv:3128/ -e no_proxy=localhost,127.0.0.1,169.254.169.254,169.254.0.0/16,elb.amazonaws.com,10.0.8.0/21,aemopencloud.cms,aemopencloud.space"
