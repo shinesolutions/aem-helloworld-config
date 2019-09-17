@@ -6,6 +6,9 @@ main:
 
 stack_manager:
   s3_prefix: stack-manager
+  cloudwatch_stream:
+    s3_bucket: aem-opencloud
+    s3_prefix: cw-stream
   purge:
     live_snapshots:
       schedule: '10 20 1/3 * ? *'
