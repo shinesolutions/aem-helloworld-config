@@ -3,9 +3,9 @@
 # AMI IDs for AEM profile aem62_sp1_cfp20 on OS type rhel7
 ami_ids:
   author: ami-0430c76c914d1ddf6
-  author_dispatcher: ami-05612ddd59ef94dfe
-  author_publish_dispatcher: ami-0c65f782fafa709f6
-  chaos_monkey: ami-075e268769a68d084
-  orchestrator: ami-075e268769a68d084
-  publish: ami-097fcd3e8a3be3364
-  publish_dispatcher: ami-05612ddd59ef94dfe
+  author_dispatcher: ami-0f462bc004003eef8
+  author_publish_dispatcher: ami-0ec8aecda54677fc1
+  chaos_monkey: ami-031fba8334433ebf4
+  orchestrator: ami-031fba8334433ebf4
+  publish: ami-0c83667d80979e872
+  publish_dispatcher: ami-0f462bc004003eef8
