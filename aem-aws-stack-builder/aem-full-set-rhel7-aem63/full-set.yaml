@@ -63,8 +63,29 @@ security_groups:
     extra_groups:
       - sg-a2ac6cc5
 
-  author_publish_dispatcher:
-    inbound_cidr_ip: 10.0.8.0/21
+  author:
+    extra_groups:
+      - sg-000e3aa94140844a2
+
+  publish:
+    extra_groups:
+      - sg-000e3aa94140844a2
+
+  author_dispatcher:
+    extra_groups:
+      - sg-000e3aa94140844a2
+
+  publish_dispatcher:
+    extra_groups:
+      - sg-000e3aa94140844a2
+
+  orchestrator:
+    extra_groups:
+      - sg-000e3aa94140844a2
+
+  chaos_monkey:
+    extra_groups:
+      - sg-000e3aa94140844a2
 
 s3:
   data_bucket_name: aem-opencloud
