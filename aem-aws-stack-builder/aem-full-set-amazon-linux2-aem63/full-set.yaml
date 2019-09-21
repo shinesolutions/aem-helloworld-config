@@ -63,7 +63,11 @@ security_groups:
     extra_groups:
       - sg-a2ac6cc5
 
-  author:
+  author_primary:
+    extra_groups:
+      - sg-000e3aa94140844a2
+
+  author_standby:
     extra_groups:
       - sg-000e3aa94140844a2
 
