@@ -66,30 +66,37 @@ security_groups:
   author_primary:
     extra_groups:
       - sg-000e3aa94140844a2
+      - sg-0a9b551e72f6a27f9
 
   author_standby:
     extra_groups:
       - sg-000e3aa94140844a2
+      - sg-0a9b551e72f6a27f9
 
   publish:
     extra_groups:
       - sg-000e3aa94140844a2
+      - sg-0a9b551e72f6a27f9
 
   author_dispatcher:
     extra_groups:
       - sg-000e3aa94140844a2
+      - sg-0a9b551e72f6a27f9
 
   publish_dispatcher:
     extra_groups:
       - sg-000e3aa94140844a2
+      - sg-0a9b551e72f6a27f9
 
   orchestrator:
     extra_groups:
       - sg-000e3aa94140844a2
+      - sg-0a9b551e72f6a27f9
 
   chaos_monkey:
     extra_groups:
       - sg-000e3aa94140844a2
+      - sg-0a9b551e72f6a27f9
 
 s3:
   data_bucket_name: aem-opencloud

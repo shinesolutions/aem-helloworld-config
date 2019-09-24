@@ -45,6 +45,7 @@ security_groups:
     inbound_cidr_ip: 10.0.8.0/21
     extra_groups:
       - sg-000e3aa94140844a2
+      - sg-0a9b551e72f6a27f9
   secure_shell:
     inbound_cidr_ip: 10.0.8.0/21
 
