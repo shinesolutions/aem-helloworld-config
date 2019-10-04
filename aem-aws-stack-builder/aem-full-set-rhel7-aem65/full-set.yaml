@@ -44,7 +44,7 @@ aem:
     jvm_opts: "-Dkey=value"
 
 compute:
-  key_pair_name: HoomaanK-sandpit
+  key_pair_name: aemopencloud-sandpit
   inbound_from_bastion_host_security_group: sg-04a0e80d9a7b50f36
 
 security_groups:
@@ -65,38 +65,66 @@ security_groups:
 
   author_primary:
     extra_groups:
+      # Corp network security group
       - sg-000e3aa94140844a2
+      # Kali security group
       - sg-0a9b551e72f6a27f9
+      # Jump-Host Outbound security group
+      - sg-0d0ccdcee40859e4f
 
   author_standby:
     extra_groups:
+      # Corp network security group
       - sg-000e3aa94140844a2
+      # Kali security group
       - sg-0a9b551e72f6a27f9
+      # Jump-Host Outbound security group
+      - sg-0d0ccdcee40859e4f
 
   publish:
     extra_groups:
+      # Corp network security group
       - sg-000e3aa94140844a2
+      # Kali security group
       - sg-0a9b551e72f6a27f9
+      # Jump-Host Outbound security group
+      - sg-0d0ccdcee40859e4f
 
   author_dispatcher:
     extra_groups:
+      # Corp network security group
       - sg-000e3aa94140844a2
+      # Kali security group
       - sg-0a9b551e72f6a27f9
+      # Jump-Host Outbound security group
+      - sg-0d0ccdcee40859e4f
 
   publish_dispatcher:
     extra_groups:
+      # Corp network security group
       - sg-000e3aa94140844a2
+      # Kali security group
       - sg-0a9b551e72f6a27f9
+      # Jump-Host Outbound security group
+      - sg-0d0ccdcee40859e4f
 
   orchestrator:
     extra_groups:
+      # Corp network security group
       - sg-000e3aa94140844a2
+      # Kali security group
       - sg-0a9b551e72f6a27f9
+      # Jump-Host Outbound security group
+      - sg-0d0ccdcee40859e4f
 
   chaos_monkey:
     extra_groups:
+      # Corp network security group
       - sg-000e3aa94140844a2
+      # Kali security group
       - sg-0a9b551e72f6a27f9
+      # Jump-Host Outbound security group
+      - sg-0d0ccdcee40859e4f
 
 s3:
   data_bucket_name: aem-opencloud
