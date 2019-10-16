@@ -8,4 +8,4 @@ ami_ids:
   chaos_monkey: ami-0af9fc197f7cc1a42
   orchestrator: ami-0af9fc197f7cc1a42
   publish: ami-02e513973b3ae7f9b
-  publish_dispatcher: ami-03953a029e1c38098
+  publish_dispatcher: ami-0a2590c83e4b5e648
