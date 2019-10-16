@@ -3,9 +3,9 @@
 # AMI IDs for AEM profile aem65_sp1 on OS type rhel7
 ami_ids:
   author: ami-02a63552ce886c902
-  author_dispatcher: ami-08c7706057873a92d
+  author_dispatcher: ami-06014424e69b612ca
   author_publish_dispatcher: ami-0818358c6069a4cdd
   chaos_monkey: ami-00bb41f01c964a180
   orchestrator: ami-00bb41f01c964a180
   publish: ami-06d36165a64a42d8c
-  publish_dispatcher: ami-08c7706057873a92d
+  publish_dispatcher: ami-06014424e69b612ca
