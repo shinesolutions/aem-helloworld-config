@@ -15,3 +15,5 @@ aem:
     jvm_mem_opts: "-Xss4m -Xms4096m -Xmx8192m"
     start_opts: "-nofork"
   enable_custom_image_provisioner: true
+  jdk:
+    base_url: s3://aem-opencloud/adobeaemcloud
