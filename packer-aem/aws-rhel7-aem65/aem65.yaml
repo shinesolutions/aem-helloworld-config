@@ -1,6 +1,6 @@
 ---
 aem:
-  profile: aem65_sp1
+  profile: aem65_sp2
   author:
     run_modes:
       - dynamicmedia_scene7
