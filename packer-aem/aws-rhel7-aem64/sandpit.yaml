@@ -17,3 +17,6 @@ aem:
   enable_custom_image_provisioner: true
   jdk:
     base_url: s3://aem-opencloud/adobeaemcloud
+    filename: jdk-8u231-linux-x64.rpm
+    version: 8
+    version_update: 231
