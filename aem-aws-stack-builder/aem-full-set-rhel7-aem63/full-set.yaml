@@ -210,12 +210,6 @@ saml:
   file: s3://aem-opencloud/certs/saml_certificate.crt
 
 publish_dispatcher:
-  instance_type: t2.micro
-  asg_min_size: 3
-  asg_desired_capacity: 3
-  asg_max_size: 6
-  root_vol_size: 20
-  data_vol_size: 75
   load_balancer:
     tag_name: AEM Publish Dispatcher Load Balancer
   tag_name: AEM Publish Dispatcher
@@ -230,28 +224,13 @@ publish_dispatcher:
   enable_random_termination: false
 
 publish:
-  instance_type: m4.xlarge
-  asg_min_size: 3
-  asg_desired_capacity: 3
-  asg_max_size: 6
-  root_vol_size: 20
-  data_vol_size: 75
   enable_random_termination: false
 
 author:
   instance_profile: aem-instance-profiles-stack-AuthorInstanceProfile-OYGRS9FHB0L9
-  instance_type: m4.xlarge
-  root_vol_size: 20
-  data_vol_size: 75
   elb_health_check: HTTPS:5432/system/health?tags=shallow
 
 author_dispatcher:
-  instance_type: t2.micro
-  asg_min_size: 3
-  asg_desired_capacity: 3
-  asg_max_size: 6
-  root_vol_size: 20
-  data_vol_size: 75
   elb_health_check: HTTPS:443/system/health?tags=shallow
   enable_random_termination: true
 
