@@ -6,7 +6,7 @@ aws:
   # RHEL-7.6_HVM_GA-20190128-x86_64-0-Hourly2-GP2
   # source_ami: ami-036b423b657376f5b
   # Shine Packer Infra-Catalog base AMI
-  source_ami: ami-0e3b786b28ce94039
+  source_ami: ami-0a516b023560d8373
   install_cloudwatch_metric_agent: true
   rhel7:
     devicemap_root: /dev/xvda
