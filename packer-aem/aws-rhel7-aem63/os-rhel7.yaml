@@ -12,4 +12,4 @@ aws:
     devicemap_root: /dev/xvda
     devicemap_data_b: /dev/xvdb
     devicemap_data_c: /dev/xvdc
-    devicemap_data_e: /dev/xvde
+    devicemap_data_e: /dev/xvdd
