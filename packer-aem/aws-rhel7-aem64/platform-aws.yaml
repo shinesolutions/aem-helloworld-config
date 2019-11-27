@@ -13,7 +13,7 @@ aws:
   temporary_security_group_source_cidr: "0.0.0.0/0"
   ami_users: ''
   install_ssm_agent: true
-  root_volume_size: 20
+  root_volume_size: 30
   data_volume_size: 75
   tags:
     - Key: Project
