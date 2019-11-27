@@ -16,12 +16,12 @@ aem_opencloud:
   descriptors:
     consolidated:
       deployment_descriptor_url: https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/master/descriptors/consolidated/deploy-artifacts-descriptor.json
-      export_descriptor_url: https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/master/descriptors/consolidated/export-backup-descriptor.json
+      export_descriptor_url: https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/master/descriptors/consolidated/export-backups-descriptor.json
       content_healthcheck_descriptor_url: >
         https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/master/descriptors/consolidated/content-healthcheck-descriptor.json
     full-set:
       deployment_descriptor_url: https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/master/descriptors/full-set/deploy-artifacts-descriptor.json
-      export_descriptor_url: https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/master/descriptors/full-set/export-backup-descriptor.json
+      export_descriptor_url: https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/master/descriptors/full-set/export-backups-descriptor.json
       content_healthcheck_descriptor_url: >
         https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/master/descriptors/full-set/content-healthcheck-descriptor.json
 
