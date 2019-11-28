@@ -47,13 +47,13 @@ security_groups:
       # Corp network security group
       - sg-000e3aa94140844a2
       # Jump-Host Outbound security group
-      - sg-0d0ccdcee40859e4f
+      - sg-0f2859e9858f367d2
   secure_shell:
     inbound_cidr_ip: 10.0.8.0/21
 
 compute:
   key_pair_name: aemopencloud-sandpit
-  inbound_from_bastion_host_security_group: sg-02327aa93728a6559
+  inbound_from_bastion_host_security_group: sg-09ffcbd66fcd67884
 
 s3:
   data_bucket_name: aem-opencloud
