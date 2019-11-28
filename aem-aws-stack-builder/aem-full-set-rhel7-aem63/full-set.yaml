@@ -67,8 +67,6 @@ security_groups:
     extra_groups:
       # Corp network security group
       - sg-000e3aa94140844a2
-      # Kali security group
-      - sg-0a9b551e72f6a27f9
       # Jump-Host Outbound security group
       - sg-0d0ccdcee40859e4f
 
@@ -76,8 +74,6 @@ security_groups:
     extra_groups:
       # Corp network security group
       - sg-000e3aa94140844a2
-      # Kali security group
-      - sg-0a9b551e72f6a27f9
       # Jump-Host Outbound security group
       - sg-0d0ccdcee40859e4f
 
@@ -85,8 +81,6 @@ security_groups:
     extra_groups:
       # Corp network security group
       - sg-000e3aa94140844a2
-      # Kali security group
-      - sg-0a9b551e72f6a27f9
       # Jump-Host Outbound security group
       - sg-0d0ccdcee40859e4f
 
@@ -94,8 +88,6 @@ security_groups:
     extra_groups:
       # Corp network security group
       - sg-000e3aa94140844a2
-      # Kali security group
-      - sg-0a9b551e72f6a27f9
       # Jump-Host Outbound security group
       - sg-0d0ccdcee40859e4f
 
@@ -103,8 +95,6 @@ security_groups:
     extra_groups:
       # Corp network security group
       - sg-000e3aa94140844a2
-      # Kali security group
-      - sg-0a9b551e72f6a27f9
       # Jump-Host Outbound security group
       - sg-0d0ccdcee40859e4f
 
@@ -112,8 +102,6 @@ security_groups:
     extra_groups:
       # Corp network security group
       - sg-000e3aa94140844a2
-      # Kali security group
-      - sg-0a9b551e72f6a27f9
       # Jump-Host Outbound security group
       - sg-0d0ccdcee40859e4f
 
@@ -121,8 +109,6 @@ security_groups:
     extra_groups:
       # Corp network security group
       - sg-000e3aa94140844a2
-      # Kali security group
-      - sg-0a9b551e72f6a27f9
       # Jump-Host Outbound security group
       - sg-0d0ccdcee40859e4f
 
