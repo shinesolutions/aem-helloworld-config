@@ -6,7 +6,7 @@ monitoring:
 
 ami_device:
   rhel7:
-    root_name: /dev/xvda
+    root_name: /dev/sda1
     data_name: /dev/xvdb
     data_attached_name: /dev/xvdb
     author_data_name: /dev/xvdb
