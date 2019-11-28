@@ -45,7 +45,7 @@ security_groups:
     inbound_cidr_ip: 10.0.8.0/21
     extra_groups:
       # Corp network security group
-      - sg-000e3aa94140844a2
+      - sg-01b72e7bb83c77a07
       # Jump-Host Outbound security group
       - sg-0f2859e9858f367d2
   secure_shell:

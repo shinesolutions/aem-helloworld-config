@@ -66,49 +66,49 @@ security_groups:
   author_primary:
     extra_groups:
       # Corp network security group
-      - sg-000e3aa94140844a2
+      - sg-01b72e7bb83c77a07
       # Jump-Host Outbound security group
       - sg-0f2859e9858f367d2
 
   author_standby:
     extra_groups:
       # Corp network security group
-      - sg-000e3aa94140844a2
+      - sg-01b72e7bb83c77a07
       # Jump-Host Outbound security group
       - sg-0f2859e9858f367d2
 
   publish:
     extra_groups:
       # Corp network security group
-      - sg-000e3aa94140844a2
+      - sg-01b72e7bb83c77a07
       # Jump-Host Outbound security group
       - sg-0f2859e9858f367d2
 
   author_dispatcher:
     extra_groups:
       # Corp network security group
-      - sg-000e3aa94140844a2
+      - sg-01b72e7bb83c77a07
       # Jump-Host Outbound security group
       - sg-0f2859e9858f367d2
 
   publish_dispatcher:
     extra_groups:
       # Corp network security group
-      - sg-000e3aa94140844a2
+      - sg-01b72e7bb83c77a07
       # Jump-Host Outbound security group
       - sg-0f2859e9858f367d2
 
   orchestrator:
     extra_groups:
       # Corp network security group
-      - sg-000e3aa94140844a2
+      - sg-01b72e7bb83c77a07
       # Jump-Host Outbound security group
       - sg-0f2859e9858f367d2
 
   chaos_monkey:
     extra_groups:
       # Corp network security group
-      - sg-000e3aa94140844a2
+      - sg-01b72e7bb83c77a07
       # Jump-Host Outbound security group
       - sg-0f2859e9858f367d2
 
