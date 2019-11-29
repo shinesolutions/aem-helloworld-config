@@ -222,13 +222,13 @@ author_dispatcher:
 
 orchestrator:
   instance_type: t2.small
-  root_vol_size: 20
+  root_vol_size: 30
   data_vol_size: 75
   enable_random_termination: false
 
 chaos_monkey:
   instance_type: t2.micro
-  root_vol_size: 20
+  root_vol_size: 30
   include_stack: true
   enable_random_termination: false
   termination_settings:

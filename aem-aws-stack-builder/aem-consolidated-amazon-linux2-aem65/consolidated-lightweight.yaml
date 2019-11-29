@@ -1,5 +1,5 @@
 ---
 author_publish_dispatcher:
   instance_type: m4.xlarge
-  root_vol_size: 20
+  root_vol_size: 30
   data_vol_size: 100
