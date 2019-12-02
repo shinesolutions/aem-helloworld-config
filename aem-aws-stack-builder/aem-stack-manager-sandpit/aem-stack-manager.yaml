@@ -16,5 +16,8 @@ stack_manager:
     orchestration_snapshots:
       schedule: '5 0/4 * * ? *'
       max_age_in_hours: 4
+  publish:
+    asg_min_size: 1
+
 s3:
   data_bucket_name: aem-opencloud
