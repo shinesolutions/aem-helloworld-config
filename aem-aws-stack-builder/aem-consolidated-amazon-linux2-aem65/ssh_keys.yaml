@@ -28,3 +28,7 @@ ssh_public_keys:
     # yamllint disable-line rule:line-length
     public_key: AAAAB3NzaC1yc2EAAAADAQABAAABAQDAS8/CAqQUGQpXcLvMbrZycMXWP06luTsERp1HLxeAtuEJBD+zq8AmIHSvugO5uRWffvkCbRH3U1vDrOh7SvxduNHMpw6S+O9Tt/8OpvppK4B5OWpAPq5FNvlGxc8iQ/pqGY7RkvcgsJiC2vx0T4FJzXULjQKGFBXN2itZFv6ugHHxK8iughs6xiBU+6NP8NfLxs3tuk+dChVWt6/k/jH+ak79iaI6/3e8VVmUaUJhUdYEQtF9Yh9aU7/6vid8ztBh2TPVR62LZUOSRVe9L0XpXMNeLPG1sonyFD0EEJBFLBebVx4T7O8cXw7rMTP8WzVFDcd5NSEvBTV/W/0J1Le9
     public_key_type: ssh-rsa
+  michaeld:
+    # yamllint disable-line rule:line-length
+    public_key: AAAAB3NzaC1yc2EAAAADAQABAAABAQC2lr1sz/hHNQauixg9gr0jSpJSohtdeNaRmDaxaBfboeVngSKhq/zBejt4nMNPoK4cNbuypbgVVDKheA+gW4dcqpRIzF0nTcTQ4+XF/ZdYmj7tYyAp6OszMHQevYqbaRLDKk2tuP5S8BG0KvOvUaHcct2CavZbymCspVq+0uLl78kbJnyjpGCGHrbMZiLoP8bfRw6pTfyj+OWUn9N5tD4V5w2XMIsXjn6yNHz5CJvsFaLB+ULzAJ0uGJHBQQkrkGHeD3izryOS3oB7pMz21UhwXPeOhDUge/D9QikjO299llJ20oc3vG/ivUXkhbi8wuH2CvehhZgfvw8Fr4IFlahp
+    public_key_type: ssh-rsa
