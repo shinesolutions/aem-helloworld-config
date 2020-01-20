@@ -2,7 +2,7 @@
   "author-primary": {
     "packages": [
       {
-        "source": "http://central.maven.org/maven2/com/shinesolutions/aem-helloworld-content/0.0.1/aem-helloworld-content-0.0.1.zip",
+        "source": "https://repo.maven.apache.org/maven2/com/shinesolutions/aem-helloworld-content/0.0.1/aem-helloworld-content-0.0.1.zip",
         "group": "shinesolutions",
         "name": "aem-helloworld-content",
         "version": "0.0.1",
@@ -41,7 +41,7 @@
   "publish": {
     "packages": [
       {
-        "source": "http://central.maven.org/maven2/com/shinesolutions/aem-helloworld-content/0.0.1/aem-helloworld-content-0.0.1.zip",
+        "source": "https://repo.maven.apache.org/maven2/com/shinesolutions/aem-helloworld-content/0.0.1/aem-helloworld-content-0.0.1.zip",
         "group": "shinesolutions",
         "name": "aem-helloworld-content",
         "version": "0.0.1",
