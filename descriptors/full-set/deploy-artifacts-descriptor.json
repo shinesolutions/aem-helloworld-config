@@ -27,7 +27,7 @@
     "artifacts": [
       {
         "name": "aem-helloworld-author-dispatcher",
-        "source": "https://github.com/shinesolutions/aem-helloworld-author-dispatcher/releases/download/0.10.1/aem-helloworld-author-dispatcher-0.10.1.zip"
+        "source": "https://github.com/shinesolutions/aem-helloworld-author-dispatcher/releases/download/0.11.0/aem-helloworld-author-dispatcher-0.11.0.zip"
       }
     ]
   },
