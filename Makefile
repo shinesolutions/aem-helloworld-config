@@ -65,6 +65,7 @@ define gen_packer_aem
   rm -rf packer-aem/$(1)-$(2)-$(3)
 	mkdir -p packer-aem/$(1)-$(2)-$(3)
 	cp packer-aem/src/sandpit.yaml packer-aem/$(1)-$(2)-$(3)/
+	cp packer-aem/src/encryption.yaml packer-aem/$(1)-$(2)-$(3)/
 	cp packer-aem/src/platform-$(1).yaml packer-aem/$(1)-$(2)-$(3)/
 	cp packer-aem/src/os-$(2).yaml packer-aem/$(1)-$(2)-$(3)/
 	cp packer-aem/src/$(3).yaml packer-aem/$(1)-$(2)-$(3)/
