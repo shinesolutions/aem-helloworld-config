@@ -254,6 +254,7 @@ messaging:
   asg_event_sns_topic_display_name: AEM ASG Event Topic
   alarm_notification:
     contact_email: user@example.com
+    https_endpoint: https://api.opsgenie.com/v1/json/amazonsns?apiKey=someapikey
 
 scheduled_jobs:
   author_primary:
