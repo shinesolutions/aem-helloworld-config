@@ -20,7 +20,7 @@ stack_manager:
     asg_min_size: 1
   alarm_notification:
     contact_email: user@example.com
-    https_endpoint: https_endpoint: https://api.opsgenie.com/v1/json/amazonsns?apiKey=someapikey
+    https_endpoint: https://api.opsgenie.com/v1/json/amazonsns?apiKey=someapikey
 
 s3:
   data_bucket_name: aem-opencloud
