@@ -67,6 +67,8 @@ security_groups:
     extra_groups:
       # Corp network security group
       - sg-01b72e7bb83c77a07
+      # Forward proxy access security group
+      - sg-09bbdf9db5255406f
       # Jump-Host Outbound security group
       - sg-0f2859e9858f367d2
 
@@ -74,6 +76,8 @@ security_groups:
     extra_groups:
       # Corp network security group
       - sg-01b72e7bb83c77a07
+      # Forward proxy access security group
+      - sg-09bbdf9db5255406f
       # Jump-Host Outbound security group
       - sg-0f2859e9858f367d2
 
@@ -81,6 +85,8 @@ security_groups:
     extra_groups:
       # Corp network security group
       - sg-01b72e7bb83c77a07
+      # Forward proxy access security group
+      - sg-09bbdf9db5255406f
       # Jump-Host Outbound security group
       - sg-0f2859e9858f367d2
 
@@ -88,6 +94,8 @@ security_groups:
     extra_groups:
       # Corp network security group
       - sg-01b72e7bb83c77a07
+      # Forward proxy access security group
+      - sg-09bbdf9db5255406f
       # Jump-Host Outbound security group
       - sg-0f2859e9858f367d2
 
@@ -95,6 +103,8 @@ security_groups:
     extra_groups:
       # Corp network security group
       - sg-01b72e7bb83c77a07
+      # Forward proxy access security group
+      - sg-09bbdf9db5255406f
       # Jump-Host Outbound security group
       - sg-0f2859e9858f367d2
 
@@ -102,6 +112,8 @@ security_groups:
     extra_groups:
       # Corp network security group
       - sg-01b72e7bb83c77a07
+      # Forward proxy access security group
+      - sg-09bbdf9db5255406f
       # Jump-Host Outbound security group
       - sg-0f2859e9858f367d2
 
@@ -109,6 +121,8 @@ security_groups:
     extra_groups:
       # Corp network security group
       - sg-01b72e7bb83c77a07
+      # Forward proxy access security group
+      - sg-09bbdf9db5255406f
       # Jump-Host Outbound security group
       - sg-0f2859e9858f367d2
 
