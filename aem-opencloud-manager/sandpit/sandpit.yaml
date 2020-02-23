@@ -12,7 +12,7 @@ aem_opencloud:
   custom_image_provisioner:
     artifact_url: https://github.com/shinesolutions/aem-helloworld-custom-image-provisioner/releases/download/0.9.0/aem-helloworld-custom-image-provisioner-0.9.0.tar.gz
   custom_stack_provisioner:
-    artifact_url: https://github.com/shinesolutions/aem-helloworld-custom-stack-provisioner/releases/download/0.12.0/aem-helloworld-custom-stack-provisioner-0.12.0.tar.gz
+    artifact_url: https://github.com/shinesolutions/aem-helloworld-custom-stack-provisioner/releases/download/0.15.0/aem-helloworld-custom-stack-provisioner-0.15.0.tar.gz
   descriptors:
     consolidated:
       deployment_descriptor_url: https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/master/descriptors/consolidated/deploy-artifacts-descriptor.json
