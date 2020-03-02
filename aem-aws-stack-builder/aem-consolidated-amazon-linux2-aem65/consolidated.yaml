@@ -67,6 +67,12 @@ snapshots:
   publish:
     use_data_vol_snapshot: false
     data_vol_snapshot_id:
+  author_dispatcher:
+    use_data_vol_snapshot: false
+    data_vol_snapshot_id: overwrite-me
+  publish_dispatcher:
+    use_data_vol_snapshot: false
+    data_vol_snapshot_id: overwrite-me
 
 reconfiguration:
   enable_truststore_removal: false
