@@ -4,6 +4,7 @@ aws:
   secret_access_key:
   profile:
   s3_bucket: aem-opencloud
+  region: ap-southeast-2
 aem:
   component:
   id:
