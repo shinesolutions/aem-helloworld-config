@@ -68,8 +68,8 @@ security_groups:
       - sg-01b72e7bb83c77a07
       # Forward proxy access security group
       - sg-09bbdf9db5255406f
-      # Jump-Host Outbound security group
-      - sg-0f2859e9858f367d2
+      # Jumphost access security group
+      - sg-0c68e3fad6526b077
 
   author_standby:
     extra_groups:
@@ -77,8 +77,8 @@ security_groups:
       - sg-01b72e7bb83c77a07
       # Forward proxy access security group
       - sg-09bbdf9db5255406f
-      # Jump-Host Outbound security group
-      - sg-0f2859e9858f367d2
+      # Jumphost access security group
+      - sg-0c68e3fad6526b077
 
   publish:
     extra_groups:
@@ -86,8 +86,8 @@ security_groups:
       - sg-01b72e7bb83c77a07
       # Forward proxy access security group
       - sg-09bbdf9db5255406f
-      # Jump-Host Outbound security group
-      - sg-0f2859e9858f367d2
+      # Jumphost access security group
+      - sg-0c68e3fad6526b077
 
   author_dispatcher:
     extra_groups:
@@ -95,8 +95,8 @@ security_groups:
       - sg-01b72e7bb83c77a07
       # Forward proxy access security group
       - sg-09bbdf9db5255406f
-      # Jump-Host Outbound security group
-      - sg-0f2859e9858f367d2
+      # Jumphost access security group
+      - sg-0c68e3fad6526b077
 
   publish_dispatcher:
     extra_groups:
@@ -104,8 +104,8 @@ security_groups:
       - sg-01b72e7bb83c77a07
       # Forward proxy access security group
       - sg-09bbdf9db5255406f
-      # Jump-Host Outbound security group
-      - sg-0f2859e9858f367d2
+      # Jumphost access security group
+      - sg-0c68e3fad6526b077
 
   orchestrator:
     extra_groups:
@@ -113,8 +113,8 @@ security_groups:
       - sg-01b72e7bb83c77a07
       # Forward proxy access security group
       - sg-09bbdf9db5255406f
-      # Jump-Host Outbound security group
-      - sg-0f2859e9858f367d2
+      # Jumphost access security group
+      - sg-0c68e3fad6526b077
 
   chaos_monkey:
     extra_groups:
@@ -122,8 +122,8 @@ security_groups:
       - sg-01b72e7bb83c77a07
       # Forward proxy access security group
       - sg-09bbdf9db5255406f
-      # Jump-Host Outbound security group
-      - sg-0f2859e9858f367d2
+      # Jumphost access security group
+      - sg-0c68e3fad6526b077
 
 s3:
   data_bucket_name: aem-opencloud

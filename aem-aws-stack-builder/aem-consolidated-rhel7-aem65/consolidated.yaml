@@ -48,8 +48,8 @@ security_groups:
       - sg-01b72e7bb83c77a07
       # Forward proxy access security group
       - sg-09bbdf9db5255406f
-      # Jump-Host Outbound security group
-      - sg-0f2859e9858f367d2
+      # Jumphost access security group
+      - sg-0c68e3fad6526b077
   secure_shell:
     inbound_cidr_ip: 10.0.8.0/21
 
