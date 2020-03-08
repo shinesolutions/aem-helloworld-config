@@ -55,7 +55,6 @@ security_groups:
 
 compute:
   key_pair_name: aemopencloud-sandpit
-  
 
 s3:
   data_bucket_name: aem-opencloud
