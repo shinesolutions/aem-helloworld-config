@@ -64,65 +64,65 @@ security_groups:
 
   author_primary:
     extra_groups:
-      # Corp network security group
+      # Corp network security group (from corp network inbound to instances)
       - sg-01b72e7bb83c77a07
-      # Forward proxy access security group
+      # Forward proxy access security group (from instances outbound to forward proxy)
       - sg-09bbdf9db5255406f
-      # Jumphost access security group
+      # Jumphost access security group (from jumphost inbound to instances)
       - sg-0c68e3fad6526b077
 
   author_standby:
     extra_groups:
-      # Corp network security group
+      # Corp network security group (from corp network inbound to instances)
       - sg-01b72e7bb83c77a07
-      # Forward proxy access security group
+      # Forward proxy access security group (from instances outbound to forward proxy)
       - sg-09bbdf9db5255406f
-      # Jumphost access security group
+      # Jumphost access security group (from jumphost inbound to instances)
       - sg-0c68e3fad6526b077
 
   publish:
     extra_groups:
-      # Corp network security group
+      # Corp network security group (from corp network inbound to instances)
       - sg-01b72e7bb83c77a07
-      # Forward proxy access security group
+      # Forward proxy access security group (from instances outbound to forward proxy)
       - sg-09bbdf9db5255406f
-      # Jumphost access security group
+      # Jumphost access security group (from jumphost inbound to instances)
       - sg-0c68e3fad6526b077
 
   author_dispatcher:
     extra_groups:
-      # Corp network security group
+      # Corp network security group (from corp network inbound to instances)
       - sg-01b72e7bb83c77a07
-      # Forward proxy access security group
+      # Forward proxy access security group (from instances outbound to forward proxy)
       - sg-09bbdf9db5255406f
-      # Jumphost access security group
+      # Jumphost access security group (from jumphost inbound to instances)
       - sg-0c68e3fad6526b077
 
   publish_dispatcher:
     extra_groups:
-      # Corp network security group
+      # Corp network security group (from corp network inbound to instances)
       - sg-01b72e7bb83c77a07
-      # Forward proxy access security group
+      # Forward proxy access security group (from instances outbound to forward proxy)
       - sg-09bbdf9db5255406f
-      # Jumphost access security group
+      # Jumphost access security group (from jumphost inbound to instances)
       - sg-0c68e3fad6526b077
 
   orchestrator:
     extra_groups:
-      # Corp network security group
+      # Corp network security group (from corp network inbound to instances)
       - sg-01b72e7bb83c77a07
-      # Forward proxy access security group
+      # Forward proxy access security group (from instances outbound to forward proxy)
       - sg-09bbdf9db5255406f
-      # Jumphost access security group
+      # Jumphost access security group (from jumphost inbound to instances)
       - sg-0c68e3fad6526b077
 
   chaos_monkey:
     extra_groups:
-      # Corp network security group
+      # Corp network security group (from corp network inbound to instances)
       - sg-01b72e7bb83c77a07
-      # Forward proxy access security group
+      # Forward proxy access security group (from instances outbound to forward proxy)
       - sg-09bbdf9db5255406f
-      # Jumphost access security group
+      # Jumphost access security group (from jumphost inbound to instances)
       - sg-0c68e3fad6526b077
 
 s3:

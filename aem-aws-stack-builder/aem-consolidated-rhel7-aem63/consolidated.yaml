@@ -44,11 +44,11 @@ security_groups:
   author_publish_dispatcher:
     inbound_cidr_ip: 10.0.8.0/21
     extra_groups:
-      # Corp network security group
+      # Corp network security group (from corp network inbound to instances)
       - sg-01b72e7bb83c77a07
-      # Forward proxy access security group
+      # Forward proxy access security group (from instances outbound to forward proxy)
       - sg-09bbdf9db5255406f
-      # Jumphost access security group
+      # Jumphost access security group (from jumphost inbound to instances)
       - sg-0c68e3fad6526b077
   secure_shell:
     inbound_cidr_ip: 10.0.8.0/21
