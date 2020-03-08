@@ -45,7 +45,6 @@ aem:
 
 compute:
   key_pair_name: aemopencloud-sandpit
-  
 
 security_groups:
   secure_shell:
