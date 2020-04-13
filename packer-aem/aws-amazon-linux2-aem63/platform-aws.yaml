@@ -22,5 +22,5 @@ aws:
       Value: Shine Solutions AEM Team
     - Key: Cost Centre
       Value: 12345
-  certificate_arn: "arn:aws:acm:ap-southeast-2:918473058104:certificate/3ca948bc-65a7-45c1-a8a5-f922cb7f1ca6"
-  certificate_key_arn: "arn:aws:secretsmanager:ap-southeast-2:918473058104:secret:aem-opencloud-tls-private-key-cVzyK1"
+  certificate_arn: "arn:aws:acm:ap-southeast-2:918473058104:certificate/db64f52d-0735-4bd6-a3de-25d3f71053e7"
+  certificate_key_arn: "arn:aws:secretsmanager:ap-southeast-2:918473058104:secret:aem-opencloud-tls-private-key-2020-teiYps"

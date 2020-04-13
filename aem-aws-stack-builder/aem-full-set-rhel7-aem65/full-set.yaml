@@ -147,9 +147,8 @@ snapshots:
 
 reconfiguration:
   enable_create_system_users: false
-  certs_base: s3://aem-opencloud/certs
-  certificate_arn: s3://aem-opencloud/certs/aem.cert
-  certificate_key_arn: s3://aem-opencloud/certs/aem.key
+  certificate_arn: "arn:aws:acm:ap-southeast-2:918473058104:certificate/db64f52d-0735-4bd6-a3de-25d3f71053e7"
+  certificate_key_arn: "arn:aws:secretsmanager:ap-southeast-2:918473058104:secret:aem-opencloud-tls-private-key-2020-teiYps"
   ssl_keystore_password: 43m0p3ncl0ud
   author:
     start_opts: "-nofork"
