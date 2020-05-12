@@ -33,13 +33,11 @@ aem:
     enable_saml_certificate_upload: false
     password: changeit
   publish:
-    run_modes: []
     jvm_mem_opts: "-Xss4m -Xms4096m -Xmx8192m"
     jvm_opts: "-Dkey=value"
     jmxremote:
       port: 5983
   author:
-    run_modes: []
     jvm_mem_opts: "-Xss4m -Xms4096m -Xmx8192m"
     jvm_opts: "-Dkey=value"
     jmxremote:
