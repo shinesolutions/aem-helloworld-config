@@ -1,6 +1,32 @@
 ---
 aem:
   profile: aem62_sp1_cfp20
+  jdk:
+    base_url: s3://aem-opencloud/adobeaemcloud
+    filename: jdk-8u231-linux-x64.rpm
+    version: 1.8.0_252
+  author:
+    jvm_opts:
+      - '-XX:+PrintGCDetails'
+      - '-XX:+PrintGCTimeStamps'
+      - '-XX:+PrintGCDateStamps'
+      - '-XX:+PrintTenuringDistribution'
+      - '-XX:+PrintGCApplicationStoppedTime'
+      - '-XX:+HeapDumpOnOutOfMemoryError'
+  publish:
+    jvm_opts:
+      - '-XX:+PrintGCDetails'
+      - '-XX:+PrintGCTimeStamps'
+      - '-XX:+PrintGCDateStamps'
+      - '-XX:+PrintTenuringDistribution'
+      - '-XX:+PrintGCApplicationStoppedTime'
+      - '-XX:+HeapDumpOnOutOfMemoryError'
+java:
+  base_url: s3://aem-opencloud/adobeaemcloud
+  filename: jdk-8u231-linux-x64.rpm
+  version: 1.8.0_252
 
 aws:
   aem_license: /aem-opencloud/aoc-sandpit-a/aem-license
+  certificate_arn: "arn:aws:acm:ap-southeast-2:918473058104:certificate/db64f52d-0735-4bd6-a3de-25d3f71053e7"
+  certificate_key_arn: "arn:aws:secretsmanager:ap-southeast-2:918473058104:secret:aem-opencloud-tls-private-key-2020-teiYps"

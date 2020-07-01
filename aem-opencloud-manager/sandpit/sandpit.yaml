@@ -5,8 +5,9 @@ aws:
     s3_bucket: aem-opencloud
 
 aem_opencloud:
+  version: 4.6.2-jdk11
   config:
-    artifact_url: https://github.com/shinesolutions/aem-helloworld-config/archive/master.tar.gz
+    artifact_url: https://github.com/hoomaan-kh/aem-helloworld-config/archive/master.tar.gz
   custom_manager_steps:
     artifact_url: https://github.com/shinesolutions/aem-helloworld-custom-manager-steps/archive/master.tar.gz
   custom_image_provisioner:
@@ -26,10 +27,10 @@ aem_opencloud:
         https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/master/descriptors/full-set/content-healthcheck-descriptor.json
 
 jenkins:
-  host: localhost
-  port: 8080
-  username: overwrite-me
-  password: overwrite-me
+  host: jenkins.aemopencloud.space
+  port: 80
+  username: admin
+  password: shine
   agent:
     # yamllint disable-line rule:line-length
     docker_args: "--user root -e https_proxy=http://forward-proxy.infracatalog.srv:3128/ -e http_proxy=http://forward-proxy.infracatalog.srv:3128/ -e no_proxy=localhost,127.0.0.1,169.254.169.254,169.254.0.0/16,elb.amazonaws.com,10.0.8.0/21,aemopencloud.cms,aemopencloud.space"

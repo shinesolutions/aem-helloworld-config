@@ -1,6 +1,29 @@
 ---
 aem:
   profile: aem63_sp2_cfp2
+  jdk:
+    base_url: s3://aem-opencloud/adobeaemcloud
+    filename: jdk-11.0.7_linux-x64_bin.rpm
+    version: 11.0.7
+  # Granite SSL method can be used from AEM6.3 and later.
+  # JDK 11 only support Granite ssl method.
+  ssl_method: granite
+  author:
+    jvm_opts:
+      - '-XX:+PrintGCDetails'
+      - '-XX:+HeapDumpOnOutOfMemoryError'
+  publish:
+    jvm_opts:
+      - '-XX:+PrintGCDetails'
+      - '-XX:+HeapDumpOnOutOfMemoryError'
+
+java:
+  base_url: s3://aem-opencloud/adobeaemcloud
+  filename: jdk-8u231-linux-x64.rpm
+  version: 1.8.0_252
 
 aws:
   aem_license: /aem-opencloud/aoc-sandpit-a/aem-license
+  # if Granite ssl method is used, certificate key should be in .der format
+  certificate_arn: s3://aem-opencloud/certs/ssl_localhost.crt
+  certificate_key_arn: s3://aem-opencloud/certs/ssl_localhostprivate.der
