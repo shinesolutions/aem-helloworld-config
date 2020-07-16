@@ -135,7 +135,7 @@ s3:
   data_bucket_name: aem-opencloud
 
 certificate_manager:
-  ssl_certificate_arn: 'arn:aws:iam::918473058104:server-certificate/aem-opencloud'
+  ssl_certificate_arn: 'arn:aws:iam::918473058104:server-certificate/aem-opencloud-2020'
 
 snapshots:
   author:
