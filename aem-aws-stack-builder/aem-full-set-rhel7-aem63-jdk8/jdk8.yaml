@@ -1,0 +1,20 @@
+---
+aem:
+  post_start_sleep_seconds: 180
+  author:
+    jvm_opts: "-XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps -XX:+PrintTenuringDistribution -XX:+PrintGCApplicationStoppedTime -XX:+HeapDumpOnOutOfMemoryError"
+  publish:
+    jvm_opts: "-XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps -XX:+PrintTenuringDistribution -XX:+PrintGCApplicationStoppedTime -XX:+HeapDumpOnOutOfMemoryError"
+
+reconfiguration:
+  enable_truststore_removal: false
+  enable_truststore_migration: false
+  certificate_arn: "arn:aws:acm:ap-southeast-2:918473058104:certificate/db64f52d-0735-4bd6-a3de-25d3f71053e7"
+  certificate_key_arn: "arn:aws:secretsmanager:ap-southeast-2:918473058104:secret:aem-opencloud-tls-private-key-2020-teiYps"
+  ssl_keystore_password: 43m0p3ncl0ud
+  author:
+    aem_ssl_method: jetty
+    ssl_keystore_path: /etc/ssl/aem-author/author.ks
+  publish:
+    aem_ssl_method: jetty
+    ssl_keystore_path: /etc/ssl/aem-author/author.ks

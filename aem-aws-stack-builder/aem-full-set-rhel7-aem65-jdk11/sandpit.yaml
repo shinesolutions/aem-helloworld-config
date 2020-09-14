@@ -1,0 +1,34 @@
+---
+aws:
+  region: ap-southeast-2
+  availability_zone_list: ap-southeast-2a, ap-southeast-2b
+
+  tags:
+    - Key: Project
+      Value: Open Source AEM Platform
+    - Key: Owner
+      Value: Shine Solutions AEM Team
+    - Key: Cost Centre
+      Value: 12345
+
+proxy:
+  enabled: true
+  protocol: http
+  host: forward-proxy.infracatalog.srv
+  port: 3128
+  user:
+  password:
+  noproxy:
+    - localhost
+    - 127.0.0.1
+    - 169.254.169.254
+    - 169.254.0.0/16
+    - elb.amazonaws.com
+    - 10.0.8.0/21
+    - aemopencloud.cms
+
+cron:
+  env_path: /sbin:/bin:/usr/sbin:/usr/bin:/opt/puppetlabs/bin
+  http_proxy: http://forward-proxy.infracatalog.srv:3128
+  https_proxy: http://forward-proxy.infracatalog.srv:3128
+  no_proxy: localhost,127.0.0.1,169.254.169.254,169.254.0.0/16,elb.amazonaws.com,10.0.8.0/21,aemopencloud.cms

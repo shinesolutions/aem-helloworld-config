@@ -6,7 +6,7 @@ aws:
 ec2_vpc:
   stack_name: aem-vpc-stack
   tag_name: AEM OpenCloud VPC
-  cidr_block: 10.2.16.0/20
+  cidr_block: 10.2.0.0/16
   dhcp_option: dopt-75958817
 
 network:
@@ -17,68 +17,68 @@ network:
 
   publish_dispatcher_elb:
     ap-southeast-2a:
-      cidr_block: 10.2.20.0/26
+      cidr_block: 10.2.0.0/21
       tag_name: AEM Publish Dispatcher ELB Subnet A
     ap-southeast-2b:
-      cidr_block: 10.2.20.64/26
+      cidr_block: 10.2.8.0/21
       tag_name: AEM Publish Dispatcher ELB Subnet B
     ap-southeast-2c:
-      cidr_block: 10.2.20.128/26
+      cidr_block: 10.2.16.0/21
       tag_name: AEM Publish Dispatcher ELB Subnet C
 
   publish_dispatcher:
     ap-southeast-2a:
-      cidr_block: 10.2.21.0/26
+      cidr_block: 10.2.24.0/21
       tag_name: AEM Publish Dispatcher Subnet A
     ap-southeast-2b:
-      cidr_block: 10.2.21.64/26
+      cidr_block: 10.2.32.0/21
       tag_name: AEM Publish Dispatcher Subnet B
     ap-southeast-2c:
-      cidr_block: 10.2.21.128/26
+      cidr_block: 10.2.40.0/21
       tag_name: AEM Publish Dispatcher Subnet C
 
   publish:
     ap-southeast-2a:
-      cidr_block: 10.2.22.0/26
+      cidr_block: 10.2.48.0/21
       tag_name: AEM Publish Subnet A
     ap-southeast-2b:
-      cidr_block: 10.2.22.64/26
+      cidr_block: 10.2.56.0/21
       tag_name: AEM Publish Subnet B
     ap-southeast-2c:
-      cidr_block: 10.2.22.128/26
+      cidr_block: 10.2.64.0/21
       tag_name: AEM Publish Subnet C
 
   author:
     ap-southeast-2a:
-      cidr_block: 10.2.23.0/26
+      cidr_block: 10.2.72.0/21
       tag_name: AEM Author Subnet A
     ap-southeast-2b:
-      cidr_block: 10.2.23.64/26
+      cidr_block: 10.2.80.0/21
       tag_name: AEM Author Subnet B
     ap-southeast-2c:
-      cidr_block: 10.2.23.128/26
+      cidr_block: 10.2.88.0/21
       tag_name: AEM Author Subnet C
 
   author_dispatcher:
     ap-southeast-2a:
-      cidr_block: 10.2.24.0/26
+      cidr_block: 10.2.96.0/21
       tag_name: AEM Author Dispatcher Subnet A
     ap-southeast-2b:
-      cidr_block: 10.2.24.64/26
+      cidr_block: 10.2.104.64/21
       tag_name: AEM Author Dispatcher Subnet B
     ap-southeast-2c:
-      cidr_block: 10.2.24.128/26
+      cidr_block: 10.2.112.128/21
       tag_name: AEM Author Dispatcher Subnet C
 
   tool:
     ap-southeast-2a:
-      cidr_block: 10.2.25.0/26
+      cidr_block: 10.2.120.0/21
       tag_name: AEM Tool Subnet A
     ap-southeast-2b:
-      cidr_block: 10.2.25.64/26
+      cidr_block: 10.2.128.64/21
       tag_name: AEM Tool Subnet B
     ap-southeast-2c:
-      cidr_block: 10.2.25.128/26
+      cidr_block: 10.2.136.128/21
       tag_name: AEM Tool Subnet C
 
   public_route_table:

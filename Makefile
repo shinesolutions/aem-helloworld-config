@@ -89,37 +89,42 @@ endef
 ################################################################################
 
 gen-aem-aws-stack-builder:
-	$(call gen_aem_aws_stack_builder,aem62,rhel7,full-set,lightweight)
-	$(call gen_aem_aws_stack_builder,aem62,rhel7,consolidated,lightweight)
-	$(call gen_aem_aws_stack_builder,aem62,amazon-linux2,full-set,lightweight)
-	$(call gen_aem_aws_stack_builder,aem62,amazon-linux2,consolidated,lightweight)
-	$(call gen_aem_aws_stack_builder,aem63,rhel7,full-set,lightweight)
-	$(call gen_aem_aws_stack_builder,aem63,rhel7,consolidated,lightweight)
-	$(call gen_aem_aws_stack_builder,aem63,amazon-linux2,full-set,lightweight)
-	$(call gen_aem_aws_stack_builder,aem63,amazon-linux2,consolidated,lightweight)
-	$(call gen_aem_aws_stack_builder,aem64,rhel7,full-set,lightweight)
-	$(call gen_aem_aws_stack_builder,aem64,rhel7,consolidated,lightweight)
-	$(call gen_aem_aws_stack_builder,aem64,amazon-linux2,full-set,lightweight)
-	$(call gen_aem_aws_stack_builder,aem64,amazon-linux2,consolidated,lightweight)
-	$(call gen_aem_aws_stack_builder,aem65,rhel7,full-set,heavyweight)
-	$(call gen_aem_aws_stack_builder,aem65,rhel7,consolidated,heavyweight)
-	$(call gen_aem_aws_stack_builder,aem65,amazon-linux2,full-set,lightweight)
-	$(call gen_aem_aws_stack_builder,aem65,amazon-linux2,consolidated,lightweight)
+	$(call gen_aem_aws_stack_builder,aem62,rhel7,full-set,lightweight,jdk8)
+	$(call gen_aem_aws_stack_builder,aem62,rhel7,consolidated,lightweight,jdk8)
+	$(call gen_aem_aws_stack_builder,aem62,amazon-linux2,full-set,lightweight,jdk8)
+	$(call gen_aem_aws_stack_builder,aem62,amazon-linux2,consolidated,lightweight,jdk8)
+	$(call gen_aem_aws_stack_builder,aem63,rhel7,full-set,lightweight,jdk8)
+	$(call gen_aem_aws_stack_builder,aem63,rhel7,consolidated,lightweight,jdk8)
+	$(call gen_aem_aws_stack_builder,aem63,amazon-linux2,full-set,lightweight,jdk8)
+	$(call gen_aem_aws_stack_builder,aem63,amazon-linux2,consolidated,lightweight,jdk8)
+	$(call gen_aem_aws_stack_builder,aem64,rhel7,full-set,lightweight,jdk8)
+	$(call gen_aem_aws_stack_builder,aem64,rhel7,consolidated,lightweight,jdk8)
+	$(call gen_aem_aws_stack_builder,aem64,amazon-linux2,full-set,lightweight,jdk8)
+	$(call gen_aem_aws_stack_builder,aem64,amazon-linux2,consolidated,lightweight,jdk8)
+	$(call gen_aem_aws_stack_builder,aem65,rhel7,full-set,heavyweight,jdk8)
+	$(call gen_aem_aws_stack_builder,aem65,rhel7,full-set,heavyweight,jdk11)
+	$(call gen_aem_aws_stack_builder,aem65,rhel7,consolidated,heavyweight,jdk8)
+	$(call gen_aem_aws_stack_builder,aem65,rhel7,consolidated,heavyweight,jdk11)
+	$(call gen_aem_aws_stack_builder,aem65,amazon-linux2,full-set,lightweight,jdk8)
+	$(call gen_aem_aws_stack_builder,aem65,amazon-linux2,full-set,lightweight,jdk11)
+	$(call gen_aem_aws_stack_builder,aem65,amazon-linux2,consolidated,lightweight,jdk8)
+	$(call gen_aem_aws_stack_builder,aem65,amazon-linux2,consolidated,lightweight,jdk11)
 	$(call gen_aem_aws_stack_builder_aem_stack_manager,sandpit)
 	$(call gen_aem_aws_stack_builder_cdn,sandpit)
 	$(call gen_aem_aws_stack_builder_aws_resources,sandpit)
 
 define gen_aem_aws_stack_builder
-  rm -rf aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
-	mkdir -p aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
-	cp aem-aws-stack-builder/src/common/*.yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
-	cp aem-aws-stack-builder/src/apps/aem/$(1).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
-	cp aem-aws-stack-builder/src/apps/aem/ssh_keys.yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
-	cp aem-aws-stack-builder/src/apps/aem/ZZZ_encryption.yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
-	cp aem-aws-stack-builder/src/apps/aem/os-$(2).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
-	cp aem-aws-stack-builder/src/apps/aem/$(1)*-$(2)-stack-builder-ami-ids.yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
-	cp aem-aws-stack-builder/src/apps/aem/$(3).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
-	cp aem-aws-stack-builder/src/apps/aem/$(3)-$(4).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)/
+  rm -rf aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)/
+	mkdir -p aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)/
+	cp aem-aws-stack-builder/src/common/*.yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)/
+	cp aem-aws-stack-builder/src/apps/aem/$(1).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)/
+	cp aem-aws-stack-builder/src/apps/aem/ssh_keys.yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)/
+	cp aem-aws-stack-builder/src/apps/aem/ZZZ_encryption.yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)/
+	cp aem-aws-stack-builder/src/apps/aem/os-$(2).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)/
+	cp aem-aws-stack-builder/src/apps/aem/$(1)*-$(2)-$(5)-stack-builder-ami-ids.yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)/
+	cp aem-aws-stack-builder/src/apps/aem/$(3).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)/
+	cp aem-aws-stack-builder/src/apps/aem/$(3)-$(4).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)/
+	cp aem-aws-stack-builder/src/apps/aem/$(5).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)/
 endef
 
 define gen_aem_aws_stack_builder_aem_stack_manager

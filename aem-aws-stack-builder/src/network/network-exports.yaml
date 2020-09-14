@@ -1,16 +1,16 @@
 ---
 network_exports:
   stack_name: aem-network-exports-stack
-  VPCId: vpc-2fc3014b
-  AuthorPublishDispatcherSubnet: subnet-8762f4e3
-  PublishDispatcherELBSubnetList: subnet-8162f4e5,subnet-002f9176
-  PublishDispatcherSubnetList: subnet-8762f4e3,subnet-012f9177
-  PublishSubnetList: subnet-8062f4e4,subnet-032f9175
-  AuthorPrimarySubnet: subnet-b451bad3
-  AuthorStandbySubnet: subnet-022f9174
-  AuthorELBSubnetList: subnet-b451bad3,subnet-022f9174
-  AuthorDispatcherELBSubnetList: subnet-8162f4e5,subnet-002f9176
-  AuthorDispatcherSubnetList: subnet-8562f4e1,subnet-0e2f9178
-  ToolSubnetList: subnet-8662f4e2,subnet-052f9173
-  PublicRouteTable: rtb-77cd4413
-  PrivateRouteTable: rtb-75cd4411
+  VPCId: vpc-0d1d8e4a6102c949a
+  AuthorPublishDispatcherSubnet: subnet-0c81b0529dd3536fc,subnet-0bdf07ec4688d4e47,subnet-0c7469e8534b7b6ed
+  PublishDispatcherELBSubnetList: subnet-0349472c19ec79c19,subnet-02a325509e841aa8e,subnet-0e41f0a07f118fe44
+  PublishDispatcherSubnetList: subnet-0c81b0529dd3536fc,subnet-0bdf07ec4688d4e47,subnet-0c7469e8534b7b6ed
+  PublishSubnetList: subnet-07b48e7c48f1cb246,subnet-08419d077da351cf1,subnet-06237c7fab67b8b19
+  AuthorPrimarySubnet: subnet-071fe4c153f9b1d9a
+  AuthorStandbySubnet: subnet-01a6d58acd0c0fb44
+  AuthorELBSubnetList: subnet-071fe4c153f9b1d9a,subnet-01a6d58acd0c0fb44
+  AuthorDispatcherELBSubnetList: subnet-0349472c19ec79c19,subnet-02a325509e841aa8e,subnet-0e41f0a07f118fe44
+  AuthorDispatcherSubnetList: subnet-0599b390a866c2265,subnet-0cc7d16d3e670a0d4,subnet-097c269c8502455c4
+  ToolSubnetList: subnet-0b1c33eb341406052, subnet-00ee54f21a9521459,subnet-091bd1202afa0d86b
+  PublicRouteTable: rtb-07940c785939e4f70
+  PrivateRouteTable: rtb-019c1296a7ea71e0d
