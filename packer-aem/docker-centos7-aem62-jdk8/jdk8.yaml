@@ -1,0 +1,39 @@
+---
+aws:
+  certificate_arn: "arn:aws:acm:ap-southeast-2:918473058104:certificate/db64f52d-0735-4bd6-a3de-25d3f71053e7"
+  certificate_key_arn: "arn:aws:secretsmanager:ap-southeast-2:918473058104:secret:aem-opencloud-tls-private-key-2020-teiYps"
+  tags:
+    - Key: Project
+      Value: AEM OpenCloud
+    - Key: Owner
+      Value: Shine Solutions AEM Team
+    - Key: Cost Centre
+      Value: 12345
+    - Key: jdk_version
+      Value: 8
+aem:
+  ssl_method: jetty
+  author:
+    jvm_opts:
+      - '-XX:+PrintGCDetails'
+      - '-XX:+PrintGCTimeStamps'
+      - '-XX:+PrintGCDateStamps'
+      - '-XX:+PrintTenuringDistribution'
+      - '-XX:+PrintGCApplicationStoppedTime'
+      - '-XX:+HeapDumpOnOutOfMemoryError'
+  publish:
+    jvm_opts:
+      - '-XX:+PrintGCDetails'
+      - '-XX:+PrintGCTimeStamps'
+      - '-XX:+PrintGCDateStamps'
+      - '-XX:+PrintTenuringDistribution'
+      - '-XX:+PrintGCApplicationStoppedTime'
+      - '-XX:+HeapDumpOnOutOfMemoryError'
+  jdk:
+    base_url: s3://aem-opencloud/adobeaemcloud
+    filename: jdk-8u251-linux-x64.rpm
+java:
+  base_url: s3://aem-opencloud/adobeaemcloud
+  filename: jdk-8u251-linux-x64.rpm
+  version: 8
+  version_update: 251

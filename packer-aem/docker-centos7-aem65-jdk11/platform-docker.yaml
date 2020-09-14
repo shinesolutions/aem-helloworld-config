@@ -1,0 +1,11 @@
+---
+platform_type: docker
+
+aem:
+  artifacts_base: /tmp/shinesolutions/packer-aem/artifacts
+  certs_base: ''
+
+aws:
+  install_ssm_agent: false
+  install_cloudwatchlogs: false
+  certificate_arn: ''

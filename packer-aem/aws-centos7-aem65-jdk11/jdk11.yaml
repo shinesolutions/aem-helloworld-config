@@ -1,0 +1,32 @@
+---
+aws:
+  certificate_arn: "s3://aem-opencloud/adobeaemcloud/cert_ssl.crt"
+  certificate_key_arn: "s3://aem-opencloud/adobeaemcloud/cert_ssl.der"
+  tags:
+    - Key: Project
+      Value: AEM OpenCloud
+    - Key: Owner
+      Value: Shine Solutions AEM Team
+    - Key: Cost Centre
+      Value: 12345
+    - Key: jdk_version
+      Value: 11
+aem:
+  ssl_method: granite
+  truststore_password_parameter: aem-opencloud/aoc-sandpit-a/aem-keystore-password
+  author:
+    jvm_opts:
+      - '-XX:+PrintGCDetails'
+      - '-XX:+HeapDumpOnOutOfMemoryError'
+  publish:
+    jvm_opts:
+      - '-XX:+PrintGCDetails'
+      - '-XX:+HeapDumpOnOutOfMemoryError'
+  jdk:
+    base_url: s3://aem-opencloud/adobeaemcloud
+    filename: jdk-11.0.7_linux-x64_bin.rpm
+java:
+  base_url: s3://aem-opencloud/adobeaemcloud
+  filename: jdk-8u251-linux-x64.rpm
+  version: 8
+  version_update: 251
