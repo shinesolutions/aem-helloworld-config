@@ -1,6 +1,6 @@
 ---
 permission_type: b
-network_stack_prefix: aoc-netexp-01
+network_stack_prefix: aoc-netexp-02
 
 main:
   stack_name: aem-consolidated-main-stack
