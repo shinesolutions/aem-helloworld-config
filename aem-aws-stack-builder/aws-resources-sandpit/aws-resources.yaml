@@ -8,4 +8,4 @@ dns_records:
   create_hosted_zone_flag: false
   route53_hosted_zone_name: aemopencloud.cms
 network_exports:
-  VPCId: vpc-02b561af0fee338a8
+  VPCId: vpc-2fc3014b

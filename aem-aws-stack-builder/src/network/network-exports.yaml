@@ -1,7 +1,7 @@
 ---
 network_exports:
   stack_name: aem-network-exports-stack
-  VPCId: vpc-02b561af0fee338a8
+  VPCId: vpc-0d1d8e4a6102c949a
   AuthorPublishDispatcherSubnet: subnet-0c81b0529dd3536fc,subnet-0bdf07ec4688d4e47,subnet-0c7469e8534b7b6ed
   PublishDispatcherELBSubnetList: subnet-0349472c19ec79c19,subnet-02a325509e841aa8e,subnet-0e41f0a07f118fe44
   PublishDispatcherSubnetList: subnet-0c81b0529dd3536fc,subnet-0bdf07ec4688d4e47,subnet-0c7469e8534b7b6ed
