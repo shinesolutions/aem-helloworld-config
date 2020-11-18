@@ -32,8 +32,18 @@ aem:
   jdk:
     base_url: s3://aem-opencloud/adobeaemcloud
     filename: jdk-8u251-linux-x64.rpm
+    # filename: jdk-8u261-linux-x64.rpm
+    # filename: jdk-8u131-linux-x64.rpm
 java:
   base_url: s3://aem-opencloud/adobeaemcloud
   filename: jdk-8u251-linux-x64.rpm
   version: 8
   version_update: 251
+  # base_url: s3://aem-opencloud/adobeaemcloud
+  # filename: jdk-8u261-linux-x64.rpm
+  # version: 8
+  # version_update: 261
+  # base_url: s3://aem-opencloud/adobeaemcloud
+  # filename: jdk-8u131-linux-x64.rpm
+  # version: 8
+  # version_update: 131
