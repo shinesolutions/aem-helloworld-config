@@ -209,7 +209,7 @@ publish_dispatcher:
   load_balancer:
     tag_name: AEM Publish Dispatcher Load Balancer
   tag_name: AEM Publish Dispatcher
-  elb_health_check: HTTPS:443/system/health?tags=shallow
+  elb_health_check: /system/health?tags=shallow
   elb_scheme: internet-facing
   allowed_client: '*.*.*.*'
   asg_cpu_scaling_threshold: 49
@@ -224,10 +224,10 @@ publish:
 
 author:
   instance_profile: aem-instance-profiles-stack-AuthorInstanceProfile-OYGRS9FHB0L9
-  elb_health_check: HTTPS:5432/system/health?tags=shallow
+  elb_health_check: /system/health?tags=shallow
 
 author_dispatcher:
-  elb_health_check: HTTPS:443/system/health?tags=shallow
+  elb_health_check: /system/health?tags=shallow
   enable_random_termination: true
 
 orchestrator:

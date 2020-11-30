@@ -2,8 +2,10 @@
 aem:
   post_start_sleep_seconds: 180
   author:
+    # yamllint disable-line rule:line-length
     jvm_opts: "-XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps -XX:+PrintTenuringDistribution -XX:+PrintGCApplicationStoppedTime -XX:+HeapDumpOnOutOfMemoryError"
   publish:
+    # yamllint disable-line rule:line-length
     jvm_opts: "-XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps -XX:+PrintTenuringDistribution -XX:+PrintGCApplicationStoppedTime -XX:+HeapDumpOnOutOfMemoryError"
 
 reconfiguration:
