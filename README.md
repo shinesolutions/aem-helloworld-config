@@ -1,4 +1,4 @@
-[![Build Status](https://img.shields.io/travis/shinesolutions/aem-helloworld-config.svg)](http://travis-ci.org/shinesolutions/aem-helloworld-config)
+[![Build Status](https://github.com/shinesolutions/aem-helloworld-config/workflows/CI/badge.svg)](https://github.com/shinesolutions/aem-helloworld-config/actions?query=workflow%3ACI)
 
 AEM Hello World Config
 ----------------------
