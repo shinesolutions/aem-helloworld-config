@@ -17,7 +17,6 @@ deps: stage
 
 lint:
 	yamllint \
-	  .travis.yml \
 	  aem-opencloud-manager/*/*.yaml \
 	  aem-test-suite/*/*.yaml \
 	  packer-aem/*/*.yaml \
