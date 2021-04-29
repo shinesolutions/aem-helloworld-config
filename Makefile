@@ -1,5 +1,5 @@
 # Packer AEM is used to retrieve the IDs of the latest AMIs created by Packer AEM itself
-packer_aem_version=4.11.1
+packer_aem_version=5.2.1
 
 ci: clean deps gen-packer-aem gen-aem-aws-stack-builder lint
 
@@ -10,7 +10,7 @@ stage:
 	mkdir -p stage/
 
 deps: stage
-	pip install -r requirements.txt
+	pip3 install -r requirements.txt
 	mkdir -p stage/packer-aem/
 	curl -L -o "stage/packer-aem/packer-aem-${packer_aem_version}.tar.gz" "https://github.com/shinesolutions/packer-aem/releases/download/${packer_aem_version}/packer-aem-${packer_aem_version}.tar.gz"
 	cd stage/packer-aem && tar -xvzf "packer-aem-${packer_aem_version}.tar.gz" && make deps
