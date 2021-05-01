@@ -152,21 +152,32 @@ endef
 
 gen-aem-aws-stack-builder-ami-ids: stage
 	rm -f aem-aws-stack-builder/src/apps/aem/*-stack-builder-ami-ids.yaml
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem62)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem63)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem64)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem65)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem62)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem63)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem64)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem62)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem63)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem64)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem65)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem62,jdk8)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem62,jdk11)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem63,jdk8)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem63,jdk11)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem64,jdk8)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem64,jdk11)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem65,jdk8)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem65,jdk11)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem62,jdk8)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem62,jdk11)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem63,jdk8)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem63,jdk11)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem64,jdk8)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem64,jdk11)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem62,jdk8)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem62,jdk11)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem63,jdk8)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem63,jdk11)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem64,jdk8)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem64,jdk11)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem65,jdk8)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem65,jdk11)
 	make gen-aem-aws-stack-builder
 
 define gen_aem_aws_stack_builder_ami_ids
-	cd stage/packer-aem/ && version="ci-master-aws-*" make clean ami-ids config_path=../../packer-aem/$(1)-$(2)-$(3)/
+	cd stage/packer-aem/ && version="ci-master-aws-*" make clean ami-ids config_path=../../packer-aem/$(1)-$(2)-$(3)-$(4)/
 	cp stage/packer-aem/stage/stack-builder-configs/*.yaml aem-aws-stack-builder/src/apps/aem/
 endef
 
