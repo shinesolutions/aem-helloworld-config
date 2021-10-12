@@ -1,7 +1,7 @@
 ---
 aws:
-  certificate_arn: "s3://aem-opencloud/adobeaemcloud/cert_ssl.crt"
-  certificate_key_arn: "s3://aem-opencloud/adobeaemcloud/cert_ssl.der"
+  certificate_arn: "s3://packer-aem-aoc/adobeaemcloud/aem65_jdk11_cert.crt"
+  certificate_key_arn: "s3://packer-aem-aoc/adobeaemcloud/aem65_jdk11_cert.der"
   tags:
     - Key: Project
       Value: AEM OpenCloud
@@ -13,7 +13,7 @@ aws:
       Value: 11
 aem:
   ssl_method: granite
-  truststore_password_parameter: aem-opencloud/aoc-sandpit-a/aem-keystore-password
+  truststore_password_parameter: aem-opencloud/aoc-awsres-211012/aem-keystore-password
   author:
     jvm_opts:
       - '-XX:+PrintGCDetails'
@@ -23,10 +23,10 @@ aem:
       - '-XX:+PrintGCDetails'
       - '-XX:+HeapDumpOnOutOfMemoryError'
   jdk:
-    base_url: s3://aem-opencloud/adobeaemcloud
+    base_url: s3://packer-aem-aoc/adobeaemcloud
     filename: jdk-11.0.9_linux-x64_bin.rpm
 java:
-  base_url: s3://aem-opencloud/adobeaemcloud
+  base_url: s3://packer-aem-aoc/adobeaemcloud
   filename: jdk-11.0.9_linux-x64_bin.rpm
   version: 11
   version_update: 0.9
