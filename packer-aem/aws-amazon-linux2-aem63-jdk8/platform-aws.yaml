@@ -2,14 +2,14 @@
 platform_type: aws
 
 aem:
-  artifacts_base: s3://aem-opencloud/adobeaemcloud
-  keystore_password_parameter: aem-opencloud/aoc-sandpit-a/aem-keystore-password
+  artifacts_base: s3://packer-aem-aoc/adobeaemcloud
+  keystore_password_parameter: aem-opencloud/aoc-awsres-211012/aem-keystore-password
 
 aws:
   region: ap-southeast-2
   vpc_id: ''
   subnet_id: ''
-  instance_profile: PackerAemRole
+  instance_profile: aoc-awsres-211012-packer-aem-resources-stack-PackerAemInstanceProfile-RJNY7AVSLR0Y
   temporary_security_group_source_cidr: "0.0.0.0/0"
   ami_users: ''
   install_ssm_agent: true
