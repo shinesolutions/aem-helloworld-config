@@ -64,12 +64,12 @@ gen-packer-aem:
 	$(call gen_packer_aem,docker,amazon-linux2,aem64,jdk8)
 	$(call gen_packer_aem,docker,amazon-linux2,aem65,jdk8)
 	$(call gen_packer_aem,docker,amazon-linux2,aem65,jdk11)
-	$(call gen_packer_aem_aws_resources,sandpit)
+	$(call gen_packer_aem_aws_resources,shineworks)
 
 define gen_packer_aem
   rm -rf packer-aem/$(1)-$(2)-$(3)-$(4)
 	mkdir -p packer-aem/$(1)-$(2)-$(3)-$(4)
-	cp packer-aem/src/sandpit.yaml packer-aem/$(1)-$(2)-$(3)-$(4)/
+	cp packer-aem/src/shineworks.yaml packer-aem/$(1)-$(2)-$(3)-$(4)/
 	cp packer-aem/src/encryption.yaml packer-aem/$(1)-$(2)-$(3)-$(4)/
 	cp packer-aem/src/platform-$(1).yaml packer-aem/$(1)-$(2)-$(3)-$(4)/
 	cp packer-aem/src/os-$(2).yaml packer-aem/$(1)-$(2)-$(3)-$(4)/
