@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added CodePipeline/CodeBuild configuration
 
 ### Changed
-- Updated parameters for new ShineWorks AWS account
+- Updated parameters for new sandpit AWS account
 - Update Jumphost access security group (from jumphost inbound to instances) with the resource `shn-awsres-03`
 
 ### Removed
