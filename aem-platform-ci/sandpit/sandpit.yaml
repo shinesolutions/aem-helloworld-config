@@ -1,0 +1,33 @@
+aws:
+  region: ap-southeast-2
+
+ci:
+  aws:
+    hosts:
+      - platform_type: aws
+        os_type: rhel7
+      - platform_type: aws
+        os_type: amazon-linux2
+      # - platform_type: docker
+      #   os_type: centos7
+    aem_versions:
+      - aem64
+      - aem65
+    s3:
+      bucket_name: aem-platform-ci
+    iam:
+      role_arn: arn:aws:iam::291046903199:role/aem-opencloud-codebuild-role
+
+scm:
+  organisation: shinesolutions
+  repos:
+    packer_aem:
+      branches:
+        - master
+        # - release/2
+        # - release/2.7
+    aem_aws_stack_builder:
+      branches:
+        - master
+        # - release/2
+        # - release/2.2

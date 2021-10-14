@@ -1,7 +1,7 @@
 ---
 aws:
   resources:
-    s3_bucket: 'aoc-sandpit-a'
+    s3_bucket: 'packer-aem-aoc'
     enable_secrets_manager: true
     create_s3_bucket: true
     create_iam_packer_role: true

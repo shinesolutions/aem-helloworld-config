@@ -6,8 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
+### Added
+- Added CodePipeline/CodeBuild configuration
 
 ### Changed
+- Updated parameters for new sandpit AWS account
 - Update Jumphost access security group (from jumphost inbound to instances) with the resource `shn-awsres-03`
 
 ### Removed
