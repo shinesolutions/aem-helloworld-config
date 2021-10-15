@@ -1,16 +1,16 @@
 ---
 network_exports:
   stack_name: aem-network-exports-stack
-  VPCId:
-  AuthorPublishDispatcherSubnet:
-  PublishDispatcherELBSubnetList:
-  PublishDispatcherSubnetList:
-  PublishSubnetList:
-  AuthorPrimarySubnet:
-  AuthorStandbySubnet:
-  AuthorELBSubnetList:
-  AuthorDispatcherELBSubnetList:
-  AuthorDispatcherSubnetList:
-  ToolSubnetList:
-  PublicRouteTable:
-  PrivateRouteTable: 
+  VPCId: vpc-00dfcdcd309d256d8
+  AuthorPublishDispatcherSubnet: subnet-05839ebcb2b3e3cc5,subnet-005d3f13297282c76,subnet-0ec96cce1e9c4aeff
+  PublishDispatcherELBSubnetList: subnet-01d0a3cfd840a9a16,subnet-04e079ed5fb2bfabd,subnet-06d1c870262c3f149
+  PublishDispatcherSubnetList: subnet-05839ebcb2b3e3cc5,subnet-005d3f13297282c76,subnet-0ec96cce1e9c4aeff
+  PublishSubnetList: subnet-0f196ae4ac218254a,subnet-0f5ca1ccd7ae33fdb,subnet-036dd0dc83b9e92b0
+  AuthorPrimarySubnet: subnet-0e0b3925b15aa7e8d
+  AuthorStandbySubnet: subnet-0b6426f6012c893f4
+  AuthorELBSubnetList: subnet-0e0b3925b15aa7e8d,subnet-0b6426f6012c893f4
+  AuthorDispatcherELBSubnetList: subnet-016ea70140852fdae,subnet-025d7d69d5e94cb91,subnet-03480a216651e4271
+  AuthorDispatcherSubnetList: subnet-016ea70140852fdae,subnet-025d7d69d5e94cb91,subnet-03480a216651e4271
+  ToolSubnetList: subnet-0dad355162a5e7d42,subnet-0ca69487f7938a9de,subnet-0004e34d540d5f86a
+  PublicRouteTable: rtb-019d08b271deb4ec2
+  PrivateRouteTable: rtb-002956e16dc1b5e52

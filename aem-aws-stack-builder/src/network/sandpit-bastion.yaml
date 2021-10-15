@@ -1,7 +1,7 @@
 ---
 bastion:
   stack_name: aem-bastion-stack
-  key_pair_name: aemopencloud-sandpit
-  ami_id: ami-ccecf5af
-  subnet_id: subnet-982c92ee
-  security_groups: sg-a2ac6cc5
+  key_pair_name: overwrite-me
+  ami_id: overwrite-me
+  subnet_id: overwrite-me
+  security_groups: overwrite-me
