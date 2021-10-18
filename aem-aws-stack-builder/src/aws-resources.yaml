@@ -2,10 +2,10 @@
 aws:
   region: ap-southeast-2
 s3:
-  create_bucket_flag: true
+  create_bucket_flag: 'true'
   data_bucket_name: aem-aws-stack-builder
 dns_records:
-  create_hosted_zone_flag: false
+  create_hosted_zone_flag: 'false'
   route53_hosted_zone_name: aemopencloud.cms
 network_exports:
   VPCId: vpc-00dfcdcd309d256d8

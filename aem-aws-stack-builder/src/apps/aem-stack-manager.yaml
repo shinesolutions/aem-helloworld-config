@@ -23,4 +23,4 @@ stack_manager:
     https_endpoint: https://api.opsgenie.com/v1/json/amazonsns?apiKey=someapikey
 
 s3:
-  data_bucket_name: aem-opencloud
+  data_bucket_name: aem-aws-stack-builder

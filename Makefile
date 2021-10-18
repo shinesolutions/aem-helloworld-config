@@ -144,6 +144,7 @@ define gen_aem_aws_stack_builder_aws_resources
   rm -rf aem-aws-stack-builder/aws-resources-$(1)
 	mkdir -p aem-aws-stack-builder/aws-resources-$(1)
 	cp aem-aws-stack-builder/src/aws-resources.yaml aem-aws-stack-builder/aws-resources-$(1)/
+	cp aem-aws-stack-builder/src/apps/aem/ZZZ_encryption.yaml aem-aws-stack-builder/aws-resources-$(1)/
 endef
 
 ################################################################################

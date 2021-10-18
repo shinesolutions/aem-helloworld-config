@@ -1,6 +1,6 @@
 ---
 permission_type: b
-network_stack_prefix: aoc-netexp-01
+network_stack_prefix: aoc-netexp-211015
 
 main:
   stack_name: aem-full-set-main-stack
@@ -48,92 +48,92 @@ aem:
     jvm_mem_opts: "-Xms2048m -Xmx4096m -XX:-UseGCOverheadLimit"
 
 compute:
-  key_pair_name: aemopencloud-sandpit
+  key_pair_name: aem-opencloud-key
 
 security_groups:
   secure_shell:
-    inbound_cidr_ip: 10.0.8.0/21
+    inbound_cidr_ip: 10.11.48.0/20
 
   private_subnet_internet_outbound_cidr_ip: 0.0.0.0/0
 
   publish_dispatcher_elb:
     inbound_cidr_ip: 10.0.8.0/21
     extra_groups:
-      - sg-a2ac6cc5
+      - sg-0ee8d936618a7eb72
 
   author_dispatcher_elb:
     inbound_cidr_ip: 10.0.8.0/21
     extra_groups:
-      - sg-a2ac6cc5
+      - sg-01d33232d3569b079
 
   author_primary:
     extra_groups:
       # Corp network security group (from corp network inbound to instances)
-      - sg-01b72e7bb83c77a07
+      - sg-01d33232d3569b079
       # Forward proxy access security group (from instances outbound to forward proxy)
-      - sg-09bbdf9db5255406f
+      - sg-01d33232d3569b079
       # Jumphost access security group (from jumphost inbound to instances)
-      - sg-0c68e3fad6526b077
+      - sg-01d33232d3569b079
 
   author_standby:
     extra_groups:
       # Corp network security group (from corp network inbound to instances)
-      - sg-01b72e7bb83c77a07
+      - sg-01d33232d3569b079
       # Forward proxy access security group (from instances outbound to forward proxy)
-      - sg-09bbdf9db5255406f
+      - sg-01d33232d3569b079
       # Jumphost access security group (from jumphost inbound to instances)
-      - sg-0c68e3fad6526b077
+      - sg-01d33232d3569b079
 
   publish:
     extra_groups:
       # Corp network security group (from corp network inbound to instances)
-      - sg-01b72e7bb83c77a07
+      - sg-01d33232d3569b079
       # Forward proxy access security group (from instances outbound to forward proxy)
-      - sg-09bbdf9db5255406f
+      - sg-01d33232d3569b079
       # Jumphost access security group (from jumphost inbound to instances)
-      - sg-0c68e3fad6526b077
+      - sg-01d33232d3569b079
 
   author_dispatcher:
     extra_groups:
       # Corp network security group (from corp network inbound to instances)
-      - sg-01b72e7bb83c77a07
+      - sg-01d33232d3569b079
       # Forward proxy access security group (from instances outbound to forward proxy)
-      - sg-09bbdf9db5255406f
+      - sg-01d33232d3569b079
       # Jumphost access security group (from jumphost inbound to instances)
-      - sg-0c68e3fad6526b077
+      - sg-01d33232d3569b079
 
   publish_dispatcher:
     extra_groups:
       # Corp network security group (from corp network inbound to instances)
-      - sg-01b72e7bb83c77a07
+      - sg-01d33232d3569b079
       # Forward proxy access security group (from instances outbound to forward proxy)
-      - sg-09bbdf9db5255406f
+      - sg-01d33232d3569b079
       # Jumphost access security group (from jumphost inbound to instances)
-      - sg-0c68e3fad6526b077
+      - sg-01d33232d3569b079
 
   orchestrator:
     extra_groups:
       # Corp network security group (from corp network inbound to instances)
-      - sg-01b72e7bb83c77a07
+      - sg-01d33232d3569b079
       # Forward proxy access security group (from instances outbound to forward proxy)
-      - sg-09bbdf9db5255406f
+      - sg-01d33232d3569b079
       # Jumphost access security group (from jumphost inbound to instances)
-      - sg-0c68e3fad6526b077
+      - sg-01d33232d3569b079
 
   chaos_monkey:
     extra_groups:
       # Corp network security group (from corp network inbound to instances)
-      - sg-01b72e7bb83c77a07
+      - sg-01d33232d3569b079
       # Forward proxy access security group (from instances outbound to forward proxy)
-      - sg-09bbdf9db5255406f
+      - sg-01d33232d3569b079
       # Jumphost access security group (from jumphost inbound to instances)
-      - sg-0c68e3fad6526b077
+      - sg-01d33232d3569b079
 
 s3:
-  data_bucket_name: aem-opencloud
+  data_bucket_name: aem-aws-stack-builder
 
 certificate_manager:
-  ssl_certificate_arn: 'arn:aws:iam::918473058104:server-certificate/aem-opencloud-2020'
+  ssl_certificate_arn: 'arn:aws:acm:ap-southeast-2:291046903199:certificate/3c7b78e9-125f-4d32-ad42-f87415942f4d'
 
 snapshots:
   author:

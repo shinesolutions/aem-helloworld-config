@@ -1,6 +1,6 @@
 ---
 permission_type: b
-network_stack_prefix: aoc-netexp-01
+network_stack_prefix: aoc-netexp-211015
 
 main:
   stack_name: aem-consolidated-main-stack
@@ -46,22 +46,21 @@ aem:
 security_groups:
   private_subnet_internet_outbound_cidr_ip: 0.0.0.0/0
   author_publish_dispatcher:
-    inbound_cidr_ip: 10.0.8.0/21
+    inbound_cidr_ip: 10.11.48.0/20
     extra_groups:
       # Corp network security group (from corp network inbound to instances)
-      - sg-01b72e7bb83c77a07
+      # - sg-01d33232d3569b079
       # Forward proxy access security group (from instances outbound to forward proxy)
-      - sg-09bbdf9db5255406f
       # Jumphost access security group (from jumphost inbound to instances)
-      - sg-0c68e3fad6526b077
+      - sg-02e02c0ecfe95b2f4
   secure_shell:
-    inbound_cidr_ip: 10.0.8.0/21
+    inbound_cidr_ip: 10.11.48.0/20
 
 compute:
-  key_pair_name: aemopencloud-sandpit
+  key_pair_name: aem-opencloud-key
 
 s3:
-  data_bucket_name: aem-opencloud
+  data_bucket_name: aem-aws-stack-builder
 
 snapshots:
   author:
@@ -83,8 +82,8 @@ system_users:
     path: /home/users/system
     authorizable_keystore:
       password: changeit
-      certificate_chain: s3://aem-opencloud/certs/keystore_example_cert_chain.crt
-      private_key: s3://aem-opencloud/certs/keystore_example_private.der
+      certificate_chain: s3://aem-aws-stack-builder/certs/keystore_example_cert_chain.crt
+      private_key: s3://aem-aws-stack-builder/certs/keystore_example_private.der
       private_key_alias: alias_123
   admin:
     name: admin
@@ -134,7 +133,7 @@ saml:
   use_encryption: false
   user_id_attribute: NameID
   user_intermediate_path:
-  file: s3://aem-opencloud/certs/saml_certificate.crt
+  file: s3://aem-aws-stack-builder/certs/saml_certificate.crt
 
 author_publish_dispatcher:
   tag_name: AEM Author Publish Dispatcher

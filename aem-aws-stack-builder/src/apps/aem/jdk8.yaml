@@ -11,7 +11,7 @@ aem:
 reconfiguration:
   enable_truststore_removal: false
   enable_truststore_migration: false
-  certificate_arn: "arn:aws:acm:ap-southeast-2:291046903199:certificate/a9384c98-c5fe-4f58-9b42-d7b2c0536bb3"
+  certificate_arn: "arn:aws:acm:ap-southeast-2:291046903199:certificate/3c7b78e9-125f-4d32-ad42-f87415942f4d"
   certificate_key_arn: "arn:aws:secretsmanager:ap-southeast-2:291046903199:secret:aem-opencloud/aoc-awsres-211012/certificate-key-z80bve"
   ssl_keystore_password: 43m0p3ncl0ud
   author:

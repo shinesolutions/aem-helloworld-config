@@ -9,6 +9,9 @@ ec2_vpc:
   cidr_block: 10.12.0.0/18
   dhcp_option: dopt-09648e935ba5e21ba
 
+endpoints:
+  s3: aem-aws-stack-builder
+
 network:
   stack_name: aem-network-stack
 
