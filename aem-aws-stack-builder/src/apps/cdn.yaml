@@ -15,7 +15,7 @@ cdn:
     min_ttl: 30
     smooth_streaming: 'false'
     viewer_protocol_policy: allow-all
-  log_bucket_name: aem-opencloud.s3.amazonaws.com
+  log_bucket_name: aem-aws-stack-builder.s3.amazonaws.com
   log_bucket_prefix: cdn
   log_include_cookies: 'false'
   origins:
@@ -26,4 +26,4 @@ cdn:
   viewer_certificate:
     cloud_front_default_certificate: 'true'
 s3:
-  data_bucket_name: aem-opencloud
+  data_bucket_name: aem-aws-stack-builder
