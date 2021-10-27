@@ -23,11 +23,11 @@ scm:
   repos:
     packer_aem:
       branches:
-        - master
+        - main
         # - release/2
         # - release/2.7
     aem_aws_stack_builder:
       branches:
-        - master
+        - main
         # - release/2
         # - release/2.2
