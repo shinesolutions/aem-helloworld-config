@@ -64,70 +64,63 @@ security_groups:
   author_dispatcher_elb:
     inbound_cidr_ip: 10.0.8.0/21
     extra_groups:
-      - sg-01d33232d3569b079
+      - sg-02e02c0ecfe95b2f4
 
   author_primary:
     extra_groups:
       # Corp network security group (from corp network inbound to instances)
-      - sg-01d33232d3569b079
+      # - sg-01d33232d3569b079
       # Forward proxy access security group (from instances outbound to forward proxy)
-      - sg-01d33232d3569b079
       # Jumphost access security group (from jumphost inbound to instances)
-      - sg-01d33232d3569b079
+      - sg-02e02c0ecfe95b2f4
 
   author_standby:
     extra_groups:
       # Corp network security group (from corp network inbound to instances)
-      - sg-01d33232d3569b079
+      # - sg-01d33232d3569b079
       # Forward proxy access security group (from instances outbound to forward proxy)
-      - sg-01d33232d3569b079
       # Jumphost access security group (from jumphost inbound to instances)
-      - sg-01d33232d3569b079
+      - sg-02e02c0ecfe95b2f4
 
   publish:
     extra_groups:
       # Corp network security group (from corp network inbound to instances)
-      - sg-01d33232d3569b079
+      # - sg-01d33232d3569b079
       # Forward proxy access security group (from instances outbound to forward proxy)
-      - sg-01d33232d3569b079
       # Jumphost access security group (from jumphost inbound to instances)
-      - sg-01d33232d3569b079
+      - sg-02e02c0ecfe95b2f4
 
   author_dispatcher:
     extra_groups:
       # Corp network security group (from corp network inbound to instances)
-      - sg-01d33232d3569b079
+      # - sg-01d33232d3569b079
       # Forward proxy access security group (from instances outbound to forward proxy)
-      - sg-01d33232d3569b079
       # Jumphost access security group (from jumphost inbound to instances)
-      - sg-01d33232d3569b079
+      - sg-02e02c0ecfe95b2f4
 
   publish_dispatcher:
     extra_groups:
       # Corp network security group (from corp network inbound to instances)
-      - sg-01d33232d3569b079
+      # - sg-01d33232d3569b079
       # Forward proxy access security group (from instances outbound to forward proxy)
-      - sg-01d33232d3569b079
       # Jumphost access security group (from jumphost inbound to instances)
-      - sg-01d33232d3569b079
+      - sg-02e02c0ecfe95b2f4
 
   orchestrator:
     extra_groups:
       # Corp network security group (from corp network inbound to instances)
-      - sg-01d33232d3569b079
+      # - sg-01d33232d3569b079
       # Forward proxy access security group (from instances outbound to forward proxy)
-      - sg-01d33232d3569b079
       # Jumphost access security group (from jumphost inbound to instances)
-      - sg-01d33232d3569b079
+      - sg-02e02c0ecfe95b2f4
 
   chaos_monkey:
     extra_groups:
       # Corp network security group (from corp network inbound to instances)
-      - sg-01d33232d3569b079
+      # - sg-01d33232d3569b079
       # Forward proxy access security group (from instances outbound to forward proxy)
-      - sg-01d33232d3569b079
       # Jumphost access security group (from jumphost inbound to instances)
-      - sg-01d33232d3569b079
+      - sg-02e02c0ecfe95b2f4
 
 s3:
   data_bucket_name: aem-aws-stack-builder

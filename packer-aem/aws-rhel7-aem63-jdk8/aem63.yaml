@@ -1,6 +1,0 @@
----
-aem:
-  profile: aem63_sp2_cfp2
-
-aws:
-  aem_license: /aem-opencloud/aoc-awsres-211012/aem-license

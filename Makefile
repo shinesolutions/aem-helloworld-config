@@ -34,33 +34,21 @@ lint:
 ################################################################################
 
 gen-packer-aem:
-	$(call gen_packer_aem,aws,rhel7,aem62,jdk8)
-	$(call gen_packer_aem,aws,rhel7,aem63,jdk8)
 	$(call gen_packer_aem,aws,rhel7,aem64,jdk8)
 	$(call gen_packer_aem,aws,rhel7,aem65,jdk8)
 	$(call gen_packer_aem,aws,rhel7,aem65,jdk11)
-	$(call gen_packer_aem,aws,rhel8,aem62,jdk8)
-	$(call gen_packer_aem,aws,rhel8,aem63,jdk8)
 	$(call gen_packer_aem,aws,rhel8,aem64,jdk8)
 	$(call gen_packer_aem,aws,rhel8,aem65,jdk8)
 	$(call gen_packer_aem,aws,rhel8,aem65,jdk11)
-	$(call gen_packer_aem,aws,centos7,aem62,jdk8)
-	$(call gen_packer_aem,aws,centos7,aem63,jdk8)
 	$(call gen_packer_aem,aws,centos7,aem64,jdk8)
 	$(call gen_packer_aem,aws,centos7,aem65,jdk8)
 	$(call gen_packer_aem,aws,centos7,aem65,jdk11)
-	$(call gen_packer_aem,aws,amazon-linux2,aem62,jdk8)
-	$(call gen_packer_aem,aws,amazon-linux2,aem63,jdk8)
 	$(call gen_packer_aem,aws,amazon-linux2,aem64,jdk8)
 	$(call gen_packer_aem,aws,amazon-linux2,aem65,jdk8)
 	$(call gen_packer_aem,aws,amazon-linux2,aem65,jdk11)
-	$(call gen_packer_aem,docker,centos7,aem62,jdk8)
-	$(call gen_packer_aem,docker,centos7,aem63,jdk8)
 	$(call gen_packer_aem,docker,centos7,aem64,jdk8)
 	$(call gen_packer_aem,docker,centos7,aem65,jdk8)
 	$(call gen_packer_aem,docker,centos7,aem65,jdk11)
-	$(call gen_packer_aem,docker,amazon-linux2,aem62,jdk8)
-	$(call gen_packer_aem,docker,amazon-linux2,aem63,jdk8)
 	$(call gen_packer_aem,docker,amazon-linux2,aem64,jdk8)
 	$(call gen_packer_aem,docker,amazon-linux2,aem65,jdk8)
 	$(call gen_packer_aem,docker,amazon-linux2,aem65,jdk11)
@@ -88,14 +76,6 @@ endef
 ################################################################################
 
 gen-aem-aws-stack-builder:
-	$(call gen_aem_aws_stack_builder,aem62,rhel7,full-set,lightweight,jdk8)
-	$(call gen_aem_aws_stack_builder,aem62,rhel7,consolidated,lightweight,jdk8)
-	$(call gen_aem_aws_stack_builder,aem62,amazon-linux2,full-set,lightweight,jdk8)
-	$(call gen_aem_aws_stack_builder,aem62,amazon-linux2,consolidated,lightweight,jdk8)
-	$(call gen_aem_aws_stack_builder,aem63,rhel7,full-set,lightweight,jdk8)
-	$(call gen_aem_aws_stack_builder,aem63,rhel7,consolidated,lightweight,jdk8)
-	$(call gen_aem_aws_stack_builder,aem63,amazon-linux2,full-set,lightweight,jdk8)
-	$(call gen_aem_aws_stack_builder,aem63,amazon-linux2,consolidated,lightweight,jdk8)
 	$(call gen_aem_aws_stack_builder,aem64,rhel7,full-set,lightweight,jdk8)
 	$(call gen_aem_aws_stack_builder,aem64,rhel7,consolidated,lightweight,jdk8)
 	$(call gen_aem_aws_stack_builder,aem64,amazon-linux2,full-set,lightweight,jdk8)
@@ -153,24 +133,12 @@ endef
 
 gen-aem-aws-stack-builder-ami-ids: stage
 	rm -f aem-aws-stack-builder/src/apps/aem/*-stack-builder-ami-ids.yaml
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem62,jdk8)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem62,jdk11)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem63,jdk8)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem63,jdk11)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem64,jdk8)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem64,jdk11)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem65,jdk8)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem65,jdk11)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem62,jdk8)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem62,jdk11)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem63,jdk8)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem63,jdk11)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem64,jdk8)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem64,jdk11)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem62,jdk8)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem62,jdk11)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem63,jdk8)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem63,jdk11)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem64,jdk8)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem64,jdk11)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem65,jdk8)
@@ -178,7 +146,7 @@ gen-aem-aws-stack-builder-ami-ids: stage
 	make gen-aem-aws-stack-builder
 
 define gen_aem_aws_stack_builder_ami_ids
-	cd stage/packer-aem/ && version="ci-master-aws-*" make clean ami-ids config_path=../../packer-aem/$(1)-$(2)-$(3)-$(4)/
+	cd stage/packer-aem/ && version="ci-main-aws-*" make clean ami-ids config_path=../../packer-aem/$(1)-$(2)-$(3)-$(4)/
 	cp stage/packer-aem/stage/stack-builder-configs/*.yaml aem-aws-stack-builder/src/apps/aem/
 endef
 
