@@ -2,7 +2,7 @@
 aws:
   region: ap-southeast-2
   library:
-    s3_bucket: aem-opencloud
+    s3_bucket: aem-opencloud-manager
 
 aem_opencloud:
   config:
