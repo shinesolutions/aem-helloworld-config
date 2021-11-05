@@ -216,7 +216,8 @@ publish:
   enable_random_termination: false
 
 author:
-  instance_profile: aem-instance-profiles-stack-AuthorInstanceProfile-OYGRS9FHB0L9
+  # 'instance_profile' used in Permission Type C only
+  instance_profile: TODO
   elb_health_check: /system/health?tags=shallow
 
 author_dispatcher:
