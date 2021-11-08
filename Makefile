@@ -134,13 +134,12 @@ endef
 gen-aem-aws-stack-builder-ami-ids: stage
 	rm -f aem-aws-stack-builder/src/apps/aem/*-stack-builder-ami-ids.yaml
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem64,jdk8)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem64,jdk11)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem65,jdk8)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem65,jdk11)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem64,jdk8)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem64,jdk11)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem65,jdk8)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem65,jdk11)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem64,jdk8)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem64,jdk11)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem65,jdk8)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem65,jdk11)
 	make gen-aem-aws-stack-builder
