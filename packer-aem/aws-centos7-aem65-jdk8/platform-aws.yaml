@@ -7,8 +7,8 @@ aem:
 
 aws:
   region: ap-southeast-2
-  vpc_id: ''
-  subnet_id: ''
+  vpc_id: vpc-00dfcdcd309d256d8
+  subnet_id: subnet-0004e34d540d5f86a
   instance_profile: aoc-awsres-211012-packer-aem-resources-stack-PackerAemInstanceProfile-RJNY7AVSLR0Y
   temporary_security_group_source_cidr: "0.0.0.0/0"
   ami_users: ''
