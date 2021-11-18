@@ -1,7 +1,7 @@
 ---
-http_proxy: ''
-https_proxy: ''
-no_proxy: ''
+https_proxy: http://forward-proxy.infracatalog.srv:3128/
+http_proxy: http://forward-proxy.infracatalog.srv:3128/
+no_proxy: localhost,127.0.0.1,169.254.169.254,169.254.0.0/16,elb.amazonaws.com,10.0.8.0/21,infracatalog.srv
 
 timezone:
   region: Australia
