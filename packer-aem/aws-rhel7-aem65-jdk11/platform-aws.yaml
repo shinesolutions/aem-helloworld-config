@@ -7,8 +7,8 @@ aem:
 
 aws:
   region: ap-southeast-2
-  vpc_id: vpc-01f4a54d9db986bbc # use the infra public vpc to avoid direct connect and allow Jenkins accessing the instance
-  subnet_id: subnet-0e3a0db2023a39908
+  vpc_id: vpc-00dfcdcd309d256d8 # Issue: Local cmd will not work since the instance is in a private subnet
+  subnet_id: subnet-0004e34d540d5f86a
   instance_profile: aoc-awsres-211012-packer-aem-resources-stack-PackerAemInstanceProfile-RJNY7AVSLR0Y
   temporary_security_group_source_cidr: "0.0.0.0/0"
   ami_users: ''
