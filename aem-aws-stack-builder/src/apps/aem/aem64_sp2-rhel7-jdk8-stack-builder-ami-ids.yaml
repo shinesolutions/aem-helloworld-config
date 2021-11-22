@@ -5,7 +5,7 @@ ami_ids:
   author: null
   author_dispatcher: null
   author_publish_dispatcher: null
-  chaos_monkey: null
-  orchestrator: null
+  chaos_monkey: ami-0aef66210d23f3db9
+  orchestrator: ami-0aef66210d23f3db9
   publish: null
   publish_dispatcher: null
