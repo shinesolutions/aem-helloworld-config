@@ -127,7 +127,7 @@ saml:
   file: s3://aem-opencloud/certs/saml_certificate.crt
 
 author_publish_dispatcher:
-  instance_type: m4.xlarge
+  instance_type: m5.xlarge
   root_vol_size: 30
   data_vol_size: 100
   tag_name: AEM Author Publish Dispatcher

@@ -11,12 +11,12 @@ publish:
   asg_min_size: 2
   asg_desired_capacity: 2
   asg_max_size: 3
-  instance_type: m4.xlarge
+  instance_type: m5.xlarge
   root_vol_size: 30
   data_vol_size: 75
 
 author:
-  instance_type: m4.xlarge
+  instance_type: m5.xlarge
   root_vol_size: 30
   data_vol_size: 75
 
