@@ -29,4 +29,4 @@ java:
   base_url: s3://packer-aem-aoc/adobeaemcloud
   filename: jdk-11.0.9_linux-x64_bin.rpm
   version: 11
-  version_update: '0.9'
+  version_update: 0.9
