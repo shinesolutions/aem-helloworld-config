@@ -1,7 +1,7 @@
 ---
 aws:
-  certificate_arn: "arn:aws:acm:ap-southeast-2:291046903199:certificate/3c7b78e9-125f-4d32-ad42-f87415942f4d"
-  certificate_key_arn: "arn:aws:secretsmanager:ap-southeast-2:291046903199:secret:aem-opencloud/aoc-awsres-211012/certificate-key-z80bve"
+  certificate_arn: "arn:aws:acm:ap-southeast-2:291046903199:certificate/0b91da36-fbe0-4888-88ed-d793dcbf3e69"
+  certificate_key_arn: "arn:aws:secretsmanager:ap-southeast-2:291046903199:secret:infra-catalog/infracat-awsres-211011/certificate-key-oBrlfc"
   tags:
     - Key: Project
       Value: AEM OpenCloud
