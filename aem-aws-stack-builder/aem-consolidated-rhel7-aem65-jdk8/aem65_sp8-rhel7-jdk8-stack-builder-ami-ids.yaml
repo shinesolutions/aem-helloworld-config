@@ -7,5 +7,5 @@ ami_ids:
   author_publish_dispatcher: ami-0a806b4be972e2d32
   chaos_monkey: ami-02ba51a4978c4ab09
   orchestrator: ami-02ba51a4978c4ab09
-  publish: ami-07a0844421ef28ea6
+  publish: ami-042052f4d5c525d7e
   publish_dispatcher: ami-0d6f001eaf6cef7fd
