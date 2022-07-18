@@ -3,7 +3,7 @@
     "packages": [
       {
         "group": "shinesolutions",
-        "name": "aem-helloworld-prad",
+        "name": "aem-helloworld",
         "filter": [
           {
             "root": "/apps/helloworld",
