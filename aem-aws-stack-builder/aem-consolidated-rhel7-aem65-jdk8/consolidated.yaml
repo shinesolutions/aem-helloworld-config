@@ -10,7 +10,7 @@ prerequisites:
 
 aem:
   enable_crxde: true
-  enable_default_passwords: false
+  enable_default_passwords: true
   enable_deploy_on_init: true
   enable_reconfiguration: false
   enable_bak_files_cleanup: false
