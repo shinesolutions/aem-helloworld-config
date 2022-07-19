@@ -10,7 +10,7 @@ prerequisites:
 
 aem:
   enable_crxde: true
-  enable_default_passwords: true
+  enable_default_passwords: false
   enable_deploy_on_init: false
   enable_reverse_replication: true
   enable_content_healthcheck: true
