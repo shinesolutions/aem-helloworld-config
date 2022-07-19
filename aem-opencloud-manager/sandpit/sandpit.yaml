@@ -6,7 +6,7 @@ aws:
 
 aem_opencloud:
   config:
-    artifact_url: https://github.com/shinesolutions/aem-helloworld-config/archive/testing-aem-opencloud-aem65-sp3.tar.gz
+    artifact_url: https://github.com/shinesolutions/aem-helloworld-config/archive/main.tar.gz
   custom_manager_steps:
     artifact_url: https://github.com/shinesolutions/aem-helloworld-custom-manager-steps/archive/main.tar.gz
   custom_image_provisioner:
