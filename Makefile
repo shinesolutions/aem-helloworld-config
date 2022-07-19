@@ -110,6 +110,7 @@ define gen_aem_aws_stack_builder_aem_stack_manager
   rm -rf aem-aws-stack-builder/aem-stack-manager-$(1)/
 	mkdir -p aem-aws-stack-builder/aem-stack-manager-$(1)/
 	cp aem-aws-stack-builder/src/apps/aem-stack-manager.yaml aem-aws-stack-builder/aem-stack-manager-$(1)/
+	cp aem-aws-stack-builder/src/apps/aem/ZZZ_encryption.yaml aem-aws-stack-builder/aem-stack-manager-$(1)/
 	cp aem-aws-stack-builder/src/common/*.yaml aem-aws-stack-builder/aem-stack-manager-$(1)/
 endef
 
