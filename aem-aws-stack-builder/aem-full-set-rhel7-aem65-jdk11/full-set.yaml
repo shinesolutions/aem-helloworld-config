@@ -57,12 +57,12 @@ security_groups:
   private_subnet_internet_outbound_cidr_ip: 0.0.0.0/0
 
   publish_dispatcher_elb:
-    inbound_cidr_ip: 10.0.8.0/21
+    inbound_cidr_ip: 0.0.0.0/0
     extra_groups:
       - sg-0ee8d936618a7eb72
 
   author_dispatcher_elb:
-    inbound_cidr_ip: 10.0.8.0/21
+    inbound_cidr_ip: 10.11.48.0/20
     extra_groups:
       - sg-02e02c0ecfe95b2f4
 
