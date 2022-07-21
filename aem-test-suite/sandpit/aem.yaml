@@ -1,17 +1,19 @@
 ---
 author:
   protocol: https
-  host: localhost
+  host: auth.aem-con-demo1.shineworks.io
   port: 5432
   verify_ssl: false
-  debug: false
+  debug: true
 publish:
   protocol: https
-  host: localhost
+  host: pub.aem-con-demo1.shineworks.io
   port: 5433
   verify_ssl: false
-  debug: false
+  debug: true
 publish_dispatcher:
   protocol: https
-  host: localhost
+  host: aem-con-demo1.shineworks.io
   port: 443
+  verify_ssl: false
+  debug: true
