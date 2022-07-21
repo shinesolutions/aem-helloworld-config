@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated gen-aem-aws-stack-builder to add encryption file to aem-stack-manager profile
 - Change author-dispatcher ELB inbound to allow reverse proxy CIDR
 - Change publish-dispatcher ELB inbound to allow the Internet since it's on public subnet
+- Updated configuration for aem-test-suite
 
 ### Removed
 - Removed `inbound_from_bastion_host_security_group` configuration since it's no longer needed in aem-aws-stack-builder 4.34.0
