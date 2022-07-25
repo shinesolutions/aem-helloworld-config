@@ -15,6 +15,18 @@ stack_prefix_con := aoc-con-$(timestamp)
 stack_prefix_fs := aoc-fs-$(timestamp)
 stack_manager_stack_prefix := aoc-stack-mgr-$(timestamp)
 
+deps:
+	npm install -g nestor
+
+machine-images: rhel7-aem65-jdk8-machine-images
+
+rhel7-aem65-jdk8-machine-images:
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/machine-images/job/aws/job/aws-rhel7-aem65-jdk8/job/author/" "ENABLE_SLACK_NOTIFICATIONS=true"
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/machine-images/job/aws/job/aws-rhel7-aem65-jdk8/job/author-publish-dispatcher/" "ENABLE_SLACK_NOTIFICATIONS=true"
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/machine-images/job/aws/job/aws-rhel7-aem65-jdk8/job/dispatcher/" "ENABLE_SLACK_NOTIFICATIONS=true"
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/machine-images/job/aws/job/aws-rhel7-aem65-jdk8/job/java/" "ENABLE_SLACK_NOTIFICATIONS=true"
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/machine-images/job/aws/job/aws-rhel7-aem65-jdk8/job/publish/" "ENABLE_SLACK_NOTIFICATIONS=true"
+
 operational-tasks-full-set:
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/unschedule-live-snapshot-full-set/" \
 	"STACK_PREFIX=$(stack_prefix_fs)&\
