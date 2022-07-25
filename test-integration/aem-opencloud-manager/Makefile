@@ -10,7 +10,7 @@ endif
 
 export JENKINS_URL=https://$(JENKINS_USER):$(JENKINS_TOKEN)@jenkins.shineworks.io/
 timestamp := $(shell /bin/date "+%Y%m%d-%H%M")
-package_datestamp := $(shell /bin/data "+%Y+%m+%d")
+package_datestamp := $(shell /bin/date "+%Y%m%d")
 stack_prefix_con := aoc-con-$(timestamp)
 stack_prefix_fs := aoc-fs-$(timestamp)
 stack_manager_stack_prefix := aoc-stack-mgr-$(timestamp)
