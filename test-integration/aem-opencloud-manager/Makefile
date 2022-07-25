@@ -53,17 +53,17 @@ operational-tasks-full-set:
 
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/list-packages/" \
 	"STACK_PREFIX=$(stack_prefix_fs)&\
-	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\"
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
 	AEM_COMPONENT=author-primary"
 
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/list-packages/" \
 	"STACK_PREFIX=$(stack_prefix_fs)&\
-	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\"
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
 	AEM_COMPONENT=publish"
 
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/enable-crxde/" \
 	"STACK_PREFIX=$(stack_prefix_fs)&\
-	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\"
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
 	AEM_COMPONENT=author-primary"
 
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/enable-crxde/" \
@@ -73,22 +73,22 @@ operational-tasks-full-set:
 
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/disable-crxde/" \
 	"STACK_PREFIX=$(stack_prefix_fs)&\
-	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\"
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
 	AEM_COMPONENT=author-primary"
 
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/disable-crxde/" \
 	"STACK_PREFIX=$(stack_prefix_fs)&\
-	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\"
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
 	AEM_COMPONENT=publish"
 
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/flush-dispatcher-cache/" \
 	"STACK_PREFIX=$(stack_prefix_fs)&\
-	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\"
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
 	AEM_COMPONENT=author-dispatcher"
 
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/flush-dispatcher-cache/" \
 	"STACK_PREFIX=$(stack_prefix_fs)&\
-	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\"
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
 	AEM_COMPONENT=publish-dispatcher"
 
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/deploy-artifacts-full-set/" \
@@ -101,7 +101,7 @@ operational-tasks-full-set:
 
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/deploy-artifact/" \
 	"STACK_PREFIX=$(stack_prefix_fs)&\
-	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\"
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
 	AEM_COMPONENT=author-primary&\
 	AEM_ID=author&\
 	PACKAGE_ACTIVATE=false&\
@@ -114,7 +114,7 @@ operational-tasks-full-set:
 
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/deploy-artifact/" \
 	"STACK_PREFIX=$(stack_prefix_fs)&\
-	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\"
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
 	AEM_COMPONENT=publish&\
 	AEM_ID=publish&\
 	PACKAGE_ACTIVATE=false&\
@@ -131,7 +131,7 @@ operational-tasks-full-set:
 
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/import-package/" \
 	"STACK_PREFIX=$(stack_prefix_fs)&\
-	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\"
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
 	AEM_COMPONENT=author-primary&\
 	AEM_ID=author&\
 	PACKAGE_DATESTAMP=$(package_datestamp)&\
@@ -141,7 +141,7 @@ operational-tasks-full-set:
 
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/import-package/" \
 	"STACK_PREFIX=$(stack_prefix_fs)&\
-	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\"
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
 	AEM_COMPONENT=publish&\
 	AEM_ID=publish&\
 	PACKAGE_DATESTAMP=$(package_datestamp)&\
