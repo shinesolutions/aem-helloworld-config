@@ -14,6 +14,8 @@ package_datestamp := $(shell /bin/date "+%Y%m%d")
 stack_prefix_con := aoc-con-$(timestamp)
 stack_prefix_fs := aoc-fs-$(timestamp)
 stack_manager_stack_prefix := aoc-stack-mgr-$(timestamp)
+content_package_version := 0.0.2
+content_package := s3://aem-aws-stack-builder/aem-helloworld-content-$(content_package_version).zip
 
 deps:
 	npm install -g nestor
@@ -27,11 +29,152 @@ rhel7-aem65-jdk8-machine-images:
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/machine-images/job/aws/job/aws-rhel7-aem65-jdk8/job/java/" "ENABLE_SLACK_NOTIFICATIONS=true"
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/machine-images/job/aws/job/aws-rhel7-aem65-jdk8/job/publish/" "ENABLE_SLACK_NOTIFICATIONS=true"
 
+operational-tasks-consolidated:
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/unschedule-live-snapshot-consolidated/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/unschedule-live-snapshot-consolidated/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/unschedule-offline-snapshot-consolidated/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/unschedule-offline-compaction-snapshot-consolidated/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/list-packages/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	AEM_COMPONENT=author-publish-dispatcher&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/enable-crxde/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	AEM_COMPONENT=author-publish-dispatcher&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/disable-crxde/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	AEM_COMPONENT=author-publish-dispatcher&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/flush-dispatcher-cache/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	AEM_COMPONENT=author-publish-dispatcher&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/deploy-artifacts-consolidated/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/check-readiness-consolidated/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/deploy-artifact/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	AEM_COMPONENT=author-publish-dispatcher&\
+	AEM_ID=author&\
+	PACKAGE_ACTIVATE=false&\
+	PACKAGE_FORCE=true&\
+	PACKAGE_GROUP=shinesolutions&\
+	PACKAGE_NAME=aem-helloworld-content&\
+	PACKAGE_REPLICATE=true&\
+	PACKAGE_SOURCE=$(content_package)&\
+	PACKAGE_VERSION=$(content_package_version)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/deploy-artifact/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	AEM_COMPONENT=author-publish-dispatcher&\
+	AEM_ID=publish&\
+	PACKAGE_ACTIVATE=false&\
+	PACKAGE_FORCE=true&\
+	PACKAGE_GROUP=shinesolutions&\
+	PACKAGE_NAME=aem-helloworld-content&\
+	PACKAGE_REPLICATE=true&\
+	PACKAGE_SOURCE=$(content_package)&\
+	PACKAGE_VERSION=$(content_package_version)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/export-packages-consolidated/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/import-package/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	AEM_COMPONENT=author-publish-dispatcher&\
+	AEM_ID=author&\
+	PACKAGE_DATESTAMP=$(package_datestamp)&\
+	PACKAGE_GROUP=shinesolutions&\
+	PACKAGE_NAME=aem-helloworld-content&\
+	PACKAGE_SOURCE_STACK_PREFIX=$(stack_prefix_fs)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/import-package/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	AEM_COMPONENT=author-publish-dispatcher&\
+	AEM_ID=publish&\
+	PACKAGE_DATESTAMP=$(package_datestamp)&\
+	PACKAGE_GROUP=shinesolutions&\
+	PACKAGE_NAME=aem-helloworld-content&\
+	PACKAGE_SOURCE_STACK_PREFIX=$(stack_prefix_fs)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/live-snapshot/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	AEM_COMPONENT=author-publish-dispatcher&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/offline-snapshot-consolidated/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/offline-compaction-snapshot-consolidated/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)\&
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/schedule-live-snapshot-consolidated/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/schedule-offline-snapshot-consolidated/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/schedule-offline-compaction-snapshot-consolidated/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
 operational-tasks-full-set:
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/unschedule-live-snapshot-full-set/" \
 	"STACK_PREFIX=$(stack_prefix_fs)&\
 	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
-	AEM_COMPONENT=author-primary&\
+	AEM_COMPONENT=author-publish-dispatcher&\
 	ENABLE_SLACK_NOTIFICATIONS=true"
 
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/unschedule-live-snapshot-full-set/" \
@@ -124,8 +267,8 @@ operational-tasks-full-set:
 	PACKAGE_GROUP=shinesolutions&\
 	PACKAGE_NAME=aem-helloworld-content&\
 	PACKAGE_REPLICATE=true&\
-	PACKAGE_SOURCE=s3://aem-aws-stack-builder/aem-helloworld-content-0.0.2.zip&\
-	PACKAGE_VERSION=0.0.2&\
+	PACKAGE_SOURCE=$(content_package)&\
+	PACKAGE_VERSION=$(content_package_version)&\
 	ENABLE_SLACK_NOTIFICATIONS=true"
 
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/deploy-artifact/" \
@@ -138,8 +281,8 @@ operational-tasks-full-set:
 	PACKAGE_GROUP=shinesolutions&\
 	PACKAGE_NAME=aem-helloworld-content&\
 	PACKAGE_REPLICATE=true&\
-	PACKAGE_SOURCE=s3://aem-aws-stack-builder/aem-helloworld-content-0.0.2.zip&\
-	PACKAGE_VERSION=0.0.2&\
+	PACKAGE_SOURCE=$(content_package)&\
+	PACKAGE_VERSION=$(content_package_version)&\
 	ENABLE_SLACK_NOTIFICATIONS=true"
 
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/export-packages-full-set/" \
