@@ -401,3 +401,32 @@ operational-tasks-full-set:
 	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
 	ENABLE_SLACK_NOTIFICATIONS=true"
 
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/test-acceptance/job/sandpit/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	AEM_ARCHITECTURE=full-set&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/test-aem-security/job/sandpit/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	AEM_SECURITY_TEST_PLAN=author&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/test-aem-security/job/sandpit/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	AEM_SECURITY_TEST_PLAN=publish&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/test-aem-security/job/sandpit/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	AEM_SECURITY_TEST_PLAN=publish-dispatcher&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/test-contenthealthcheck-alarm/job/sandpit/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/test-recovery/job/sandpit/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	AEM_ARCHITECTURE=full-set&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
