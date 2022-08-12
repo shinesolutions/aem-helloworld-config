@@ -29,6 +29,40 @@ rhel7-aem65-jdk8-machine-images:
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/machine-images/job/aws/job/aws-rhel7-aem65-jdk8/job/java/" "ENABLE_SLACK_NOTIFICATIONS=true"
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/machine-images/job/aws/job/aws-rhel7-aem65-jdk8/job/publish/" "ENABLE_SLACK_NOTIFICATIONS=true"
 
+rhel7-aem65-jdk8-manage-environments-consolidated:
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/manage-environments/job/aws/job/aem-consolidated-rhel7-aem65-jdk8-sandpit-sandpit/job/create-consolidated/" \
+	"STACK_PREFIX=$(stack_prefix_con)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/manage-environments/job/aws/job/aem-consolidated-rhel7-aem65-jdk8-sandpit-sandpit/job/delete-consolidated/" \
+	"STACK_PREFIX=$(stack_prefix_con)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/manage-environments/job/aws/job/aem-consolidated-rhel7-aem65-jdk8-sandpit-sandpit/job/switch-dns-consolidated/" \
+	"STACK_PREFIX=$(stack_prefix_con)&\
+	AUTHOR_PUBLISH_DISPATCHER_RECORD_SET=$(stack_prefix_con)&\
+	AUTHOR_PUBLISH_DISPATCHER_HOSTED_ZONE=aemopencloud.cms&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+rhel7-aem65-jdk8-manage-environments-full-set:
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/manage-environments/job/aws/job/aem-full-set-rhel7-aem65-jdk8-sandpit-sandpit/job/create-full-set/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/manage-environments/job/aws/job/aem-full-set-rhel7-aem65-jdk8-sandpit-sandpit/job/delete-full-set/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/manage-environments/job/aws/job/aem-full-set-rhel7-aem65-jdk8-sandpit-sandpit/job/switch-dns-full-set/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	PUBLISH_DISPATCHER_HOSTED_ZONE=aemopencloud.cms&\
+	PUBLISH_DISPATCHER_RECORD_SET=$(stack_prefix_fs)-publish-dispatcher&\
+	AUTHOR_DISPATCHER_HOSTED_ZONE=aemopencloud.cms&\
+	AUTHOR_DISPATCHER_RECORD_SET=$(stack_prefix_fs)-author-dispatcher&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
 operational-tasks-consolidated:
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/unschedule-live-snapshot-consolidated/" \
 	"STACK_PREFIX=$(stack_prefix_con)&\
