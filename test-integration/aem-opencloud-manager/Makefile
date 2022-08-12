@@ -63,6 +63,54 @@ rhel7-aem65-jdk8-manage-environments-full-set:
 	AUTHOR_DISPATCHER_RECORD_SET=$(stack_prefix_fs)-author-dispatcher&\
 	ENABLE_SLACK_NOTIFICATIONS=true"
 
+rhel7-aem65-jdk8-testing-consolidated:
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/testing/job/aws/job/aem-consolidated-rhel7-aem65-jdk8-sandpit-sandpit-aem-stack-manager-sandpit/job/consolidated-platform/" \
+	"STACK_PREFIX=$(stack_prefix_con)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	DEPLOY_PACKAGE_ACTIVATE=false&\
+	DEPLOY_PACKAGE_FORCE=true&\
+	DEPLOY_PACKAGE_GROUP=shinesolutions&\
+	DEPLOY_PACKAGE_NAME=aem-helloworld-content&\
+	DEPLOY_PACKAGE_REPLICATE=true&\
+	DEPLOY_PACKAGE_SOURCE=$(content_package)&\
+	DEPLOY_PACKAGE_VERSION=$(content_package_version)&\
+	IMPORT_PACKAGE_GROUP=shinesolutions&\
+	IMPORT_PACKAGE_NAME=aem-helloworld-content&\
+	IMPORT_PACKAGE_DATESTAMP=$(package_datestamp)&\
+	IMPORT_PACKAGE_SOURCE_STACK_PREFIX=$(stack_prefix_fs)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+rhel7-aem65-jdk8-testing-full-set:
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/testing/job/aws/job/aem-full-set-rhel7-aem65-jdk8-sandpit-sandpit-aem-stack-manager-sandpit/job/full-set-blue-green/" \
+	"STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/testing/job/aws/job/aem-full-set-rhel7-aem65-jdk8-sandpit-sandpit-aem-stack-manager-sandpit/job/full-set-platform/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	DEPLOY_PACKAGE_ACTIVATE=false&\
+	DEPLOY_PACKAGE_FORCE=true&\
+	DEPLOY_PACKAGE_GROUP=shinesolutions&\
+	DEPLOY_PACKAGE_NAME=aem-helloworld-content&\
+	DEPLOY_PACKAGE_REPLICATE=true&\
+	DEPLOY_PACKAGE_SOURCE=$(content_package)&\
+	DEPLOY_PACKAGE_VERSION=$(content_package_version)&\
+	IMPORT_PACKAGE_GROUP=shinesolutions&\
+	IMPORT_PACKAGE_NAME=aem-helloworld-content&\
+	IMPORT_PACKAGE_DATESTAMP=$(package_datestamp)&\
+	IMPORT_PACKAGE_SOURCE_STACK_PREFIX=$(stack_prefix_fs)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/testing/job/aws/job/aem-full-set-rhel7-aem65-jdk8-sandpit-sandpit-aem-stack-manager-sandpit/job/full-set-recovery/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
+	nestor build "aem-opencloud-$(AOC_VERSION)/job/testing/job/aws/job/aem-full-set-rhel7-aem65-jdk8-sandpit-sandpit-aem-stack-manager-sandpit/job/promote-author-standby-full-set/" \
+	"STACK_PREFIX=$(stack_prefix_fs)&\
+	STACK_MANAGER_STACK_PREFIX=$(stack_manager_stack_prefix)&\
+	ENABLE_SLACK_NOTIFICATIONS=true"
+
 operational-tasks-consolidated:
 	nestor build "aem-opencloud-$(AOC_VERSION)/job/operational-tasks/job/sandpit/job/unschedule-live-snapshot-consolidated/" \
 	"STACK_PREFIX=$(stack_prefix_con)&\
