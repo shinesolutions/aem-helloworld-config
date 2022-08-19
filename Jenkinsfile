@@ -123,7 +123,7 @@ pipeline {
                           returnStdout: true
                       ).trim()
                      publish_ami = sh (
-                          script: "aws ec2 describe-images --filters \"Name=tag:Application Role,Values=publissh AMI\" \"Name=tag:OS Type,Values=${params.OS_VERSION}\" \"Name=tag:jdk_version,Values=${params.JDK_VERSION}\" \"Name=tag:Application Profile,Values=aem${params.AEM_VERSION}*\" --query \"sort_by(Images, &CreationDate)[-1].ImageId\" --output text",
+                          script: "aws ec2 describe-images --filters \"Name=tag:Application Role,Values=publish AMI\" \"Name=tag:OS Type,Values=${params.OS_VERSION}\" \"Name=tag:jdk_version,Values=${params.JDK_VERSION}\" \"Name=tag:Application Profile,Values=aem${params.AEM_VERSION}*\" --query \"sort_by(Images, &CreationDate)[-1].ImageId\" --output text",
                           returnStdout: true
                       ).trim()
                      dispatcher_ami = sh (
