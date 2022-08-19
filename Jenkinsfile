@@ -119,15 +119,15 @@ pipeline {
               steps {
                   script {
                      author_ami = sh (
-                          script: "aws ec2 describe-images --filters \"Name=tag:Application Role,Values=java AMI\" \"Name=tag:OS Type,Values=${params.OS_VERSION}\" \"Name=tag:jdk_version,Values=${params.JDK_VERSION}\" \"Name=tag:Application Profile,Values=aem${params.AEM_VERSION}*\" --query \"sort_by(Images, &CreationDate)[-1].ImageId\" --output text",
+                          script: "aws ec2 describe-images --filters \"Name=tag:Application Role,Values=author AMI\" \"Name=tag:OS Type,Values=${params.OS_VERSION}\" \"Name=tag:jdk_version,Values=${params.JDK_VERSION}\" \"Name=tag:Application Profile,Values=aem${params.AEM_VERSION}*\" --query \"sort_by(Images, &CreationDate)[-1].ImageId\" --output text",
                           returnStdout: true
                       ).trim()
                      publish_ami = sh (
-                          script: "aws ec2 describe-images --filters \"Name=tag:Application Role,Values=java AMI\" \"Name=tag:OS Type,Values=${params.OS_VERSION}\" \"Name=tag:jdk_version,Values=${params.JDK_VERSION}\" \"Name=tag:Application Profile,Values=aem${params.AEM_VERSION}*\" --query \"sort_by(Images, &CreationDate)[-1].ImageId\" --output text",
+                          script: "aws ec2 describe-images --filters \"Name=tag:Application Role,Values=publissh AMI\" \"Name=tag:OS Type,Values=${params.OS_VERSION}\" \"Name=tag:jdk_version,Values=${params.JDK_VERSION}\" \"Name=tag:Application Profile,Values=aem${params.AEM_VERSION}*\" --query \"sort_by(Images, &CreationDate)[-1].ImageId\" --output text",
                           returnStdout: true
                       ).trim()
                      dispatcher_ami = sh (
-                          script: "aws ec2 describe-images --filters \"Name=tag:Application Role,Values=java AMI\" \"Name=tag:OS Type,Values=${params.OS_VERSION}\" \"Name=tag:jdk_version,Values=${params.JDK_VERSION}\" \"Name=tag:Application Profile,Values=aem${params.AEM_VERSION}*\" --query \"sort_by(Images, &CreationDate)[-1].ImageId\" --output text",
+                          script: "aws ec2 describe-images --filters \"Name=tag:Application Role,Values=dispatcher AMI\" \"Name=tag:OS Type,Values=${params.OS_VERSION}\" \"Name=tag:jdk_version,Values=${params.JDK_VERSION}\" \"Name=tag:Application Profile,Values=aem${params.AEM_VERSION}*\" --query \"sort_by(Images, &CreationDate)[-1].ImageId\" --output text",
                           returnStdout: true
                       ).trim()
                      java_ami = sh (
@@ -135,17 +135,11 @@ pipeline {
                           returnStdout: true
                       ).trim()
                      con_ami = sh (
-                          script: "aws ec2 describe-images --filters \"Name=tag:Application Role,Values=java AMI\" \"Name=tag:OS Type,Values=${params.OS_VERSION}\" \"Name=tag:jdk_version,Values=${params.JDK_VERSION}\" \"Name=tag:Application Profile,Values=aem${params.AEM_VERSION}*\" --query \"sort_by(Images, &CreationDate)[-1].ImageId\" --output text",
+                          script: "aws ec2 describe-images --filters \"Name=tag:Application Role,Values=author-publish-dispatcher AMI\" \"Name=tag:OS Type,Values=${params.OS_VERSION}\" \"Name=tag:jdk_version,Values=${params.JDK_VERSION}\" \"Name=tag:Application Profile,Values=aem${params.AEM_VERSION}*\" --query \"sort_by(Images, &CreationDate)[-1].ImageId\" --output text",
                           returnStdout: true
                       ).trim()
                       sh (
                         script: "echo -e \"---\\n#G enerated by AOC Test Pipeline\\n# AMI IDs for End2End Testing of AEM OpenCloud Manager\\nami_ids:\\n  author: ${author_ami}\\n  author_dispatcher: ${dispatcher_ami}\\n  author_publish_dispatcher: ${con_ami}\\n  chaos_monkey: ${java_ami}\\n  orchestrator: ${java_ami}\\n  publish: ${publish_ami}\\n  publish_dispatcher: ${dispatcher_ami}\" >> ZZZ_ami_ids.yaml"
-                        )
-                      sh (
-                        script: "rm -f ./aem-aws-stack-builder/${fs_cp}/aem${params.AEM_VERSION}*-${params.OS_VERSION}*.yaml"
-                        )
-                      sh (
-                        script: "rm -f ./aem-aws-stack-builder/${con_cp}/aem${params.AEM_VERSION}*-${params.OS_VERSION}*.yaml"
                         )
                       sh (
                         script: "cp ZZZ_ami_ids.yaml ./aem-aws-stack-builder/${fs_cp}/ZZZ_ami_ids.yaml"
