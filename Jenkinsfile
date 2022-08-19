@@ -228,22 +228,22 @@ pipeline {
                           ]
                       }
                   }
-              //     stage('FS Security') {
-              //         steps {
-              //             build job: "aem-opencloud-${params.AOC_VERSION}/testing/aws/${fs_cp}-${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${params.AOC_CONFIG_PROFILE_AEM_TEST_SUITE}-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/full-set-security",
-              //             parameters: [
-              //               booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
-              //               string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-fs-sec" ),
-              //               string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-fs-sec"),
-              //               string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "s3://${params.AWS_LIBRARY_S3_BUCKET}/${params.AWS_LIBRARY_S3_PATH}/aem-opencloud-config-e2etest.tar.gz"),
-              //               string(name: 'PUBLISH_DISPATCHER_RECORD_SET', value: "aoc-fs-helloworld-publish-dispatcher"),
-              //               string(name: 'AUTHOR_DISPATCHER_RECORD_SET', value: "aoc-fs-helloworld-author-dispatcher"),
-              //               string(name: 'PUBLISH_DISPATCHER_HOSTED_ZONE', value: "aemopencloud.cms"),
-              //               string(name: 'AUTHOR_DISPATCHER_HOSTED_ZONE', value: "aemopencloud.cms"),
-              //             ]
-              //         }
-              //     }
-              // }
+                  // stage('FS Security') {
+                  //     steps {
+                  //         build job: "aem-opencloud-${params.AOC_VERSION}/testing/aws/${fs_cp}-${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${params.AOC_CONFIG_PROFILE_AEM_TEST_SUITE}-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/full-set-security",
+                  //         parameters: [
+                  //           booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
+                  //           string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-fs-sec" ),
+                  //           string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-fs-sec"),
+                  //           string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "s3://${params.AWS_LIBRARY_S3_BUCKET}/${params.AWS_LIBRARY_S3_PATH}/aem-opencloud-config-e2etest.tar.gz"),
+                  //           string(name: 'PUBLISH_DISPATCHER_RECORD_SET', value: "aoc-fs-helloworld-publish-dispatcher"),
+                  //           string(name: 'AUTHOR_DISPATCHER_RECORD_SET', value: "aoc-fs-helloworld-author-dispatcher"),
+                  //           string(name: 'PUBLISH_DISPATCHER_HOSTED_ZONE', value: "aemopencloud.cms"),
+                  //           string(name: 'AUTHOR_DISPATCHER_HOSTED_ZONE', value: "aemopencloud.cms"),
+                  //         ]
+                  //     }
+                  // }
+              }
           }
           stage('Consolidated Testing') {
               when {
