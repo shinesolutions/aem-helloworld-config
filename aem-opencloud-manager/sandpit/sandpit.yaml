@@ -30,4 +30,4 @@ jenkins:
   port: 80
   agent:
     # yamllint disable-line rule:line-length
-    docker_args: "--user root -e AWS_REGION=ap-southeast-2 -e https_proxy=http://forward-proxy.infracatalog.srv:3128/ -e http_proxy=http://forward-proxy.infracatalog.srv:3128/ -e no_proxy=localhost,127.0.0.1,169.254.169.254,169.254.0.0/16,elb.amazonaws.com,10.0.0.0/12,aemopencloud.cms,infracatalog.srv"
+    docker_args: "--user root -e AWS_DEFAULT_REGION=ap-southeast-2 -e https_proxy=http://forward-proxy.infracatalog.srv:3128/ -e http_proxy=http://forward-proxy.infracatalog.srv:3128/ -e no_proxy=localhost,127.0.0.1,169.254.169.254,169.254.0.0/16,elb.amazonaws.com,10.0.0.0/12,aemopencloud.cms,infracatalog.srv"
