@@ -72,42 +72,52 @@ pipeline {
             parallel {
             stage('Author') {
                 steps {
+                  retry(3) {
                     build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${packer_cp}/author",
                     parameters: [
                       booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS)
                     ]
+                  }
                 }
             }
             stage('Publish') {
                 steps {
+                  retry(3) {
                     build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${packer_cp}/publish",
                     parameters: [
                       booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS)
                     ]
+                  }
                 }
             }
             stage('Dispatcher') {
                 steps {
+                  retry(3) {
                     build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${packer_cp}/dispatcher",
                     parameters: [
                       booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS)
                     ]
+                  }
                 }
             }
             stage('Java') {
                 steps {
+                  retry(3) {
                     build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${packer_cp}/java",
                     parameters: [
                       booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS)
                     ]
+                  }
                 }
             }
             stage('Author-Publish-Dispatcher') {
                 steps {
+                  retry(3) {
                     build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${packer_cp}/author-publish-dispatcher",
                     parameters: [
                       booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS)
                     ]
+                  }
                 }
               }
             }
