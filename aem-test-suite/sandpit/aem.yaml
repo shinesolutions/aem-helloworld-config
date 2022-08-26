@@ -1,11 +1,11 @@
 ---
 author:
   protocol: https
-  host: auth.aem-con-demo1.shineworks.io
+  host: aoc-fs-helloworld-author-dispatcher.aemopencloud.cms
   port:
   verify_ssl: false
-  debug: true
-  use_proxy: true
+  debug: false
+  use_proxy: false
 publish:
   protocol: https
   host: pub.aem-con-demo1.shineworks.io
@@ -18,5 +18,5 @@ publish_dispatcher:
   host: aoc-fs-helloworld-publish-dispatcher.aemopencloud.cms
   port:
   verify_ssl: false
-  debug: true
+  debug: false
   use_proxy: false
