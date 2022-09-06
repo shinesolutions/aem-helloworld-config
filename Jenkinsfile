@@ -268,7 +268,7 @@ pipeline {
                             string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-con-platform" ),
                             string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-con-platform"),
                             string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "s3://${params.AWS_LIBRARY_S3_BUCKET}/${params.AWS_LIBRARY_S3_PATH}/aem-opencloud-config-e2etest.tar.gz"),
-                            string(name: 'DEPLOY_PACKAGE_ACTIVATE', value: "false"),
+                            string(name: 'DEPLOY_PACKAGE_ACTIVATE', value: "true"),
                             string(name: 'DEPLOY_PACKAGE_FORCE', value: "true"),
                             string(name: 'DEPLOY_PACKAGE_GROUP', value: "shinesolutions"),
                             string(name: 'DEPLOY_PACKAGE_NAME', value: "aem-helloworld-content"),
