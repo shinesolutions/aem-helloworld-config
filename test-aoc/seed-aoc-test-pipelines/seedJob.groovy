@@ -1,4 +1,4 @@
-pipelineJob('test-aem-opencloud/test-nb-profile) {
+pipelineJob('test-aem-opencloud/test-nb-profile') {
     definition {
         cpsScm {
             scm {
