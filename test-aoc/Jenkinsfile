@@ -45,9 +45,6 @@ pipeline {
 
     stages {
         stage('Installation') {
-            when {
-               branch 'main'
-            }
             steps {
                 build job: "aem-opencloud-${params.AOC_VERSION}/installation/aws/mirror-aem-opencloud-libraries",
                 parameters: [
@@ -65,9 +62,6 @@ pipeline {
         }
 
         stage('AMI Baking') {
-            when {
-               branch 'main'
-            }
             failFast true
             parallel {
             stage('Author') {
@@ -123,9 +117,6 @@ pipeline {
             }
           }
           stage('Generate Configuration Package') {
-              when {
-                 branch 'main'
-              }
               steps {
                   script {
                      author_ami = sh (
@@ -180,9 +171,6 @@ pipeline {
               }
           }
           stage('Full-Set Testing') {
-              when {
-                 branch 'main'
-              }
               parallel {
                   stage('FS Platform') {
                       steps {
@@ -256,9 +244,6 @@ pipeline {
               }
           }
           stage('Consolidated Testing') {
-              when {
-                 branch 'main'
-              }
               parallel {
                   stage('Con Platform') {
                       steps {
