@@ -1,4 +1,4 @@
-pipelineJob('prad-testing-pipeline') {
+pipelineJob('test-aem-opencloud/test-nb-profile) {
     definition {
         cpsScm {
             scm {
@@ -6,11 +6,10 @@ pipelineJob('prad-testing-pipeline') {
                     remote {
                         github('shinesolutions/aem-helloworld-config')
                     }
-                  branch('adding-end-to-end-testing-profile')
+                  branch('main')
                 }
-
             }
-            scriptPath('test-aoc/Jenkinsfile')
+            scriptPath('test-aoc/test-nb-profile/Jenkinsfile')
         }
     }
 }
