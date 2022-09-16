@@ -24,16 +24,16 @@ pipeline {
         }
     }
     triggers {
-        cron("H 12 * * 1-5")
+        cron("H 15 * * 1-5")
     }
     environment {
         TMPDIR = "/tmp/shinesolutions/aem-opencloud-manager"
     }
     parameters {
-        string(name: 'AOC_VERSION', defaultValue: '5.13.1', description: 'Version of aem-aws-stack-builder repo to archive')
+        string(name: 'AOC_VERSION', defaultValue: '5.15.1-pre.0', description: 'Version of aem-aws-stack-builder repo to archive')
         choice(name: 'AEM_VERSION', choices: ['65', '64'], description: 'AEM version to test')
         choice(name: 'OS_VERSION', choices: ['rhel7', 'amazon-linux2', 'rhel8'], description: 'OS version to test')
-        choice(name: 'JDK_VERSION', choices: ['8', '11'], description: 'JDK version to test')
+        choice(name: 'JDK_VERSION', choices: ['11', '8'], description: 'JDK version to test')
         string(name: 'STACK_MANAGER_STACK_PREFIX', defaultValue: 'aoc-sm-' + id, description: 'Stack Manager Stack Prefix to create for the test.')
         string(name: 'STACK_PREFIX', defaultValue: 'aoc-' + id, description: 'AEM Stack Stack Prefix to create for the test.')
         string(name: 'AWS_LIBRARY_S3_BUCKET', defaultValue: 'aem-opencloud-manager', description: 'S3 bucket where the libraries are stored.')
