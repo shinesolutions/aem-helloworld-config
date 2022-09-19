@@ -6,7 +6,7 @@ pipelineJob('test-aem-opencloud/test-nb-profile') {
                     remote {
                         github('shinesolutions/aem-helloworld-config')
                     }
-                  branch('adding-end-to-end-testing-profile')
+                  branch('main')
                 }
             }
             scriptPath('test-aoc/test-nb-profile/Jenkinsfile')
@@ -22,7 +22,7 @@ pipelineJob('test-aem-opencloud/test-ausp-profile') {
                     remote {
                         github('shinesolutions/aem-helloworld-config')
                     }
-                    branch('adding-end-to-end-testing-profile')
+                    branch('main')
                 }
             }
             scriptPath('test-aoc/test-ausp-profile/Jenkinsfile')
@@ -38,7 +38,7 @@ pipelineJob('test-aem-opencloud/test-shineworks-amazon-linux2-profile') {
                     remote {
                         github('shinesolutions/aem-helloworld-config')
                     }
-                    branch('adding-end-to-end-testing-profile')
+                    branch('main')
                 }
             }
             scriptPath('test-aoc/test-amazon-linux2-profile/Jenkinsfile')
@@ -54,7 +54,7 @@ pipelineJob('test-aem-opencloud/test-shineworks-rhel7-profile') {
                     remote {
                         github('shinesolutions/aem-helloworld-config')
                     }
-                    branch('adding-end-to-end-testing-profile')
+                    branch('main')
                 }
             }
             scriptPath('test-aoc/test-rhel7-profile/Jenkinsfile')
