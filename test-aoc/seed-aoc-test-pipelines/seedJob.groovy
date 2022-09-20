@@ -30,7 +30,7 @@ pipelineJob('test-aem-opencloud/test-ap-profile') {
     }
 }
 
-pipelineJob('test-aem-opencloud/test-sh-rhel7-profile') {
+pipelineJob('test-aem-opencloud/test-sh1-rhel7-profile') {
     definition {
         cpsScm {
             scm {
@@ -46,7 +46,7 @@ pipelineJob('test-aem-opencloud/test-sh-rhel7-profile') {
     }
 }
 
-pipelineJob('test-aem-opencloud/test-sh-amazon-linux2-profile') {
+pipelineJob('test-aem-opencloud/test-sh2-amazon-linux2-profile') {
     definition {
         cpsScm {
             scm {
