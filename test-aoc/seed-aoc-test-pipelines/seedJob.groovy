@@ -6,7 +6,7 @@ pipelineJob('test-aem-opencloud/test-nb-profile') {
                     remote {
                         github('shinesolutions/aem-helloworld-config')
                     }
-                  branch('main')
+                  branch('adding-end-to-end-testing-profile')
                 }
             }
             scriptPath('test-aoc/test-nb-profile/Jenkinsfile')
@@ -14,7 +14,7 @@ pipelineJob('test-aem-opencloud/test-nb-profile') {
     }
 }
 
-pipelineJob('test-aem-opencloud/test-ausp-profile') {
+pipelineJob('test-aem-opencloud/test-ap-profile') {
     definition {
         cpsScm {
             scm {
@@ -22,15 +22,15 @@ pipelineJob('test-aem-opencloud/test-ausp-profile') {
                     remote {
                         github('shinesolutions/aem-helloworld-config')
                     }
-                    branch('main')
+                    branch('adding-end-to-end-testing-profile')
                 }
             }
-            scriptPath('test-aoc/test-ausp-profile/Jenkinsfile')
+            scriptPath('test-aoc/test-ap-profile/Jenkinsfile')
         }
     }
 }
 
-pipelineJob('test-aem-opencloud/test-shineworks-amazon-linux2-profile') {
+pipelineJob('test-aem-opencloud/test-sh-rhel7-profile') {
     definition {
         cpsScm {
             scm {
@@ -38,15 +38,15 @@ pipelineJob('test-aem-opencloud/test-shineworks-amazon-linux2-profile') {
                     remote {
                         github('shinesolutions/aem-helloworld-config')
                     }
-                    branch('main')
+                    branch('adding-end-to-end-testing-profile')
                 }
             }
-            scriptPath('test-aoc/test-amazon-linux2-profile/Jenkinsfile')
+            scriptPath('test-aoc/test-sh1-rhel7-profile/Jenkinsfile')
         }
     }
 }
 
-pipelineJob('test-aem-opencloud/test-shineworks-rhel7-profile') {
+pipelineJob('test-aem-opencloud/test-sh-amazon-linux2-profile') {
     definition {
         cpsScm {
             scm {
@@ -54,10 +54,10 @@ pipelineJob('test-aem-opencloud/test-shineworks-rhel7-profile') {
                     remote {
                         github('shinesolutions/aem-helloworld-config')
                     }
-                    branch('main')
+                    branch('adding-end-to-end-testing-profile')
                 }
             }
-            scriptPath('test-aoc/test-rhel7-profile/Jenkinsfile')
+            scriptPath('test-aoc/test-sh2-amazon-linux2-profile/Jenkinsfile')
         }
     }
 }
