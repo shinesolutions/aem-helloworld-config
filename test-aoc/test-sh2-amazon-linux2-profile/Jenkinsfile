@@ -9,13 +9,15 @@ def genAemAwsStackBuilderConfigProfileName(architecture) {
   return 'aem-' + architecture + '-' + params.OS_VERSION + '-aem' + params.AEM_VERSION + '-jdk' + params.JDK_VERSION
 }
 def genPackerAemConfigProfileName() {
-  return 'aws-' + params.OS_VERSION + '-aem' + params.AEM_VERSION + '-jdk' + params.JDK_VERSION + '-sh'
+  return 'aws-' + params.OS_VERSION + '-aem' + params.AEM_VERSION + '-jdk' + params.JDK_VERSION
 }
 def date = getDate()
 def id = genId()
 def fs_cp = genAemAwsStackBuilderConfigProfileName('full-set')
 def con_cp = genAemAwsStackBuilderConfigProfileName('consolidated')
 def packer_cp = genPackerAemConfigProfileName()
+def packer_aem_config_profile = 'aws-' + params.OS_VERSION + '-aem' + params.AEM_VERSION + '-jdk' + params.JDK_VERSION + '-sh'
+
 pipeline {
     agent {
         docker {
@@ -72,7 +74,8 @@ pipeline {
                   retry(3) {
                     build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${packer_cp}/author",
                     parameters: [
-                      booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS)
+                      booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
+                      string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: $packer_aem_config_profile),
                     ]
                   }
                 }
@@ -82,7 +85,8 @@ pipeline {
                   retry(3) {
                     build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${packer_cp}/publish",
                     parameters: [
-                      booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS)
+                      booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
+                      string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: $packer_aem_config_profile),
                     ]
                   }
                 }
@@ -92,7 +96,8 @@ pipeline {
                   retry(3) {
                     build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${packer_cp}/dispatcher",
                     parameters: [
-                      booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS)
+                      booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
+                      string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: $packer_aem_config_profile),
                     ]
                   }
                 }
@@ -102,7 +107,8 @@ pipeline {
                   retry(3) {
                     build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${packer_cp}/java",
                     parameters: [
-                      booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS)
+                      booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
+                      string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: $packer_aem_config_profile),
                     ]
                   }
                 }
@@ -112,7 +118,8 @@ pipeline {
                   retry(3) {
                     build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${packer_cp}/author-publish-dispatcher",
                     parameters: [
-                      booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS)
+                      booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
+                      string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: $packer_aem_config_profile),
                     ]
                   }
                 }
