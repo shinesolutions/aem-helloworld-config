@@ -170,13 +170,17 @@ pipeline {
                               --exclude='logs*' \
                               --exclude='*.retry' \
                               --exclude='*.iml' \
-                              -cf aem-opencloud-config-e2etest.tar ./
-                          gzip aws-${params.OS_VERSION}-${params.AEM_VERSION}-${params.JDK_VERSION}-config-e2etest.tar
+                              -cf aoc-config-e2etest.tar ./
                       '''
                       sh (
-                        script: "aws s3 cp aws-${params.OS_VERSION}-${params.AEM_VERSION}-${params.JDK_VERSION}-config-e2etest.tar.gz s3://${params.AWS_LIBRARY_S3_BUCKET}/${params.AWS_LIBRARY_S3_PATH}/"
+                        script: "mv aoc-config-e2etest.tar ${params.AOC_CONFIG_PROFILE_PACKER_AEM}-config-e2etest.tar"
+                      )
+                      sh (
+                          script: "gzip ${params.AOC_CONFIG_PROFILE_PACKER_AEM}-config-e2etest.tar"
+                      )
+                      sh (
+                        script: "aws s3 cp ${params.AOC_CONFIG_PROFILE_PACKER_AEM}-config-e2etest.tar.gz s3://${params.AWS_LIBRARY_S3_BUCKET}/${params.AWS_LIBRARY_S3_PATH}/"
                         )
-
                   }
               }
           }
