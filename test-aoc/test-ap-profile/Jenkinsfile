@@ -76,7 +76,7 @@ pipeline {
                     parameters: [
                       booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
                       string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: "${params.AOC_CONFIG_PROFILE_PACKER_AEM}"),
-                      string(name: 'JENKINS_AGENT_DOCKER_IMAGE', defaultValue: 'shinesolutions/aem-platform-buildenv:latest')
+                      string(name: 'JENKINS_AGENT_DOCKER_IMAGE', value: "${params.JENKINS_AGENT_DOCKER_IMAGE}")
                     ]
                   }
                 }
@@ -88,7 +88,7 @@ pipeline {
                     parameters: [
                       booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
                       string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: "${params.AOC_CONFIG_PROFILE_PACKER_AEM}"),
-                      string(name: 'JENKINS_AGENT_DOCKER_IMAGE', defaultValue: 'shinesolutions/aem-platform-buildenv:latest')
+                      string(name: 'JENKINS_AGENT_DOCKER_IMAGE', value: "${params.JENKINS_AGENT_DOCKER_IMAGE}")
                     ]
                   }
                 }
@@ -100,7 +100,7 @@ pipeline {
                     parameters: [
                       booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
                       string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: "${params.AOC_CONFIG_PROFILE_PACKER_AEM}"),
-                      string(name: 'JENKINS_AGENT_DOCKER_IMAGE', defaultValue: 'shinesolutions/aem-platform-buildenv:latest')
+                      string(name: 'JENKINS_AGENT_DOCKER_IMAGE', value: "${params.JENKINS_AGENT_DOCKER_IMAGE}")
                     ]
                   }
                 }
@@ -112,7 +112,7 @@ pipeline {
                     parameters: [
                       booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
                       string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: "${params.AOC_CONFIG_PROFILE_PACKER_AEM}"),
-                      string(name: 'JENKINS_AGENT_DOCKER_IMAGE', defaultValue: 'shinesolutions/aem-platform-buildenv:latest')
+                      string(name: 'JENKINS_AGENT_DOCKER_IMAGE', value: "${params.JENKINS_AGENT_DOCKER_IMAGE}")
                     ]
                   }
                 }
@@ -124,7 +124,7 @@ pipeline {
                     parameters: [
                       booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
                       string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: "${params.AOC_CONFIG_PROFILE_PACKER_AEM}"),
-                      string(name: 'JENKINS_AGENT_DOCKER_IMAGE', defaultValue: 'shinesolutions/aem-platform-buildenv:latest')
+                      string(name: 'JENKINS_AGENT_DOCKER_IMAGE', value: "${params.JENKINS_AGENT_DOCKER_IMAGE}")
                     ]
                   }
                 }
