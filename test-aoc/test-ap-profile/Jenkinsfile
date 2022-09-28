@@ -9,7 +9,7 @@ def genAemAwsStackBuilderConfigProfileName(architecture) {
   return 'aem-' + architecture + '-' + params.OS_VERSION + '-aem' + params.AEM_VERSION + '-jdk' + params.JDK_VERSION
 }
 def genPackerAemConfigProfileName() {
-  return 'aws-' + params.OS_VERSION + '-aem' + params.AEM_VERSION + '-jdk' + params.JDK_VERSION + '-ap'
+  return 'aws-' + params.OS_VERSION + '-aem' + params.AEM_VERSION + '-jdk' + params.JDK_VERSION
 }
 def date = getDate()
 def id = genId()
