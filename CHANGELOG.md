@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added CodePipeline/CodeBuild configuration
 - Added users ssh keys for aem-opencloud env
 - Added Jenkinsfile to run End2End Testsing of AEM OpenCloud
+- Added packer-aem and stack-builder profiles for AOC End to End Testing.
 
 ### Changed
 - Updated parameters for new sandpit AWS account
@@ -21,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Change author-dispatcher ELB inbound to allow reverse proxy CIDR
 - Change publish-dispatcher ELB inbound to allow the Internet since it's on public subnet
 - Updated configuration for aem-test-suite
+- Renamed packer-aem profiles
 
 ### Removed
 - Removed `inbound_from_bastion_host_security_group` configuration since it's no longer needed in aem-aws-stack-builder 4.34.0
