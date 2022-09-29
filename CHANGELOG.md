@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added CodePipeline/CodeBuild configuration
 - Added users ssh keys for aem-opencloud env
 - Added Jenkinsfile to run End2End Testsing of AEM OpenCloud
+- Added packer-aem and stack-builder profiles for AOC End to End Testing.
 
 ### Changed
 - Updated parameters for new sandpit AWS account

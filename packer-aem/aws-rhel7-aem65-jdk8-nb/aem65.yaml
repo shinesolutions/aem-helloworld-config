@@ -2,6 +2,5 @@
 aem:
   profile: aem65_sp3
 
-
 aws:
   aem_license: /aem-opencloud/aoc-awsres-211012/aem-license
