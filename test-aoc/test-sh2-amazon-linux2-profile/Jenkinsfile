@@ -35,6 +35,7 @@ pipeline {
         choice(name: 'AEM_VERSION', choices: ['65', '64'], description: 'AEM version to test')
         choice(name: 'OS_VERSION', choices: ['amazon-linux2', 'rhel7', 'rhel8'], description: 'OS version to test')
         choice(name: 'JDK_VERSION', choices: ['11', '8'], description: 'JDK version to test')
+        booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: 'true', description: 'If activated SLACK notifications will be send out.')
         string(name: 'STACK_MANAGER_STACK_PREFIX', defaultValue: 'aoc-sm-sh2' + id, description: 'Stack Manager Stack Prefix to create for the test.')
         string(name: 'STACK_PREFIX', defaultValue: 'aoc-sh2-' + id, description: 'AEM Stack Stack Prefix to create for the test.')
         string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', defaultValue: 'aws-amazon-linux2-aem65-jdk11-sh', description: 'Name of the packer-aem configuration profile.')
@@ -54,15 +55,15 @@ pipeline {
             steps {
                 build job: "aem-opencloud-${params.AOC_VERSION}/installation/aws/mirror-aem-opencloud-libraries",
                 parameters: [
-                  booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS)
+                  booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATION}")
                 ]
                 build job: "aem-opencloud-${params.AOC_VERSION}/installation/aws/mirror-stack-builder-libraries-${fs_cp}",
                 parameters: [
-                  booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS)
+                  booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATION}")
                 ]
                 build job: "aem-opencloud-${params.AOC_VERSION}/installation/aws/mirror-stack-builder-libraries-${con_cp}",
                 parameters: [
-                  booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS)
+                  booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATION}")
                 ]
             }
         }
@@ -75,7 +76,7 @@ pipeline {
                   retry(3) {
                     build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${packer_cp}/author",
                     parameters: [
-                      booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
+                      booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                       string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: "${params.AOC_CONFIG_PROFILE_PACKER_AEM}"),
                     ]
                   }
@@ -86,7 +87,7 @@ pipeline {
                   retry(3) {
                     build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${packer_cp}/publish",
                     parameters: [
-                      booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
+                      booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                       string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: "${params.AOC_CONFIG_PROFILE_PACKER_AEM}"),
                     ]
                   }
@@ -97,7 +98,7 @@ pipeline {
                   retry(3) {
                     build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${packer_cp}/dispatcher",
                     parameters: [
-                      booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
+                      booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                       string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: "${params.AOC_CONFIG_PROFILE_PACKER_AEM}"),
                     ]
                   }
@@ -108,7 +109,7 @@ pipeline {
                   retry(3) {
                     build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${packer_cp}/java",
                     parameters: [
-                      booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
+                      booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                       string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: "${params.AOC_CONFIG_PROFILE_PACKER_AEM}"),
                     ]
                   }
@@ -119,7 +120,7 @@ pipeline {
                   retry(3) {
                     build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${packer_cp}/author-publish-dispatcher",
                     parameters: [
-                      booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
+                      booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                       string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: "${params.AOC_CONFIG_PROFILE_PACKER_AEM}"),
                     ]
                   }
@@ -191,7 +192,7 @@ pipeline {
                       steps {
                           build job: "aem-opencloud-${params.AOC_VERSION}/testing/aws/${fs_cp}-${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${params.AOC_CONFIG_PROFILE_AEM_TEST_SUITE}-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/full-set-platform",
                           parameters: [
-                            booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
+                            booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                             string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-fs-platform" ),
                             string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-fs-platform"),
                             string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "${params.AOC_CONFIG_ARTIFACT_URL}"),
@@ -211,7 +212,7 @@ pipeline {
                       steps {
                           build job: "aem-opencloud-${params.AOC_VERSION}/testing/aws/${fs_cp}-${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${params.AOC_CONFIG_PROFILE_AEM_TEST_SUITE}-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/full-set-blue-green",
                           parameters: [
-                            booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
+                            booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                             string(name: 'STACK_PREFIX_BLUE', value: "${params.STACK_PREFIX}-blue-fs" ),
                             string(name: 'STACK_PREFIX_GREEN', value: "${params.STACK_PREFIX}-green-fs" ),
                             string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-fs-bg"),
@@ -223,7 +224,7 @@ pipeline {
                       steps {
                           build job: "aem-opencloud-${params.AOC_VERSION}/testing/aws/${fs_cp}-${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${params.AOC_CONFIG_PROFILE_AEM_TEST_SUITE}-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/full-set-recovery",
                           parameters: [
-                            booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
+                            booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                             string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-fs-recovery" ),
                             string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-fs-recovery"),
                             string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "${params.AOC_CONFIG_ARTIFACT_URL}")
@@ -234,7 +235,7 @@ pipeline {
                       steps {
                           build job: "aem-opencloud-${params.AOC_VERSION}/testing/aws/${fs_cp}-${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${params.AOC_CONFIG_PROFILE_AEM_TEST_SUITE}-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/promote-author-standby-full-set",
                           parameters: [
-                            booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
+                            booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                             string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-fs-promote" ),
                             string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-fs-promote"),
                             string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "${params.AOC_CONFIG_ARTIFACT_URL}")
@@ -245,7 +246,7 @@ pipeline {
                   //     steps {
                   //         build job: "aem-opencloud-${params.AOC_VERSION}/testing/aws/${fs_cp}-${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${params.AOC_CONFIG_PROFILE_AEM_TEST_SUITE}-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/full-set-security",
                   //         parameters: [
-                  //           booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
+                  //           booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                   //           string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-fs-sec" ),
                   //           string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-fs-sec"),
                   //           string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "s3://${params.AWS_LIBRARY_S3_BUCKET}/${params.AWS_LIBRARY_S3_PATH}/aem-opencloud-config-e2etest.tar.gz"),
@@ -264,7 +265,7 @@ pipeline {
                       steps {
                           build job: "aem-opencloud-${params.AOC_VERSION}/testing/aws/${con_cp}-${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${params.AOC_CONFIG_PROFILE_AEM_TEST_SUITE}-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/consolidated-platform",
                           parameters: [
-                            booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
+                            booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                             string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-con-platform" ),
                             string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-con-platform"),
                             string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "${params.AOC_CONFIG_ARTIFACT_URL}"),
@@ -284,7 +285,7 @@ pipeline {
                       steps {
                           build job: "aem-opencloud-${params.AOC_VERSION}/testing/aws/${con_cp}-${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${params.AOC_CONFIG_PROFILE_AEM_TEST_SUITE}-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/consolidated-security",
                           parameters: [
-                            booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: params.ENABLE_SLACK_NOTIFICATIONS),
+                            booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                             string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-con-sec" ),
                             string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-con-sec"),
                             string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "${params.AOC_CONFIG_ARTIFACT_URL}"),
