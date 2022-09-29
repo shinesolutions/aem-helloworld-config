@@ -36,7 +36,7 @@ pipeline {
         choice(name: 'OS_VERSION', choices: ['amazon-linux2', 'rhel7', 'rhel8'], description: 'OS version to test')
         choice(name: 'JDK_VERSION', choices: ['11', '8'], description: 'JDK version to test')
         string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', defaultValue: 'aws-amazon-linux2-aem65-jdk11-sh', description: 'Name of the packer-aem configuration profile.')
-        string(name: 'STACK_MANAGER_STACK_PREFIX', defaultValue: 'aoc-sm-' + id, description: 'Stack Manager Stack Prefix to create for the test.')
+        string(name: 'STACK_MANAGER_STACK_PREFIX', defaultValue: 'aoc-sm-sh2' + id, description: 'Stack Manager Stack Prefix to create for the test.')
         string(name: 'STACK_PREFIX', defaultValue: 'aoc-sh2-' + id, description: 'AEM Stack Stack Prefix to create for the test.')
         string(name: 'AWS_LIBRARY_S3_BUCKET', defaultValue: 'aem-opencloud-manager', description: 'S3 bucket where the libraries are stored.')
         string(name: 'AWS_LIBRARY_S3_PATH', defaultValue: 'library', description: 'S3 path (of the specified S3 bucket) where the libraries are stored.')
