@@ -158,10 +158,10 @@ pipeline {
                         script: "echo -e \"---\\n#G enerated by AOC Test Pipeline\\n# AMI IDs for End2End Testing of AEM OpenCloud Manager\\nami_ids:\\n  author: ${author_ami}\\n  author_dispatcher: ${dispatcher_ami}\\n  author_publish_dispatcher: ${con_ami}\\n  chaos_monkey: ${java_ami}\\n  orchestrator: ${java_ami}\\n  publish: ${publish_ami}\\n  publish_dispatcher: ${dispatcher_ami}\" >> ZZZ_ami_ids.yaml"
                         )
                       sh (
-                        script: "cp ZZZ_ami_ids.yaml ./aem-aws-stack-builder/${fs_cp}/ZZZ_ami_ids.yaml"
+                        script: "cp ZZZ_ami_ids.yaml ./aem-aws-stack-builder/${fs_cp}-ap/ZZZ_ami_ids.yaml"
                         )
                       sh (
-                        script: "cp ZZZ_ami_ids.yaml ./aem-aws-stack-builder/${con_cp}/ZZZ_ami_ids.yaml"
+                        script: "cp ZZZ_ami_ids.yaml ./aem-aws-stack-builder/${con_cp}-ap/ZZZ_ami_ids.yaml"
                         )
                       sh '''
                           tar \
