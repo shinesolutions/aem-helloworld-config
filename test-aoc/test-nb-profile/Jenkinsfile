@@ -8,10 +8,6 @@ def genId() {
 def genAemAwsStackBuilderConfigProfileName(architecture) {
   return 'aem-' + architecture + '-' + params.OS_VERSION + '-aem' + params.AEM_VERSION + '-jdk' + params.JDK_VERSION
 }
-// def genPackerAemConfigProfileName() {
-//   return 'aws-' + params.OS_VERSION + '-aem' + params.AEM_VERSION + '-jdk' + params.JDK_VERSION
-// }
-
 def genPackerAemConfigProfileName() {
   return '${param.AOC_CONFIG_PROFILE_STACK_BUILDER}'
 }
@@ -20,7 +16,6 @@ def date = getDate()
 def id = genId()
 def fs_cp = genAemAwsStackBuilderConfigProfileName('full-set')
 def con_cp = genAemAwsStackBuilderConfigProfileName('consolidated')
-// def params.AOC_CONFIG_PROFILE_PACKER_AEM = genPackerAemConfigProfileName()
 
 pipeline {
     agent {

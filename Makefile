@@ -36,22 +36,26 @@ lint:
 gen-packer-aem:
 	$(call gen_packer_aem,aws,rhel7,aem64,jdk8)
 	$(call gen_packer_aem,aws,rhel7,aem65,jdk8)
+	$(call gen_packer_aem_aoc_testing_profiles,aws,rhel7,aem65,jdk8,nb)
 	$(call gen_packer_aem,aws,rhel7,aem65,jdk11)
+	$(call gen_packer_aem_aoc_testing_profiles,aws,rhel7,aem65,jdk11,ap)
+	$(call gen_packer_aem_aoc_testing_profiles,aws,rhel7,aem65,jdk11,sh)
 	$(call gen_packer_aem,aws,rhel8,aem64,jdk8)
 	$(call gen_packer_aem,aws,rhel8,aem65,jdk8)
 	$(call gen_packer_aem,aws,rhel8,aem65,jdk11)
-	$(call gen_packer_aem,aws,centos7,aem64,jdk8)
-	$(call gen_packer_aem,aws,centos7,aem65,jdk8)
-	$(call gen_packer_aem,aws,centos7,aem65,jdk11)
+	$(call gen_packer_aem_experimental,aws,centos7,aem64,jdk8,experimental)
+	$(call gen_packer_aem_experimental,aws,centos7,aem65,jdk8,experimental)
+	$(call gen_packer_aem_experimental,aws,centos7,aem65,jdk11,experimental)
 	$(call gen_packer_aem,aws,amazon-linux2,aem64,jdk8)
 	$(call gen_packer_aem,aws,amazon-linux2,aem65,jdk8)
 	$(call gen_packer_aem,aws,amazon-linux2,aem65,jdk11)
-	$(call gen_packer_aem,docker,centos7,aem64,jdk8)
-	$(call gen_packer_aem,docker,centos7,aem65,jdk8)
-	$(call gen_packer_aem,docker,centos7,aem65,jdk11)
-	$(call gen_packer_aem,docker,amazon-linux2,aem64,jdk8)
-	$(call gen_packer_aem,docker,amazon-linux2,aem65,jdk8)
-	$(call gen_packer_aem,docker,amazon-linux2,aem65,jdk11)
+	$(call gen_packer_aem_aoc_testing_profiles,aws,amazon-linux2,aem65,jdk11,sh)
+	$(call gen_packer_aem_experimental,docker,centos7,aem64,jdk8,experimental)
+	$(call gen_packer_aem_experimental,docker,centos7,aem65,jdk8,experimental)
+	$(call gen_packer_aem_experimental,docker,centos7,aem65,jdk11,experimental)
+	$(call gen_packer_aem_experimental,docker,amazon-linux2,aem64,jdk8,experimental)
+	$(call gen_packer_aem_experimental,docker,amazon-linux2,aem65,jdk8,experimental)
+	$(call gen_packer_aem_experimental,docker,amazon-linux2,aem65,jdk11,experimental)
 	$(call gen_packer_aem_aws_resources,sandpit)
 
 define gen_packer_aem
@@ -63,6 +67,28 @@ define gen_packer_aem
 	cp packer-aem/src/os-$(2).yaml packer-aem/$(1)-$(2)-$(3)-$(4)/
 	cp packer-aem/src/$(3).yaml packer-aem/$(1)-$(2)-$(3)-$(4)/
 	cp packer-aem/src/$(4).yaml packer-aem/$(1)-$(2)-$(3)-$(4)/
+endef
+
+define gen_packer_aem_aoc_testing_profiles
+  rm -rf packer-aem/$(1)-$(2)-$(3)-$(4)-$(5)
+	mkdir -p packer-aem/$(1)-$(2)-$(3)-$(4)-$(5)
+	cp packer-aem/src/sandpit.yaml packer-aem/$(1)-$(2)-$(3)-$(4)-$(5)/
+	cp packer-aem/src/encryption.yaml packer-aem/$(1)-$(2)-$(3)-$(4)-$(5)/
+	cp packer-aem/src/platform-$(1).yaml packer-aem/$(1)-$(2)-$(3)-$(4)-$(5)/
+	cp packer-aem/src/os-$(2).yaml packer-aem/$(1)-$(2)-$(3)-$(4)-$(5)/
+	cp packer-aem/src/$(3).yaml packer-aem/$(1)-$(2)-$(3)-$(4)-$(5)/
+	cp packer-aem/src/$(4).yaml packer-aem/$(1)-$(2)-$(3)-$(4)-$(5)/
+endef
+
+define gen_packer_aem_experimental
+  rm -rf packer-aem/$(1)-$(2)-$(3)-$(4)-$(5)
+	mkdir -p packer-aem/$(1)-$(2)-$(3)-$(4)-$(5)
+	cp packer-aem/src/sandpit.yaml packer-aem/$(1)-$(2)-$(3)-$(4)-$(5)/
+	cp packer-aem/src/encryption.yaml packer-aem/$(1)-$(2)-$(3)-$(4)-$(5)/
+	cp packer-aem/src/platform-$(1).yaml packer-aem/$(1)-$(2)-$(3)-$(4)-$(5)/
+	cp packer-aem/src/os-$(2).yaml packer-aem/$(1)-$(2)-$(3)-$(4)-$(5)/
+	cp packer-aem/src/$(3).yaml packer-aem/$(1)-$(2)-$(3)-$(4)-$(5)/
+	cp packer-aem/src/$(4).yaml packer-aem/$(1)-$(2)-$(3)-$(4)-$(5)/
 endef
 
 define gen_packer_aem_aws_resources
@@ -81,13 +107,21 @@ gen-aem-aws-stack-builder:
 	$(call gen_aem_aws_stack_builder,aem64,amazon-linux2,full-set,lightweight,jdk8)
 	$(call gen_aem_aws_stack_builder,aem64,amazon-linux2,consolidated,lightweight,jdk8)
 	$(call gen_aem_aws_stack_builder,aem65,rhel7,full-set,heavyweight,jdk8)
+	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,rhel7,full-set,heavyweight,jdk8,nb)
 	$(call gen_aem_aws_stack_builder,aem65,rhel7,full-set,heavyweight,jdk11)
+	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,rhel7,full-set,heavyweight,jdk11,ap)
+	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,rhel7,full-set,heavyweight,jdk11,sh)
 	$(call gen_aem_aws_stack_builder,aem65,rhel7,consolidated,heavyweight,jdk8)
+	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,rhel7,consolidated,heavyweight,jdk8,nb)
 	$(call gen_aem_aws_stack_builder,aem65,rhel7,consolidated,heavyweight,jdk11)
+	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,rhel7,consolidated,heavyweight,jdk11,ap)
+	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,rhel7,consolidated,heavyweight,jdk11,sh)
 	$(call gen_aem_aws_stack_builder,aem65,amazon-linux2,full-set,lightweight,jdk8)
 	$(call gen_aem_aws_stack_builder,aem65,amazon-linux2,full-set,lightweight,jdk11)
+	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,amazon-linux2,full-set,lightweight,jdk11,sh)
 	$(call gen_aem_aws_stack_builder,aem65,amazon-linux2,consolidated,lightweight,jdk8)
 	$(call gen_aem_aws_stack_builder,aem65,amazon-linux2,consolidated,lightweight,jdk11)
+	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,amazon-linux2,consolidated,lightweight,jdk11,sh)
 	$(call gen_aem_aws_stack_builder_aem_stack_manager,sandpit)
 	$(call gen_aem_aws_stack_builder_cdn,sandpit)
 	$(call gen_aem_aws_stack_builder_aws_resources,sandpit)
@@ -104,6 +138,20 @@ define gen_aem_aws_stack_builder
 	cp aem-aws-stack-builder/src/apps/aem/$(3).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)/
 	cp aem-aws-stack-builder/src/apps/aem/$(3)-$(4).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)/
 	cp aem-aws-stack-builder/src/apps/aem/$(5).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)/
+endef
+
+define gen_aem_aws_stack_builder_aoc_testing_profile
+  rm -rf aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)-$(6)/
+	mkdir -p aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)-$(6)/
+	cp aem-aws-stack-builder/src/common/*.yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)-$(6)/
+	cp aem-aws-stack-builder/src/apps/aem/$(1).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)-$(6)/
+	cp aem-aws-stack-builder/src/apps/aem/ssh_keys.yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)-$(6)/
+	cp aem-aws-stack-builder/src/apps/aem/ZZZ_encryption.yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)-$(6)/
+	cp aem-aws-stack-builder/src/apps/aem/os-$(2).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)-$(6)/
+	cp aem-aws-stack-builder/src/apps/aem/$(1)*-$(2)-$(5)-stack-builder-ami-ids.yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)-$(6)/
+	cp aem-aws-stack-builder/src/apps/aem/$(3).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)-$(6)/
+	cp aem-aws-stack-builder/src/apps/aem/$(3)-$(4).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)-$(6)/
+	cp aem-aws-stack-builder/src/apps/aem/$(5).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)-$(6)/
 endef
 
 define gen_aem_aws_stack_builder_aem_stack_manager

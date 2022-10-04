@@ -9,13 +9,13 @@ def genAemAwsStackBuilderConfigProfileName(architecture) {
   return 'aem-' + architecture + '-' + params.OS_VERSION + '-aem' + params.AEM_VERSION + '-jdk' + params.JDK_VERSION
 }
 def genPackerAemConfigProfileName() {
-  return 'aws-' + params.OS_VERSION + '-aem' + params.AEM_VERSION + '-jdk' + params.JDK_VERSION
+  return '${param.AOC_CONFIG_PROFILE_STACK_BUILDER}'
 }
+
 def date = getDate()
 def id = genId()
 def fs_cp = genAemAwsStackBuilderConfigProfileName('full-set')
 def con_cp = genAemAwsStackBuilderConfigProfileName('consolidated')
-def packer_cp = genPackerAemConfigProfileName()
 
 pipeline {
     agent {
@@ -35,12 +35,12 @@ pipeline {
         choice(name: 'AEM_VERSION', choices: ['65', '64'], description: 'AEM version to test')
         choice(name: 'OS_VERSION', choices: ['rhel7', 'amazon-linux2', 'rhel8'], description: 'OS version to test')
         choice(name: 'JDK_VERSION', choices: ['11', '8'], description: 'JDK version to test')
-        booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: 'true', description: 'If activated SLACK notifications will be send out.')
+        booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', defaultValue: 'true', description: 'If activated SLACK notifications will be send out.')
         string(name: 'STACK_MANAGER_STACK_PREFIX', defaultValue: 'aoc-sm-ap-' + date, description: 'Stack Manager Stack Prefix to create for the test.')
         string(name: 'STACK_PREFIX', defaultValue: 'aoc-ap-' + date, description: 'AEM Stack Stack Prefix to create for the test.')
         string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', defaultValue: 'aws-rhel7-aem65-jdk11-ap', description: 'Name of the packer-aem configuration profile.')
         string(name: 'AOC_CONFIG_PROFILE_STACK_BUILDER', defaultValue: 'aem-rhel7-aem65-jdk11-ap', description: 'Name of the packer-aem configuration profile.')
-        string(name: 'AOC_CONFIG_ARTIFACT_URL', defaultValue 's3://aem-opencloud-manager/library/aws-rhel7-aem65-jdk11-ap-config-e2etest.tar.gz', description: 'URL to the AEM OpenCloud Configuration artifact.')
+        string(name: 'AOC_CONFIG_ARTIFACT_URL', defaultValue: 's3://aem-opencloud-manager/library/aws-rhel7-aem65-jdk11-ap-config-e2etest.tar.gz', description: 'URL to the AEM OpenCloud Configuration artifact.')
         string(name: 'AWS_LIBRARY_S3_BUCKET', defaultValue: 'aem-opencloud-manager', description: 'S3 bucket where the libraries are stored.')
         string(name: 'AWS_LIBRARY_S3_PATH', defaultValue: 'library', description: 'S3 path (of the specified S3 bucket) where the libraries are stored.')
         string(name: 'AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER', defaultValue: 'sandpit', description: 'Name of the AEM Stack Manager Messenger configuration profile.')
@@ -75,7 +75,7 @@ pipeline {
             stage('Author') {
                 steps {
                   retry(3) {
-                    build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${packer_cp}/author",
+                    build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${params.AOC_CONFIG_PROFILE_PACKER_AEM}/author",
                     parameters: [
                       booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                       string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: "${params.AOC_CONFIG_PROFILE_PACKER_AEM}"),
@@ -87,7 +87,7 @@ pipeline {
             stage('Publish') {
                 steps {
                   retry(3) {
-                    build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${packer_cp}/publish",
+                    build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${params.AOC_CONFIG_PROFILE_PACKER_AEM}/publish",
                     parameters: [
                       booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                       string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: "${params.AOC_CONFIG_PROFILE_PACKER_AEM}"),
@@ -99,7 +99,7 @@ pipeline {
             stage('Dispatcher') {
                 steps {
                   retry(3) {
-                    build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${packer_cp}/dispatcher",
+                    build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${params.AOC_CONFIG_PROFILE_PACKER_AEM}/dispatcher",
                     parameters: [
                       booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                       string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: "${params.AOC_CONFIG_PROFILE_PACKER_AEM}"),
@@ -111,7 +111,7 @@ pipeline {
             stage('Java') {
                 steps {
                   retry(3) {
-                    build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${packer_cp}/java",
+                    build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${params.AOC_CONFIG_PROFILE_PACKER_AEM}/java",
                     parameters: [
                       booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                       string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: "${params.AOC_CONFIG_PROFILE_PACKER_AEM}"),
@@ -123,7 +123,7 @@ pipeline {
             stage('Author-Publish-Dispatcher') {
                 steps {
                   retry(3) {
-                    build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${packer_cp}/author-publish-dispatcher",
+                    build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${params.AOC_CONFIG_PROFILE_PACKER_AEM}/author-publish-dispatcher",
                     parameters: [
                       booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                       string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: "${params.AOC_CONFIG_PROFILE_PACKER_AEM}"),
@@ -161,10 +161,10 @@ pipeline {
                         script: "echo -e \"---\\n#G enerated by AOC Test Pipeline\\n# AMI IDs for End2End Testing of AEM OpenCloud Manager\\nami_ids:\\n  author: ${author_ami}\\n  author_dispatcher: ${dispatcher_ami}\\n  author_publish_dispatcher: ${con_ami}\\n  chaos_monkey: ${java_ami}\\n  orchestrator: ${java_ami}\\n  publish: ${publish_ami}\\n  publish_dispatcher: ${dispatcher_ami}\" >> ZZZ_ami_ids.yaml"
                         )
                       sh (
-                        script: "cp ZZZ_ami_ids.yaml ./aem-aws-stack-builder/${fs_cp}-ap/ZZZ_ami_ids.yaml"
+                        script: "cp ZZZ_ami_ids.yaml ./aem-aws-stack-builder/${fs_cp}/ZZZ_ami_ids.yaml"
                         )
                       sh (
-                        script: "cp ZZZ_ami_ids.yaml ./aem-aws-stack-builder/${con_cp}-ap/ZZZ_ami_ids.yaml"
+                        script: "cp ZZZ_ami_ids.yaml ./aem-aws-stack-builder/${con_cp}/ZZZ_ami_ids.yaml"
                         )
                       sh '''
                           tar \
@@ -202,7 +202,7 @@ pipeline {
                             string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-fs-platform" ),
                             string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-fs-platform"),
                             string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "${params.AOC_CONFIG_ARTIFACT_URL}"),
-                            string(name: 'AOC_AEM_STACK_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER', value: "${params.AOC_CONFIG_PROFILE}"),
+                            string(name: 'AOC_AEM_STACK_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER', value: "${params.AOC_CONFIG_PROFILE_STACK_BUILDER}"),
                             string(name: 'DEPLOY_PACKAGE_ACTIVATE', value: "true"),
                             string(name: 'DEPLOY_PACKAGE_FORCE', value: "true"),
                             string(name: 'DEPLOY_PACKAGE_GROUP', value: "shinesolutions"),
@@ -224,7 +224,7 @@ pipeline {
                             string(name: 'STACK_PREFIX_GREEN', value: "${params.STACK_PREFIX}-green-fs" ),
                             string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-fs-bg"),
                             string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "${params.AOC_CONFIG_ARTIFACT_URL}"),
-                            string(name: 'AOC_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER', value: "${params.AOC_CONFIG_PROFILE}")
+                            string(name: 'AOC_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER', value: "${params.AOC_CONFIG_PROFILE_STACK_BUILDER}")
                           ]
                       }
                   }
@@ -236,7 +236,7 @@ pipeline {
                             string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-fs-recovery" ),
                             string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-fs-recovery"),
                             string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "${params.AOC_CONFIG_ARTIFACT_URL}"),
-                            string(name: 'AOC_AEM_STACK_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER', value: "${params.AOC_CONFIG_PROFILE}"),
+                            string(name: 'AOC_AEM_STACK_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER', value: "${params.AOC_CONFIG_PROFILE_STACK_BUILDER}")
                           ]
                       }
                   }
@@ -248,7 +248,7 @@ pipeline {
                             string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-fs-promote" ),
                             string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-fs-promote"),
                             string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "${params.AOC_CONFIG_ARTIFACT_URL}"),
-                            string(name: 'AOC_AEM_STACK_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER', value: "${params.AOC_CONFIG_PROFILE}")
+                            string(name: 'AOC_AEM_STACK_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER', value: "${params.AOC_CONFIG_PROFILE_STACK_BUILDER}")
                           ]
                       }
                   }
@@ -279,7 +279,7 @@ pipeline {
                             string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-con-platform" ),
                             string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-con-platform"),
                             string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "${params.AOC_CONFIG_ARTIFACT_URL}"),
-                            string(name: 'AOC_AEM_STACK_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER', value: "${params.AOC_CONFIG_PROFILE}"),
+                            string(name: 'AOC_AEM_STACK_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER', value: "${params.AOC_CONFIG_PROFILE_STACK_BUILDER}"),
                             string(name: 'DEPLOY_PACKAGE_ACTIVATE', value: "true"),
                             string(name: 'DEPLOY_PACKAGE_FORCE', value: "true"),
                             string(name: 'DEPLOY_PACKAGE_GROUP', value: "shinesolutions"),
@@ -300,7 +300,7 @@ pipeline {
                             string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-con-sec" ),
                             string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-con-sec"),
                             string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "${params.AOC_CONFIG_ARTIFACT_URL}"),
-                            string(name: 'AOC_AEM_STACK_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER', value: "${params.AOC_CONFIG_PROFILE}"),
+                            string(name: 'AOC_AEM_STACK_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER', value: "${params.AOC_CONFIG_PROFILE_STACK_BUILDER}"),
                             string(name: 'PUBLISH_DISPATCHER_RECORD_SET', value: "aoc-fs-helloworld-publish-dispatcher"),
                             string(name: 'PUBLISH_DISPATCHER_HOSTED_ZONE', value: "aemopencloud.cms"),
                           ]
