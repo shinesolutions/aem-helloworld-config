@@ -1,0 +1,24 @@
+---
+platform_type: aws
+
+aem:
+  artifacts_base: s3://packer-aem-aoc/adobeaemcloud
+  keystore_password_parameter: aem-opencloud/aoc-awsres-211012/aem-keystore-password
+
+aws:
+  region: ap-southeast-2
+
+  # AOC VPC and private subnet, used by default when baked from Jenkins pipelines and AWS CodeBuild/CodePipeline
+  vpc_id: vpc-00dfcdcd309d256d8
+  subnet_id: subnet-0004e34d540d5f86a
+
+  # Enable these when using Packer AEM from CLI in order to use default VPC and public subnet
+  # vpc_id: vpc-0dbc3878766c66f18
+  # subnet_id: subnet-0302cf1bd231835cc
+
+  instance_profile: aoc-awsres-211012-packer-aem-resources-stack-PackerAemInstanceProfile-RJNY7AVSLR0Y
+  temporary_security_group_source_cidr: "0.0.0.0/0"
+  ami_users: ''
+  install_ssm_agent: true
+  root_volume_size: 30
+  data_volume_size: 75
