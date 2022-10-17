@@ -32,7 +32,7 @@ pipeline {
         choice(name: 'AEM_VERSION', choices: ['65', '64'], description: 'AEM version to test')
         choice(name: 'OS_VERSION', choices: ['rhel7', 'amazon-linux2', 'rhel8'], description: 'OS version to test')
         choice(name: 'JDK_VERSION', choices: ['11', '8'], description: 'JDK version to test')
-        booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: 'true', description: 'If activated SLACK notifications will be send out.')
+        booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', defaultValue: 'true', description: 'If activated SLACK notifications will be send out.')
         string(name: 'STACK_MANAGER_STACK_PREFIX', defaultValue: 'aoc-sm-sh1-' + date, description: 'Stack Manager Stack Prefix to create for the test.')
         string(name: 'STACK_PREFIX', defaultValue: 'aoc-sh1-' + date, description: 'AEM Stack Stack Prefix to create for the test.')
         string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', defaultValue: 'aws-rhel7-aem65-jdk11-nb', description: 'Name of the packer-aem configuration profile.')
