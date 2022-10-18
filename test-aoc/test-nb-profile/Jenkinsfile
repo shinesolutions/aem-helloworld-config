@@ -2,9 +2,7 @@ def getDate() {
   Date date = new Date()
   return date.format('yyyyMMdd') as String
 }
-def genId() {
-  return UUID.randomUUID().toString().split('-')[-1]
-}
+
 def genAemAwsStackBuilderConfigProfileName(architecture, configProfile) {
     config = configProfile.split('-')
     return config[0] + '-' + architecture + '-' + config[1] + '-' + config[2] + '-' + config[3] + '-' + config[4]

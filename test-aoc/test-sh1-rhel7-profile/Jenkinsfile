@@ -2,9 +2,7 @@ def getDate() {
   Date date = new Date()
   return date.format('yyyyMMdd') as String
 }
-def genId() {
-  return UUID.randomUUID().toString().split('-')[-1]
-}
+
 def genAemAwsStackBuilderConfigProfileName(architecture, configProfile) {
     config = configProfile.split('-')
     return config[0] + '-' + architecture + '-' + config[1] + '-' + config[2] + '-' + config[3] + '-' + config[4]
@@ -35,7 +33,7 @@ pipeline {
         booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', defaultValue: 'true', description: 'If activated SLACK notifications will be send out.')
         string(name: 'STACK_MANAGER_STACK_PREFIX', defaultValue: 'aoc-sm-sh1-' + date, description: 'Stack Manager Stack Prefix to create for the test.')
         string(name: 'STACK_PREFIX', defaultValue: 'aoc-sh1-' + date, description: 'AEM Stack Stack Prefix to create for the test.')
-        string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', defaultValue: 'aws-rhel7-aem65-jdk11-nb', description: 'Name of the packer-aem configuration profile.')
+        string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', defaultValue: 'aws-rhel7-aem65-jdk11-sh', description: 'Name of the packer-aem configuration profile.')
         string(name: 'AOC_CONFIG_PROFILE_STACK_BUILDER', defaultValue: 'aem-rhel7-aem65-jdk11-sh', description: 'Name of the stack-builder configuration profile.')
         string(name: 'AOC_CONFIG_ARTIFACT_URL', defaultValue: 's3://aem-opencloud-manager/library/aws-rhel7-aem65-jdk11-sh-config-e2etest.tar.gz', description: 'URL to the AEM OpenCloud Configuration artifact.')
         string(name: 'AWS_LIBRARY_S3_BUCKET', defaultValue: 'aem-opencloud-manager', description: 'S3 bucket where the libraries are stored.')
