@@ -26,7 +26,7 @@ pipeline {
         TMPDIR = "/tmp/shinesolutions/aem-opencloud-manager"
     }
     parameters {
-        string(name: 'AOC_VERSION', defaultValue: '5.9.1-pre.0', description: 'Version of aem-aws-stack-builder repo to archive')
+        string(name: 'AOC_VERSION', defaultValue: '5.9.0', description: 'Version of aem-aws-stack-builder repo to archive')
         choice(name: 'AEM_VERSION', choices: ['65', '64'], description: 'AEM version to test')
         choice(name: 'OS_VERSION', choices: ['rhel7', 'amazon-linux2', 'rhel8'], description: 'OS version to test')
         choice(name: 'JDK_VERSION', choices: ['11', '8'], description: 'JDK version to test')
