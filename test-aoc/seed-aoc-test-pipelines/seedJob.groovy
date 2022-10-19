@@ -1,6 +1,6 @@
 pipelineJob('test-aem-opencloud/test-nb-profile') {
     parameters {
-        stringParam('AOC_CONFIG_PROFILE_STACK_BUILDER','aem-rhel7-aem65-jdk11-ap','Name of the stack-builder configuration profile.')
+        stringParam('AOC_CONFIG_PROFILE_STACK_BUILDER','aem-rhel7-aem65-jdk8-nb ','Name of the stack-builder configuration profile.')
     }
     definition {
         cpsScm {
@@ -20,7 +20,7 @@ pipelineJob('test-aem-opencloud/test-nb-profile') {
 
 pipelineJob('test-aem-opencloud/test-ap-profile') {
     parameters {
-        stringParam('AOC_CONFIG_PROFILE_STACK_BUILDER', 'aem-rhel7-aem65-jdk8-nb', 'Name of the stack-builder configuration profile.')
+        stringParam('AOC_CONFIG_PROFILE_STACK_BUILDER', 'aem-rhel7-aem65-jdk11-ap', 'Name of the stack-builder configuration profile.')
     }
     definition {
         cpsScm {
