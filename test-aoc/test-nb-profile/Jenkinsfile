@@ -203,6 +203,7 @@ pipeline {
                             string(name: 'IMPORT_PACKAGE_GROUP', value: "shinesolutions"),
                             string(name: 'IMPORT_PACKAGE_NAME', value: "aem-helloworld")
                           ]
+                      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') { sh "exit 1" }
                       }
                   }
                   stage('Blue/Green') {
@@ -216,6 +217,7 @@ pipeline {
                             string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "${params.AOC_CONFIG_ARTIFACT_URL}"),
                             string(name: 'AOC_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER', value: "${fs_cp}")
                           ]
+                      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') { sh "exit 1" }
                       }
                   }
                   stage('Recovery') {
@@ -228,6 +230,7 @@ pipeline {
                             string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "${params.AOC_CONFIG_ARTIFACT_URL}"),
                             string(name: 'AOC_AEM_STACK_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER', value: "${fs_cp}")
                           ]
+                      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') { sh "exit 1" }
                       }
                   }
                   stage('Standby Promotion') {
@@ -240,6 +243,7 @@ pipeline {
                             string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "${params.AOC_CONFIG_ARTIFACT_URL}"),
                             string(name: 'AOC_AEM_STACK_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER', value: "${fs_cp}")
                           ]
+                      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') { sh "exit 1" }
                       }
                   }
                   // stage('FS Security') {
@@ -280,6 +284,7 @@ pipeline {
                             string(name: 'IMPORT_PACKAGE_GROUP', value: "shinesolutions"),
                             string(name: 'IMPORT_PACKAGE_NAME', value: "aem-helloworld")
                           ]
+                      catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') { sh "exit 1" }
                       }
                   }
 //                   stage('Con Security') {
