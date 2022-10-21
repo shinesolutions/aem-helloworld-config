@@ -182,7 +182,7 @@ pipeline {
                   }
               }
           }
-          stage('Full-Set Testing') {
+          stage('FS and Consolidated Testing') {
               parallel {
                   stage('FS Platform') {
                       steps {
@@ -257,10 +257,7 @@ pipeline {
                   //         ]
                   //     }
                   // }
-              }
-          }
-          stage('Consolidated Testing') {
-              parallel {
+
                   stage('Con Platform') {
                       steps {
                           build job: "aem-opencloud-${params.AOC_VERSION}/testing/aws/${con_cp}-${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${params.AOC_CONFIG_PROFILE_AEM_TEST_SUITE}-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/consolidated-platform",

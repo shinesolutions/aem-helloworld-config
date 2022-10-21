@@ -4,8 +4,8 @@ os_type: rhel7
 aws:
   user: ec2-user
   # RHEL-7.8_HVM_GA-20200225-x86_64-1-Hourly2-GP2
-#  source_ami: ami-0c854fdd51006d91a
-  source_ami: ami-0bf7d72cc0b127581
+  source_ami: ami-0c854fdd51006d91a
+
   install_cloudwatch_metric_agent: true
   rhel7:
     devicemap_root: /dev/sda1
