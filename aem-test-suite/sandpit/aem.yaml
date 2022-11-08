@@ -1,0 +1,22 @@
+---
+author:
+  protocol: https
+  host: auth.aem-con-helloworld.shineworks.io
+  port:
+  verify_ssl: false
+  debug: false
+  use_proxy: false
+publish:
+  protocol: https
+  host: pub.aem-con-helloworld.shineworks.io
+  port:
+  verify_ssl: false
+  debug: false
+  use_proxy: true
+publish_dispatcher:
+  protocol: https
+  host: aem-con-helloworld.shineworks.io
+  port:
+  verify_ssl: false
+  debug: false
+  use_proxy: false
