@@ -23,7 +23,7 @@ pipelineJob('test-aem-opencloud/test-ap-profile') {
 
 pipelineJob('test-aem-opencloud/test-nb-profile') {
     triggers {
-        cron("H 9 * * 1-5")
+        cron("H 10 * * 1-5")
     }
     parameters {
         stringParam('AOC_CONFIG_PROFILE_STACK_BUILDER','aem-rhel7-aem65-jdk8-nb ','Name of the stack-builder configuration profile.')
@@ -46,7 +46,7 @@ pipelineJob('test-aem-opencloud/test-nb-profile') {
 
 pipelineJob('test-aem-opencloud/test-sh1-rhel7-profile') {
     triggers {
-        cron("H 12 * * 1-5")
+        cron("H 14 * * 1-5")
     }
     parameters {
         stringParam('AOC_CONFIG_PROFILE_STACK_BUILDER', 'aem-rhel7-aem65-jdk11-sh', 'Name of the stack-builder configuration profile.')
@@ -69,7 +69,7 @@ pipelineJob('test-aem-opencloud/test-sh1-rhel7-profile') {
 
 pipelineJob('test-aem-opencloud/test-sh2-amazon-linux2-profile') {
     triggers {
-        cron("H 15 * * 1-5")
+        cron("H 16 * * 1-5")
     }
     parameters {
         stringParam('AOC_CONFIG_PROFILE_STACK_BUILDER', 'aem-amazon-linux2-aem65-jdk11-sh', 'Name of the stack-builder configuration profile.')
