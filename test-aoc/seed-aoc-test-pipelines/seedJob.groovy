@@ -69,7 +69,7 @@ pipelineJob('test-aem-opencloud/test-sh1-rhel7-profile') {
 
 pipelineJob('test-aem-opencloud/test-sh2-amazon-linux2-profile') {
     triggers {
-        cron("H 16 * * 1-5")
+        cron("H 18 * * 1-5")
     }
     parameters {
         stringParam('AOC_CONFIG_PROFILE_STACK_BUILDER', 'aem-amazon-linux2-aem65-jdk11-sh', 'Name of the stack-builder configuration profile.')
