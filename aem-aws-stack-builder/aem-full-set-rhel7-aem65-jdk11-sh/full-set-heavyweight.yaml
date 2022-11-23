@@ -1,16 +1,16 @@
 ---
 publish_dispatcher:
-  asg_min_size: 3
-  asg_desired_capacity: 3
-  asg_max_size: 6
+  asg_min_size: 2
+  asg_desired_capacity: 2
+  asg_max_size: 3
   instance_type: t2.medium
   root_vol_size: 50
   data_vol_size: 100
 
 publish:
-  asg_min_size: 3
-  asg_desired_capacity: 3
-  asg_max_size: 6
+  asg_min_size: 2
+  asg_desired_capacity: 2
+  asg_max_size: 3
   instance_type: m4.2xlarge
   root_vol_size: 50
   data_vol_size: 100
@@ -21,9 +21,9 @@ author:
   data_vol_size: 100
 
 author_dispatcher:
-  asg_min_size: 3
-  asg_desired_capacity: 3
-  asg_max_size: 6
+  asg_min_size: 1
+  asg_desired_capacity: 1
+  asg_max_size: 3
   instance_type: t2.medium
   root_vol_size: 50
   data_vol_size: 100
