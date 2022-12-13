@@ -9,19 +9,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Added CodePipeline/CodeBuild configuration
 - Added users ssh keys for aem-opencloud env
-- Added Jenkinsfile to run End2End Testsing of AEM OpenCloud
+- Added Jenkinsfiles to run End2End Testsing of AEM OpenCloud RS-52
 - Added packer-aem and stack-builder profiles for AOC End to End Testing.
+- Added `vulnerable_paths.txt` in aem-test-suite configuration to test AEM endpoints.
 
 ### Changed
 - Updated parameters for new sandpit AWS account
 - Update Jumphost access security group (from jumphost inbound to instances) with the resource `shn-awsres-03`
 - Updated AMI IDs for the aem65_sp3-rhel7-jdk8
-- Updated `aem65_sp8` to `aem65_sp3` for aem-65 profile in packer-aem
+- Updated `aem65_sp13` to `aem65_sp14` for aem-65 profile in packer-aem
 - Updated `certificate_arn` and `certificate_key_arn` for jdk8 in packer-aem
+- Updated `certificate_arn` for stack-builder configuration
 - Updated gen-aem-aws-stack-builder to add encryption file to aem-stack-manager profile
 - Change author-dispatcher ELB inbound to allow reverse proxy CIDR
 - Change publish-dispatcher ELB inbound to allow the Internet since it's on public subnet
 - Updated configuration for aem-test-suite
+- Renamed packer-aem profiles
 
 ### Removed
 - Removed `inbound_from_bastion_host_security_group` configuration since it's no longer needed in aem-aws-stack-builder 4.34.0
