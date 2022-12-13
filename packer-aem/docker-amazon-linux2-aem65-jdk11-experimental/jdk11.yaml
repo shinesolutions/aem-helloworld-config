@@ -25,6 +25,8 @@ aem:
   jdk:
     base_url: s3://packer-aem-aoc/adobeaemcloud
     filename: jdk-11.0.9_linux-x64_bin.rpm
+# This parameter is for Java Component Orchestrator & Chaos Monkey
+# Both do not support Java 11 hence why we need to use Java 8
 java:
   base_url: s3://packer-aem-aoc/adobeaemcloud
-  filename: jdk-11.0.9_linux-x64_bin.rpm
+  filename: jdk-8u251-linux-x64.rpm
