@@ -5,6 +5,7 @@ aws:
     s3_bucket: aem-opencloud-manager
 
 aem_opencloud:
+  github_token: /shine-works/github-access-token
   config:
     artifact_url: https://github.com/shinesolutions/aem-helloworld-config/archive/main.tar.gz
   custom_manager_steps:
@@ -24,7 +25,8 @@ aem_opencloud:
       export_descriptor_url: https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/main/descriptors/full-set/export-backups-descriptor.json
       content_healthcheck_descriptor_url: >
         https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/main/descriptors/full-set/content-healthcheck-descriptor.json
-
+  jenkins_sharedlibs:
+    repo_credentials_id: github_aem_opencloud
 jenkins:
   host: jenkins.shineworks.io
   port: 80
