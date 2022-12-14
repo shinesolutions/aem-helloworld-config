@@ -5,7 +5,7 @@ aws:
     s3_bucket: aem-opencloud-manager
 
 aem_opencloud:
-  github_token:
+  github_token: /shine-works/github-access-token
   config:
     artifact_url: https://github.com/shinesolutions/aem-helloworld-config/archive/main.tar.gz
   custom_manager_steps:
