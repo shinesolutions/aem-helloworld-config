@@ -1,0 +1,35 @@
+---
+aws:
+  region: ap-southeast-2
+  library:
+    s3_bucket: aem-opencloud-manager
+
+aem_opencloud:
+  github_token: github-access-token
+  config:
+    artifact_url: https://github.com/shinesolutions/aem-helloworld-config/archive/main.tar.gz
+  custom_manager_steps:
+    artifact_url: https://github.com/shinesolutions/aem-helloworld-custom-manager-steps/archive/main.tar.gz
+  custom_image_provisioner:
+    artifact_url: https://github.com/shinesolutions/aem-helloworld-custom-image-provisioner/releases/download/0.9.1/aem-helloworld-custom-image-provisioner-0.9.1.tar.gz
+  custom_stack_provisioner:
+    artifact_url: https://github.com/shinesolutions/aem-helloworld-custom-stack-provisioner/releases/download/0.15.0/aem-helloworld-custom-stack-provisioner-0.15.0.tar.gz
+  descriptors:
+    consolidated:
+      deployment_descriptor_url: https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/main/descriptors/consolidated/deploy-artifacts-descriptor.json
+      export_descriptor_url: https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/main/descriptors/consolidated/export-backups-descriptor.json
+      content_healthcheck_descriptor_url: >
+        https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/main/descriptors/consolidated/content-healthcheck-descriptor.json
+    full-set:
+      deployment_descriptor_url: https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/main/descriptors/full-set/deploy-artifacts-descriptor.json
+      export_descriptor_url: https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/main/descriptors/full-set/export-backups-descriptor.json
+      content_healthcheck_descriptor_url: >
+        https://raw.githubusercontent.com/shinesolutions/aem-helloworld-config/main/descriptors/full-set/content-healthcheck-descriptor.json
+  jenkins_sharedlibs:
+    repo_credentials_id: github_aem_opencloud
+jenkins:
+  host: jenkins.shineworks.io
+  port: 80
+  agent:
+    # yamllint disable-line rule:line-length
+    docker_args: "--user root -e AWS_DEFAULT_REGION=ap-southeast-2 -e https_proxy=http://forward-proxy.infracatalog.srv:3128/ -e http_proxy=http://forward-proxy.infracatalog.srv:3128/ -e no_proxy=localhost,127.0.0.1,169.254.169.254,169.254.0.0/16,elb.amazonaws.com,10.0.0.0/12,aemopencloud.cms,infracatalog.srv"
