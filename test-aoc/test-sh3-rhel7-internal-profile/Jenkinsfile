@@ -32,7 +32,7 @@ pipeline {
         choice(name: 'JDK_VERSION', choices: ['11', '8'], description: 'JDK version to test')
         booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', defaultValue: 'true', description: 'If activated SLACK notifications will be send out.')
         string(name: 'STACK_MANAGER_STACK_PREFIX', defaultValue: 'aoc-sm-sh3-' + date, description: 'Stack Manager Stack Prefix to create for the test.')
-        string(name: 'STACK_PREFIX', defaultValue: 'aoc-sh1-' + date, description: 'AEM Stack Stack Prefix to create for the test.')
+        string(name: 'STACK_PREFIX', defaultValue: 'aoc-sh3-' + date, description: 'AEM Stack Stack Prefix to create for the test.')
         string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', defaultValue: 'aws-rhel7-aem65-jdk11-sh', description: 'Name of the packer-aem configuration profile.')
         string(name: 'AOC_CONFIG_PROFILE_STACK_BUILDER', defaultValue: 'aem-rhel7-aem65-jdk11-sh', description: 'Name of the stack-builder configuration profile.')
         string(name: 'AOC_CONFIG_ARTIFACT_URL', defaultValue: 's3://aem-opencloud-manager/library/aws-rhel7-aem65-jdk11-sh3-internal-config-e2etest.tar.gz', description: 'URL to the AEM OpenCloud Configuration artifact.')
@@ -171,13 +171,10 @@ pipeline {
                               -cf aoc-config-e2etest.tar ./
                       '''
                       sh (
-                              script: "mv aoc-config-e2etest.tar ${params.AOC_CONFIG_PROFILE_PACKER_AEM}-config-e2etest.tar"
+                              script: "gzip aoc-config-e2etest.tar"
                       )
                       sh (
-                              script: "gzip ${params.AOC_CONFIG_PROFILE_PACKER_AEM}-config-e2etest.tar"
-                      )
-                      sh (
-                              script: "aws s3 cp ${params.AOC_CONFIG_PROFILE_PACKER_AEM}-config-e2etest.tar.gz s3://${params.AWS_LIBRARY_S3_BUCKET}/${params.AWS_LIBRARY_S3_PATH}/"
+                              script: "aws s3 cp aoc-config-e2etest.tar.gz ${params.AOC_CONFIG_ARTIFACT_URL}"
                       )
                   }
               }

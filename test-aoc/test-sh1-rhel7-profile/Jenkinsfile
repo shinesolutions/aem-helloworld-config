@@ -171,13 +171,10 @@ pipeline {
                               -cf aoc-config-e2etest.tar ./
                       '''
                       sh (
-                              script: "mv aoc-config-e2etest.tar ${params.AOC_CONFIG_PROFILE_PACKER_AEM}-config-e2etest.tar"
+                        script: "gzip aoc-config-e2etest.tar"
                       )
                       sh (
-                              script: "gzip ${params.AOC_CONFIG_PROFILE_PACKER_AEM}-config-e2etest.tar"
-                      )
-                      sh (
-                              script: "aws s3 cp ${params.AOC_CONFIG_PROFILE_PACKER_AEM}-config-e2etest.tar.gz s3://${params.AWS_LIBRARY_S3_BUCKET}/${params.AWS_LIBRARY_S3_PATH}/"
+                        script: "aws s3 cp aoc-config-e2etest.tar.gz ${params.AOC_CONFIG_ARTIFACT_URL}"
                       )
                   }
               }
