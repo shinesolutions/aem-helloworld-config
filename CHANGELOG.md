@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Added CodePipeline/CodeBuild configuration
 - Added users ssh keys for aem-opencloud env
+- Added aem-security pipeline stage in AOC End to End Testing RS-89
 - Added Jenkinsfiles to run End2End Testsing of AEM OpenCloud RS-52
 - Added packer-aem and stack-builder profiles for AOC End to End Testing.
 - Added `vulnerable_paths.txt` in aem-test-suite configuration to test AEM endpoints.
