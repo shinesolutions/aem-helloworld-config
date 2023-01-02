@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated `certificate_arn` and `certificate_key_arn` for jdk8 in packer-aem
 - Updated `certificate_arn` for stack-builder configuration
 - Updated gen-aem-aws-stack-builder to add encryption file to aem-stack-manager profile
+- Updated descriptor artifacts versions.
 - Change author-dispatcher ELB inbound to allow reverse proxy CIDR
 - Change publish-dispatcher ELB inbound to allow the Internet since it's on public subnet
 - Updated configuration for aem-test-suite

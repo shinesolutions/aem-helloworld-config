@@ -27,7 +27,7 @@
     "artifacts": [
       {
         "name": "aem-helloworld-author-dispatcher",
-        "source": "https://github.com/shinesolutions/aem-helloworld-author-dispatcher/releases/download/0.11.0/aem-helloworld-author-dispatcher-0.11.0.zip"
+        "source": "https://github.com/shinesolutions/aem-helloworld-author-dispatcher/releases/download/0.12.2/aem-helloworld-author-dispatcher-0.12.2.zip"
       }
     ]
   },
@@ -49,7 +49,7 @@
     "artifacts": [
       {
         "name": "aem-helloworld-publish-dispatcher",
-        "source": "https://github.com/shinesolutions/aem-helloworld-publish-dispatcher/releases/download/0.11.1/aem-helloworld-publish-dispatcher-0.11.1.zip"
+        "source": "https://github.com/shinesolutions/aem-helloworld-publish-dispatcher/releases/download/0.13.0/aem-helloworld-publish-dispatcher-0.13.0.zip"
       }
     ]
   }
