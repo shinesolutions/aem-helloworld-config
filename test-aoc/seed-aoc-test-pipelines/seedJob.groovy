@@ -20,6 +20,27 @@ pipelineJob('test-aem-opencloud/test-ap-profile') {
     }
 }
 
+pelineJob('test-aem-opencloud/test-cb-profile') {
+    triggers {
+        cron("H 5 * * 1-5")
+    }
+    parameters {
+        stringParam('AOC_CONFIG_PROFILE_STACK_BUILDER', 'aem-amazon-linux2-aem64-jdk8-cb', 'Name of the stack-builder configuration profile.')
+    }
+    definition {
+        cpsScm {
+            scm {
+                git {
+                    remote {
+                        github('shinesolutions/aem-helloworld-config')
+                    }
+                    branch('main')
+                }
+            }
+            scriptPath('test-aoc/test-cb-profile/Jenkinsfile')
+        }
+    }
+
 pipelineJob('test-aem-opencloud/test-nb-profile') {
     triggers {
         cron("H 8 * * 1-5")
