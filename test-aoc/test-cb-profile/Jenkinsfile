@@ -20,22 +20,22 @@ pipeline {
         }
     }
     triggers {
-        cron("H 14 * * 1,3,5")
+        cron("H 11 * * 1,3,5")
     }
     environment {
         TMPDIR = "/tmp/shinesolutions/aem-opencloud-manager"
     }
     parameters {
-        string(name: 'AOC_VERSION', defaultValue: '5.13.0', description: 'Version of aem-aws-stack-builder repo to archive')
-        choice(name: 'AEM_VERSION', choices: ['65', '64'], description: 'AEM version to test')
-        choice(name: 'OS_VERSION', choices: ['rhel7', 'amazon-linux2', 'rhel8'], description: 'OS version to test')
+        string(name: 'AOC_VERSION', defaultValue: '5.17.2', description: 'Version of aem-aws-stack-builder repo to archive')
+        choice(name: 'AEM_VERSION', choices: ['64', '65'], description: 'AEM version to test')
+        choice(name: 'OS_VERSION', choices: ['amazon-linux2', 'rhel7', 'rhel8'], description: 'OS version to test')
         choice(name: 'JDK_VERSION', choices: ['8', '11'], description: 'JDK version to test')
         booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', defaultValue: 'true', description: 'If activated SLACK notifications will be send out.')
-        string(name: 'STACK_MANAGER_STACK_PREFIX', defaultValue: 'aoc-sm-nb-' + date, description: 'Stack Manager Stack Prefix to create for the test.')
-        string(name: 'STACK_PREFIX', defaultValue: 'aoc-nb-' + date + '', description: 'AEM Stack Stack Prefix to create for the test.')
-        string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', defaultValue: 'aws-rhel7-aem65-jdk8-nb', description: 'Name of the packer-aem configuration profile.')
-        string(name: 'AOC_CONFIG_PROFILE_STACK_BUILDER', defaultValue: 'aem-rhel7-aem65-jdk8-nb', description: 'Name of the stack-builder configuration profile.')
-        string(name: 'AOC_CONFIG_ARTIFACT_URL', defaultValue: 's3://aem-opencloud-manager/library/aws-rhel7-aem65-jdk8-nb-config-e2etest.tar.gz', description: 'URL to the AEM OpenCloud Configuration artifact.')
+        string(name: 'STACK_MANAGER_STACK_PREFIX', defaultValue: 'aoc-sm-cb-' + date, description: 'Stack Manager Stack Prefix to create for the test.')
+        string(name: 'STACK_PREFIX', defaultValue: 'aoc-cb-' + date, description: 'AEM Stack Stack Prefix to create for the test.')
+        string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', defaultValue: 'aws-amazon-linux2-aem64-jdk8-cb', description: 'Name of the packer-aem configuration profile.')
+        string(name: 'AOC_CONFIG_PROFILE_STACK_BUILDER', defaultValue: 'aem-amazon-linux2-aem64-jdk8-cb', description: 'Name of the stack-builder configuration profile.')
+        string(name: 'AOC_CONFIG_ARTIFACT_URL', defaultValue: 's3://aem-opencloud-manager/library/aws-amazon-linux2-aem64-jdk8-cb-config-e2etest.tar.gz', description: 'URL to the AEM OpenCloud Configuration artifact.')
         string(name: 'AWS_LIBRARY_S3_BUCKET', defaultValue: 'aem-opencloud-manager', description: 'S3 bucket where the libraries are stored.')
         string(name: 'AWS_LIBRARY_S3_PATH', defaultValue: 'library', description: 'S3 path (of the specified S3 bucket) where the libraries are stored.')
         string(name: 'AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER', defaultValue: 'sandpit', description: 'Name of the AEM Stack Manager Messenger configuration profile.')
@@ -74,6 +74,7 @@ pipeline {
                     parameters: [
                       booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                       string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: "${params.AOC_CONFIG_PROFILE_PACKER_AEM}"),
+                      string(name: 'JENKINS_AGENT_DOCKER_IMAGE', value: "${params.JENKINS_AGENT_DOCKER_IMAGE}")
                     ]
                   }
                 }
@@ -85,6 +86,7 @@ pipeline {
                     parameters: [
                       booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                       string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: "${params.AOC_CONFIG_PROFILE_PACKER_AEM}"),
+                      string(name: 'JENKINS_AGENT_DOCKER_IMAGE', value: "${params.JENKINS_AGENT_DOCKER_IMAGE}")
                     ]
                   }
                 }
@@ -96,6 +98,7 @@ pipeline {
                     parameters: [
                       booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                       string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: "${params.AOC_CONFIG_PROFILE_PACKER_AEM}"),
+                      string(name: 'JENKINS_AGENT_DOCKER_IMAGE', value: "${params.JENKINS_AGENT_DOCKER_IMAGE}")
                     ]
                   }
                 }
@@ -107,6 +110,7 @@ pipeline {
                     parameters: [
                       booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                       string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: "${params.AOC_CONFIG_PROFILE_PACKER_AEM}"),
+                      string(name: 'JENKINS_AGENT_DOCKER_IMAGE', value: "${params.JENKINS_AGENT_DOCKER_IMAGE}")
                     ]
                   }
                 }
@@ -118,6 +122,7 @@ pipeline {
                     parameters: [
                       booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                       string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: "${params.AOC_CONFIG_PROFILE_PACKER_AEM}"),
+                      string(name: 'JENKINS_AGENT_DOCKER_IMAGE', value: "${params.JENKINS_AGENT_DOCKER_IMAGE}")
                     ]
                   }
                 }
@@ -242,7 +247,6 @@ pipeline {
                           ]
                       }
                   }
-
                   stage('FS Security') {
                       steps {
                           build job: "aem-opencloud-${params.AOC_VERSION}/testing/aws/${fs_cp}-${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${params.AOC_CONFIG_PROFILE_AEM_TEST_SUITE}-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/full-set-security",
@@ -289,7 +293,7 @@ pipeline {
                             string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-con-sec"),
                             string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "${params.AOC_CONFIG_ARTIFACT_URL}"),
                             string(name: 'AOC_AEM_STACK_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER', value: "${con_cp}"),
-                            string(name: 'PUBLISH_DISPATCHER_RECORD_SET', value: "aoc-con-helloworld-aem-consolidated"),
+                            string(name: 'PUBLISH_DISPATCHER_RECORD_SET', value: "aoc-fs-helloworld-publish-dispatcher"),
                             string(name: 'PUBLISH_DISPATCHER_HOSTED_ZONE', value: "aemopencloud.cms"),
                           ]
                       }

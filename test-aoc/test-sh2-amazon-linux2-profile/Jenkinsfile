@@ -20,7 +20,7 @@ pipeline {
         }
     }
     triggers {
-        cron("H 14 * * 1-5")
+        cron("H 11 * * 2,4")
     }
     environment {
         TMPDIR = "/tmp/shinesolutions/aem-opencloud-manager"
@@ -285,7 +285,7 @@ pipeline {
                             string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-con-sec"),
                             string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "${params.AOC_CONFIG_ARTIFACT_URL}"),
                             string(name: 'AOC_AEM_STACK_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER', value: "${con_cp}"),
-                            string(name: 'PUBLISH_DISPATCHER_RECORD_SET', value: "aoc-fs-helloworld-publish-dispatcher"),
+                            string(name: 'PUBLISH_DISPATCHER_RECORD_SET', value: "aoc-con-helloworld-aem-consolidated"),
                             string(name: 'PUBLISH_DISPATCHER_HOSTED_ZONE', value: "aemopencloud.cms"),
                           ]
                       }
