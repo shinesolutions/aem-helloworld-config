@@ -20,7 +20,7 @@ pipelineJob('test-aem-opencloud/test-ap-profile') {
     }
 }
 
-pelineJob('test-aem-opencloud/test-cb-profile') {
+pipelineJob('test-aem-opencloud/test-cb-profile') {
     triggers {
         cron("H 11 * * 1,3,5")
     }
