@@ -15,7 +15,7 @@ aws:
   # Enable these when using Packer AEM from CLI in order to use default VPC and public subnet
   # vpc_id: vpc-0dbc3878766c66f18
   # subnet_id: subnet-0302cf1bd231835cc
-
+  instance_type: m6a.2xlarge
   instance_profile: aoc-awsres-211012-packer-aem-resources-stack-PackerAemInstanceProfile-RJNY7AVSLR0Y
   temporary_security_group_source_cidr: "0.0.0.0/0"
   ami_users: ''
