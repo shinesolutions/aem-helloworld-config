@@ -40,6 +40,7 @@ pelineJob('test-aem-opencloud/test-cb-profile') {
             scriptPath('test-aoc/test-cb-profile/Jenkinsfile')
         }
     }
+}
 
 pipelineJob('test-aem-opencloud/test-nb-profile') {
     triggers {
