@@ -1,5 +1,5 @@
 ---
 author_publish_dispatcher:
-  instance_type: m6g.2xlarge
+  instance_type: m6a.2xlarge
   root_vol_size: 50
   data_vol_size: 200
