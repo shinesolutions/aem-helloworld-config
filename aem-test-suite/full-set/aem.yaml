@@ -12,11 +12,11 @@ publish:
   port:
   verify_ssl: false
   debug: false
-  use_proxy: true
+  use_proxy: false
 publish_dispatcher:
   protocol: https
   host: aem-fs-helloworld.shineworks.io
   port:
   verify_ssl: false
   debug: false
-  use_proxy: false
+  use_proxy: true
