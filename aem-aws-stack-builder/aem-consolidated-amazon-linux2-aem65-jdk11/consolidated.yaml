@@ -9,6 +9,10 @@ prerequisites:
   stack_name: aem-consolidated-prerequisites-stack
 
 aem:
+  # Parameters for managing AEM Truststore
+  truststore:
+    enable_creation: true
+    password: changeit
   enable_crxde: true
   enable_default_passwords: false
   enable_deploy_on_init: true

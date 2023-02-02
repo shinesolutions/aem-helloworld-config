@@ -1,0 +1,208 @@
+def getDate() {
+  Date date = new Date()
+  return date.format('yyyyMMdd') as String
+}
+
+def genAemAwsStackBuilderConfigProfileName(architecture, configProfile) {
+    config = configProfile.split('-')
+    return config[0] + '-' + architecture + '-' + config[1] + '-' + config[2] + '-' + config[3] + '-' + config[4]
+}
+
+def date = getDate()
+def fs_cp = genAemAwsStackBuilderConfigProfileName('full-set',"${params.AOC_CONFIG_PROFILE_STACK_BUILDER}")
+def con_cp = genAemAwsStackBuilderConfigProfileName('consolidated',"${params.AOC_CONFIG_PROFILE_STACK_BUILDER}")
+
+pipeline {
+    agent {
+        docker {
+            image params.JENKINS_AGENT_DOCKER_IMAGE
+            args params.JENKINS_AGENT_DOCKER_ARGS
+        }
+    }
+    triggers {
+        cron("H 13 * * 2,4")
+    }
+    environment {
+        TMPDIR = "/tmp/shinesolutions/aem-opencloud-manager"
+    }
+    parameters {
+        string(name: 'AOC_VERSION', defaultValue: 'internal-main', description: 'Version of aem-aws-stack-builder repo to archive')
+        choice(name: 'AEM_VERSION', choices: ['65', '64'], description: 'AEM version to test')
+        choice(name: 'OS_VERSION', choices: ['rhel7', 'amazon-linux2', 'rhel8'], description: 'OS version to test')
+        choice(name: 'JDK_VERSION', choices: ['11', '8'], description: 'JDK version to test')
+        booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', defaultValue: 'true', description: 'If activated SLACK notifications will be send out.')
+        string(name: 'STACK_MANAGER_STACK_PREFIX', defaultValue: 'aoc-sm-sh3-' + date, description: 'Stack Manager Stack Prefix to create for the test.')
+        string(name: 'STACK_PREFIX', defaultValue: 'aoc-sh3-' + date, description: 'AEM Stack Stack Prefix to create for the test.')
+        string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', defaultValue: 'aws-rhel7-aem65-jdk11-sh', description: 'Name of the packer-aem configuration profile.')
+        string(name: 'AOC_CONFIG_PROFILE_STACK_BUILDER', defaultValue: 'aem-rhel7-aem65-jdk11-sh', description: 'Name of the stack-builder configuration profile.')
+        string(name: 'AOC_CONFIG_ARTIFACT_URL', defaultValue: 's3://aem-opencloud-manager/library/aws-rhel7-aem65-jdk11-sh3-internal-config-e2etest.tar.gz', description: 'URL to the AEM OpenCloud Configuration artifact.')
+        string(name: 'AWS_LIBRARY_S3_BUCKET', defaultValue: 'aem-opencloud-manager', description: 'S3 bucket where the libraries are stored.')
+        string(name: 'AWS_LIBRARY_S3_PATH', defaultValue: 'library', description: 'S3 path (of the specified S3 bucket) where the libraries are stored.')
+        string(name: 'AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER', defaultValue: 'sandpit', description: 'Name of the AEM Stack Manager Messenger configuration profile.')
+        string(name: 'AOC_CONFIG_PROFILE_AEM_TEST_SUITE', defaultValue: 'sandpit', description: 'Name of the AEM Test Suite configuration profile.')
+        string(name: 'AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER', defaultValue: 'sandpit', description: 'Name of the AEM AWS Stack Builder configuration profile.')
+        string(name: 'JENKINS_AGENT_DOCKER_IMAGE', defaultValue: 'shinesolutions/aem-platform-buildenv:latest', description: 'The name of Docker image to be used as Jenkins build pipeline agent.')
+        string(name: 'JENKINS_AGENT_DOCKER_ARGS', defaultValue: "--user root -e AWS_DEFAULT_REGION=ap-southeast-2 -e https_proxy=http://forward-proxy.infracatalog.srv:3128/ -e http_proxy=http://forward-proxy.infracatalog.srv:3128/ -e no_proxy=localhost,127.0.0.1,169.254.169.254,169.254.0.0/16,elb.amazonaws.com,10.0.0.0/12,aemopencloud.cms,infracatalog.srv", description: 'The CLI args for Jenkins to use when running Docker CLI.')
+
+    }
+
+    stages {
+        stage('Installation') {
+            steps {
+                build job: "aem-opencloud-${params.AOC_VERSION}/installation/aws/mirror-aem-opencloud-libraries",
+                parameters: [
+                  booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}")
+                ]
+                build job: "aem-opencloud-${params.AOC_VERSION}/installation/aws/mirror-stack-builder-libraries-${fs_cp}",
+                parameters: [
+                  booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}")
+                ]
+                build job: "aem-opencloud-${params.AOC_VERSION}/installation/aws/mirror-stack-builder-libraries-${con_cp}",
+                parameters: [
+                  booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}")
+                ]
+            }
+        }
+        stage('Consolidated AMI Baking') {
+            steps {
+              retry(3) {
+                build job: "aem-opencloud-${params.AOC_VERSION}/machine-images/aws/${params.AOC_CONFIG_PROFILE_PACKER_AEM}/author-publish-dispatcher",
+                parameters: [
+                  booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
+                  string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', value: "${params.AOC_CONFIG_PROFILE_PACKER_AEM}"),
+                ]
+              }
+            }
+        }
+        stage('Generate Configuration Package') {
+            steps {
+                script {
+                   author_ami = sh (
+                        script: "aws ec2 describe-images --filters \"Name=tag:Application Role,Values=author AMI\" \"Name=tag:OS Type,Values=${params.OS_VERSION}\" \"Name=tag:jdk_version,Values=${params.JDK_VERSION}\" \"Name=tag:Application Profile,Values=aem${params.AEM_VERSION}*\" --query \"sort_by(Images, &CreationDate)[-1].ImageId\" --output text",
+                        returnStdout: true
+                    ).trim()
+                   publish_ami = sh (
+                        script: "aws ec2 describe-images --filters \"Name=tag:Application Role,Values=publish AMI\" \"Name=tag:OS Type,Values=${params.OS_VERSION}\" \"Name=tag:jdk_version,Values=${params.JDK_VERSION}\" \"Name=tag:Application Profile,Values=aem${params.AEM_VERSION}*\" --query \"sort_by(Images, &CreationDate)[-1].ImageId\" --output text",
+                        returnStdout: true
+                    ).trim()
+                   dispatcher_ami = sh (
+                        script: "aws ec2 describe-images --filters \"Name=tag:Application Role,Values=dispatcher AMI\" \"Name=tag:OS Type,Values=${params.OS_VERSION}\" \"Name=tag:jdk_version,Values=${params.JDK_VERSION}\" \"Name=tag:Application Profile,Values=aem${params.AEM_VERSION}*\" --query \"sort_by(Images, &CreationDate)[-1].ImageId\" --output text",
+                        returnStdout: true
+                    ).trim()
+                   java_ami = sh (
+                        script: "aws ec2 describe-images --filters \"Name=tag:Application Role,Values=java AMI\" \"Name=tag:OS Type,Values=${params.OS_VERSION}\" \"Name=tag:jdk_version,Values=${params.JDK_VERSION}\" \"Name=tag:Application Profile,Values=aem${params.AEM_VERSION}*\" --query \"sort_by(Images, &CreationDate)[-1].ImageId\" --output text",
+                        returnStdout: true
+                    ).trim()
+                   con_ami = sh (
+                        script: "aws ec2 describe-images --filters \"Name=tag:Application Role,Values=author-publish-dispatcher AMI\" \"Name=tag:OS Type,Values=${params.OS_VERSION}\" \"Name=tag:jdk_version,Values=${params.JDK_VERSION}\" \"Name=tag:Application Profile,Values=aem${params.AEM_VERSION}*\" --query \"sort_by(Images, &CreationDate)[-1].ImageId\" --output text",
+                        returnStdout: true
+                    ).trim()
+                    sh (
+                      script: "echo -e \"---\\n#G enerated by AOC Test Pipeline\\n# AMI IDs for End2End Testing of AEM OpenCloud Manager\\nami_ids:\\n  author: ${author_ami}\\n  author_dispatcher: ${dispatcher_ami}\\n  author_publish_dispatcher: ${con_ami}\\n  chaos_monkey: ${java_ami}\\n  orchestrator: ${java_ami}\\n  publish: ${publish_ami}\\n  publish_dispatcher: ${dispatcher_ami}\" >> ZZZ_ami_ids.yaml"
+                      )
+                    sh (
+                      script: "cp ZZZ_ami_ids.yaml ./aem-aws-stack-builder/${fs_cp}/ZZZ_ami_ids.yaml"
+                      )
+                    sh (
+                      script: "cp ZZZ_ami_ids.yaml ./aem-aws-stack-builder/${con_cp}/ZZZ_ami_ids.yaml"
+                      )
+                    sh '''
+                        tar \
+                            --exclude='.git*' \
+                            --exclude='.librarian*' \
+                            --exclude='.tmp*' \
+                            --exclude='.yamllint' \
+                            --exclude='stage*' \
+                            --exclude='.idea*' \
+                            --exclude='.DS_Store*' \
+                            --exclude='logs*' \
+                            --exclude='*.retry' \
+                            --exclude='*.iml' \
+                            -cf aoc-config-e2etest.tar ./
+                    '''
+                    sh (
+                            script: "gzip aoc-config-e2etest.tar"
+                    )
+                    sh (
+                            script: "aws s3 cp aoc-config-e2etest.tar.gz ${params.AOC_CONFIG_ARTIFACT_URL}"
+                    )
+                }
+            }
+        }
+        stage('Create AEM Stack Manager environment') {
+            steps {
+                build job: "../../../manage-environments/aws/aem-stack-manager-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/create-stack-manager/",
+                parameters: [
+                  string(name: 'STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-con-saml"),
+                ]
+            }
+        }
+        stage('Create AEM Consolidated environment') {
+            steps {
+                build job: "../../../manage-environments/aws/${con_cp}-${AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${AOC_CONFIG_PROFILE_AEM_TEST_SUITE}/create-consolidated/",
+                parameters: [
+                  string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-con-saml"),
+                  string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-con-saml"),
+                  string(name: 'AOC_CONFIG_ARTIFACT_URL', value: params.AOC_CONFIG_ARTIFACT_URL),
+                ]
+            }
+        }
+        stage('Enable SAML') {
+            steps {
+                build job: "../../../operational-tasks/${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}/enable-saml/",
+                parameters: [
+                  string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-con-saml"),
+                  string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-con-saml"),
+                  string(name: 'AEM_COMPONENT', value: 'author-publish-dispatcher'),
+                  string(name: 'AEM_ID', value: 'author'),
+                  string(name: 'SAML_ADD_GROUP_MEMBERSHIPS', value: 'true'),
+                  string(name: 'SAML_CLOCK_TOLERANCE', value: '60'),
+                  string(name: 'SAML_KEY_STORE_PASSWORD', value: 'admin'),
+                  string(name: 'SAML_SERVICE_RANKING', value: '5002'),
+                  string(name: 'SAML_PATH', value: '/'),
+                  string(name: 'SAML_SERVICE_PROVIDER_ENTITY_ID', value: 'AEMSSO'),
+                  string(name: 'SAML_IDP_URL', value: 'https://accounts.google.com/o/saml2/idp?idpid=C03prroq7'),
+                  string(name: 'SAML_CERT_FILE', value: 's3://aem-artifacts-aoc/google_saml_cert.pem'),
+                  string(name: 'SAML_ASSERTION_CONSUMER_SERVICE_URL', value: 'https://auth.aem-con-helloworld.shineworks.io:443/saml_login'),
+                  string(name: 'SAML_CREATE_USER', value: 'true'),
+                  string(name: 'SAML_DEFAULT_REDIRECT_URL', value: '/'),
+                  string(name: 'SAML_DEFAULT_GROUPS', value: 'content-authors'),
+                  string(name: 'SAML_DIGEST_METHOD', value: 'http://www.w3.org/2001/04/xmlenc#sha256'),
+                  string(name: 'SAML_GROUP_MEMBERSHIP_ATTRIBUTE', value: 'groupMembership'),
+                  string(name: 'SAML_HANDLE_LOGOUT', value: 'true'),
+                  string(name: 'SAML_IDP_HTTP_REDIRECT', value: 'false'),
+                  string(name: 'SAML_LOGOUT_URL', value: 'https://accounts.google.com/logout'),
+                  string(name: 'SAML_NAME_ID_FORMAT', value: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress'),
+                  string(name: 'SAML_SIGNATURE_METHOD', value: 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'),
+                  string(name: 'SAML_SYNCHRONIZE_ATTRIBUTES', value: 'givenName=profile/givenName,familyName=profile/familyName,mail=profile/email'),
+                  string(name: 'SAML_USE_ENCRYPTION', value: 'false'),
+                  string(name: 'SAML_USER_ID_ATTRIBUTE', value: 'NameID'),
+                  string(name: 'SAML_USER_INTERMEDIATE_PATH', value: ''),
+                  string(name: 'SAML_SP_PRIVATE_KEY_ALIAS', value: ''),
+                ]
+            }
+        }
+        stage('Disable SAML') {
+            steps {
+                build job: "../../../operational-tasks/${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}/disable-saml/",
+                parameters: [
+                  string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-con-saml"),
+                  string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-con-saml"),
+                ]
+            }
+        }
+    }
+    post {
+        always {
+          build job: "../../../manage-environments/aws/${con_cp}-${AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${AOC_CONFIG_PROFILE_AEM_TEST_SUITE}/delete-consolidated/",
+          parameters: [
+            string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-con-saml"),
+          ]
+          build job: "../../../manage-environments/aws/aem-stack-manager-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/delete-stack-manager/",
+          parameters: [
+            string(name: 'STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-con-saml")
+          ]
+          cleanWs()
+        }
+    }
+}
