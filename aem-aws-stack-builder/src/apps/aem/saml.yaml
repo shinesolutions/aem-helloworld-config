@@ -43,4 +43,4 @@ saml:
   user_id_attribute: NameID
   user_intermediate_path:
   assertion_consumer_service_url: https://auth.aem-con-helloworld.shineworks.io:443/saml_login
-  file: s3://aem-artifacts-aoc/google_saml_cert.pem
+  file: s3://aem-artifacts-aoc/google_saml_cert.cer
