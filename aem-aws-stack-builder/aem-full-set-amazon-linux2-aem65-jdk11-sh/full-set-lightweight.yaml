@@ -3,7 +3,7 @@ publish_dispatcher:
   asg_min_size: 2
   asg_desired_capacity: 2
   asg_max_size: 3
-  instance_type: t3a.micro
+  instance_type: t2.micro
   root_vol_size: 30
   data_vol_size: 75
 
@@ -11,12 +11,12 @@ publish:
   asg_min_size: 2
   asg_desired_capacity: 2
   asg_max_size: 3
-  instance_type: m6a.xlarge
+  instance_type: m4.xlarge
   root_vol_size: 30
   data_vol_size: 75
 
 author:
-  instance_type: m6a.xlarge
+  instance_type: m4.xlarge
   root_vol_size: 30
   data_vol_size: 75
 
@@ -24,6 +24,6 @@ author_dispatcher:
   asg_min_size: 1
   asg_desired_capacity: 1
   asg_max_size: 3
-  instance_type: t3a.micro
+  instance_type: t2.micro
   root_vol_size: 30
   data_vol_size: 75

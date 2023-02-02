@@ -1,0 +1,46 @@
+aem:
+  enable_saml: true
+  # Parameters for managing AEM Authorizable Keystore
+  authorizable_keystore:
+    enable_creation: false
+    enable_certificate_chain_upload: false
+  # Parameters for managing AEM Truststore
+  truststore:
+    enable_creation: true
+    enable_saml_certificate_upload: true
+    password: changeit
+
+# Parameters needed for SAML configuration
+saml:
+  # force ensures that any existing SAML configuration
+  # will be replaced with this defined SAML configuration
+  force: true
+  add_group_memberships: true
+  clock_tolerance: 60
+  create_user: true
+  default_groups:
+    - content-authors
+  default_redirect_url: /
+  digest_method: http://www.w3.org/2001/04/xmlenc#sha256
+  group_membership_attribute: groupMembership
+  handle_logout: true
+  key_store_password: admin
+  idp_http_redirect: false
+  idp_url: https://accounts.google.com/o/saml2/idp?idpid=C03prroq7
+  logout_url: https://accounts.google.com/logout
+  name_id_format: urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
+  path:
+    - /
+  service_provider_entity_id: AEMSSO
+  service_ranking: 5002
+  signature_method: http://www.w3.org/2001/04/xmldsig-more#rsa-sha256
+  sp_private_key_alias:
+  synchronize_attributes:
+    - givenName=profile/givenName
+    - familyName=profile/familyName
+    - mail=profile/email
+  use_encryption: false
+  user_id_attribute: NameID
+  user_intermediate_path:
+  assertion_consumer_service_url: https://auth.aem-con-helloworld.shineworks.io:443/saml_login
+  file: s3://aem-artifacts-aoc/google_saml_cert.pem

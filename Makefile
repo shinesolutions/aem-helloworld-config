@@ -119,6 +119,7 @@ gen-aem-aws-stack-builder:
 	$(call gen_aem_aws_stack_builder,aem65,rhel7,consolidated,heavyweight,jdk11)
 	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,rhel7,consolidated,heavyweight,jdk11,ap)
 	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,rhel7,consolidated,heavyweight,jdk11,sh)
+	$(call gen_aem_aws_stack_builder_aoc_testing_saml_profile,aem65,rhel7,consolidated,heavyweight,jdk11,sh)
 	$(call gen_aem_aws_stack_builder,aem65,amazon-linux2,full-set,lightweight,jdk8)
 	$(call gen_aem_aws_stack_builder,aem65,amazon-linux2,full-set,lightweight,jdk11)
 	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,amazon-linux2,full-set,lightweight,jdk11,sh)
@@ -141,6 +142,11 @@ define gen_aem_aws_stack_builder
 	cp aem-aws-stack-builder/src/apps/aem/$(3).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)/
 	cp aem-aws-stack-builder/src/apps/aem/$(3)-$(4).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)/
 	cp aem-aws-stack-builder/src/apps/aem/$(5).yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)/
+endef
+
+define gen_aem_aws_stack_builder_aoc_testing_saml_profile
+	$(call gen_aem_aws_stack_builder_aoc_testing_profile,$(1),$(2),$(3),$(4),$(5),$(6)-saml)
+  cp aem-aws-stack-builder/src/apps/aem/saml.yaml aem-aws-stack-builder/aem-$(3)-$(2)-$(1)-$(5)-$(6)-saml/
 endef
 
 define gen_aem_aws_stack_builder_aoc_testing_profile
