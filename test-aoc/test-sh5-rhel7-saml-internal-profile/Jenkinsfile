@@ -131,7 +131,7 @@ pipeline {
         }
         stage('Create AEM Stack Manager environment') {
             steps {
-                build job: "../../../manage-environments/aws/aem-stack-manager-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/create-stack-manager/",
+                build job: "aem-opencloud-${params.AOC_VERSION}/manage-environments/aws/aem-stack-manager-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/create-stack-manager/",
                 parameters: [
                   string(name: 'STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-con-saml"),
                 ]
@@ -139,7 +139,7 @@ pipeline {
         }
         stage('Create AEM Consolidated environment') {
             steps {
-                build job: "../../../manage-environments/aws/${con_cp}-${AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${AOC_CONFIG_PROFILE_AEM_TEST_SUITE}/create-consolidated/",
+                build job: "aem-opencloud-${params.AOC_VERSION}manage-environments/aws/${con_cp}-${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${params.AOC_CONFIG_PROFILE_AEM_TEST_SUITE}/create-consolidated/",
                 parameters: [
                   string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-con-saml"),
                   string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-con-saml"),
@@ -149,7 +149,7 @@ pipeline {
         }
         stage('Enable SAML') {
             steps {
-                build job: "../../../operational-tasks/${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}/enable-saml/",
+                build job: "aem-opencloud-${params.AOC_VERSION}operational-tasks/${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}/enable-saml/",
                 parameters: [
                   string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-con-saml"),
                   string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-con-saml"),
@@ -184,7 +184,7 @@ pipeline {
         }
         stage('Disable SAML') {
             steps {
-                build job: "../../../operational-tasks/${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}/disable-saml/",
+                build job: "aem-opencloud-${params.AOC_VERSION}operational-tasks/${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}/disable-saml/",
                 parameters: [
                   string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-con-saml"),
                   string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-con-saml"),
@@ -194,11 +194,11 @@ pipeline {
     }
     post {
         always {
-          build job: "../../../manage-environments/aws/${con_cp}-${AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${AOC_CONFIG_PROFILE_AEM_TEST_SUITE}/delete-consolidated/",
+          build job: "aem-opencloud-${params.AOC_VERSION}manage-environments/aws/${con_cp}-${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${params.AOC_CONFIG_PROFILE_AEM_TEST_SUITE}/delete-consolidated/",
           parameters: [
             string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-con-saml"),
           ]
-          build job: "../../../manage-environments/aws/aem-stack-manager-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/delete-stack-manager/",
+          build job: "aem-opencloud-${params.AOC_VERSION}manage-environments/aws/aem-stack-manager-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/delete-stack-manager/",
           parameters: [
             string(name: 'STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-con-saml")
           ]
