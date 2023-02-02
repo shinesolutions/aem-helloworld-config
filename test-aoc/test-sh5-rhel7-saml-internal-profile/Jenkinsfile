@@ -163,7 +163,7 @@ pipeline {
                   string(name: 'SAML_SERVICE_PROVIDER_ENTITY_ID', value: 'AEMSSO'),
                   string(name: 'SAML_IDP_URL', value: 'https://accounts.google.com/o/saml2/idp?idpid=C03prroq7'),
                   string(name: 'SAML_CERT_FILE', value: 's3://aem-artifacts-aoc/google_saml_cert.pem'),
-                  string(name: 'SAML_ASSERTION_CONSUMER_SERVICE_URL', value: 'https://auth.aem-con-helloworld.shineworks.io:443/saml_login'),
+                  string(name: 'SAML_ASSERTION_CONSUMER_SERVICE_URL', value: 'https://author.sandpit.aemopencloud.net:443/saml_login'),
                   string(name: 'SAML_CREATE_USER', value: 'true'),
                   string(name: 'SAML_DEFAULT_REDIRECT_URL', value: '/'),
                   string(name: 'SAML_DEFAULT_GROUPS', value: 'content-authors'),
