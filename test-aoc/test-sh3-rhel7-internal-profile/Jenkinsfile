@@ -203,6 +203,7 @@ pipeline {
                 }
                 stage('Blue/Green') {
                     steps {
+                        sleep 60
                         build job: "aem-opencloud-${params.AOC_VERSION}/testing/aws/${fs_cp}-${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${params.AOC_CONFIG_PROFILE_AEM_TEST_SUITE}-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/full-set-blue-green",
                         parameters: [
                           booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
@@ -216,6 +217,7 @@ pipeline {
                 }
                 stage('Recovery') {
                     steps {
+                        sleep 120
                         build job: "aem-opencloud-${params.AOC_VERSION}/testing/aws/${fs_cp}-${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${params.AOC_CONFIG_PROFILE_AEM_TEST_SUITE}-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/full-set-recovery",
                         parameters: [
                           booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
@@ -228,6 +230,7 @@ pipeline {
                 }
                 stage('Standby Promotion') {
                     steps {
+                        sleep 180
                         build job: "aem-opencloud-${params.AOC_VERSION}/testing/aws/${fs_cp}-${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${params.AOC_CONFIG_PROFILE_AEM_TEST_SUITE}-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/promote-author-standby-full-set",
                         parameters: [
                           booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
