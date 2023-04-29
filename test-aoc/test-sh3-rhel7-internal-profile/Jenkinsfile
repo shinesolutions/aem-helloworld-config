@@ -178,7 +178,7 @@ pipeline {
                 }
             }
         }
-        stage('Create Stack Manager') {
+        stage('Create E2E Stack Manager') {
             steps {
                 build job: "aem-opencloud-${params.AOC_VERSION}/manage-environments/aws/aem-stack-manager-${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}/create-stack-manager",
                 parameters: [
@@ -211,7 +211,7 @@ pipeline {
                 }
                 stage('Blue/Green') {
                     steps {
-                        build job: "aem-opencloud-${params.AOC_VERSION}/testing/aws/${fs_cp}-${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${params.AOC_CONFIG_PROFILE_AEM_TEST_SUITE}-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/full-set-green",
+                        build job: "aem-opencloud-${params.AOC_VERSION}/testing/aws/${fs_cp}-${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${params.AOC_CONFIG_PROFILE_AEM_TEST_SUITE}-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/full-set-blue-green",
                         parameters: [
                           booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
                           string(name: 'STACK_PREFIX_BLUE', value: "${params.STACK_PREFIX}-blue-fs" ),
