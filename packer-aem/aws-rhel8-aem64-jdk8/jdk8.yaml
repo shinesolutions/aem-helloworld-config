@@ -31,12 +31,15 @@ aem:
       - '-XX:+HeapDumpOnOutOfMemoryError'
   jdk:
     base_url: s3://packer-aem-aoc/adobeaemcloud
-    filename: jdk-8u251-linux-x64.rpm
+    filename: jdk-8u371-linux-x64.rpm
+    # filename: jdk-8u251-linux-x64.rpm
     # filename: jdk-8u261-linux-x64.rpm
     # filename: jdk-8u131-linux-x64.rpm
 java:
   base_url: s3://packer-aem-aoc/adobeaemcloud
-  filename: jdk-8u251-linux-x64.rpm
+  filename: jdk-8u371-linux-x64.rpm
+  # base_url: s3://packer-aem-aoc/adobeaemcloud
+  # filename: jdk-8u251-linux-x64.rpm
   # base_url: s3://aem-opencloud/adobeaemcloud
   # filename: jdk-8u261-linux-x64.rpm
   # base_url: s3://aem-opencloud/adobeaemcloud
