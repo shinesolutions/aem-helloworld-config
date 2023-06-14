@@ -1,5 +1,6 @@
 ---
 aem:
+  enable_post_start_sleep: false
   post_start_sleep_seconds: 180
   author:
     # yamllint disable-line rule:line-length
