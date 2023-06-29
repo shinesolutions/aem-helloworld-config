@@ -27,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Change publish-dispatcher ELB inbound to allow the Internet since it's on public subnet
 - Updated configuration for aem-test-suite
 - Renamed packer-aem profiles
+- Updated jdk 8u371 and aem-profile aem65_sp16
 
 ### Removed
 - Removed `inbound_from_bastion_host_security_group` configuration since it's no longer needed in aem-aws-stack-builder 4.34.0
