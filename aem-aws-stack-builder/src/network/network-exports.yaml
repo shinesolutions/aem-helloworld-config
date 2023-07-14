@@ -6,6 +6,9 @@ network_exports:
   PublishDispatcherELBSubnetList: subnet-01d0a3cfd840a9a16,subnet-04e079ed5fb2bfabd,subnet-06d1c870262c3f149
   PublishDispatcherSubnetList: subnet-05839ebcb2b3e3cc5,subnet-005d3f13297282c76,subnet-0ec96cce1e9c4aeff
   PublishSubnetList: subnet-0f196ae4ac218254a,subnet-0f5ca1ccd7ae33fdb,subnet-036dd0dc83b9e92b0
+  PreviewPublishDispatcherELBSubnetList: subnet-039957072fd400542,subnet-0b290efb4b1843664,subnet-00ac1d142f95513e1
+  PreviewPublishDispatcherSubnetList: subnet-03ab0bfa14ea3c8ef,subnet-0e8e6ac98b3b76321,subnet-0e4d73e0fe8c4b100
+  PreviewPublishSubnetList: subnet-092949b5900a1e52a,subnet-027ab043b5838212c,subnet-067ab524298efa765
   AuthorPrimarySubnet: subnet-0e0b3925b15aa7e8d
   AuthorStandbySubnet: subnet-0b6426f6012c893f4
   AuthorELBSubnetList: subnet-0e0b3925b15aa7e8d,subnet-0b6426f6012c893f4
