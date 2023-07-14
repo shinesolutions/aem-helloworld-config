@@ -40,6 +40,10 @@ aem:
     jvm_mem_opts: "-Xss4m -Xms4096m -Xmx8192m"
     jmxremote:
       port: 5983
+  preview_publish:
+    jvm_mem_opts: "-Xss4m -Xms4096m -Xmx8192m"
+    jmxremote:
+      port: 5983
   author:
     jvm_mem_opts: "-Xss4m -Xms4096m -Xmx8192m"
     jmxremote:
@@ -57,6 +61,11 @@ security_groups:
   private_subnet_internet_outbound_cidr_ip: 0.0.0.0/0
 
   publish_dispatcher_elb:
+    inbound_cidr_ip: 0.0.0.0/0
+    extra_groups:
+      - sg-0ee8d936618a7eb72
+
+  preview_publish_dispatcher_elb:
     inbound_cidr_ip: 0.0.0.0/0
     extra_groups:
       - sg-0ee8d936618a7eb72
@@ -90,6 +99,14 @@ security_groups:
       # Jumphost access security group (from jumphost inbound to instances)
       - sg-02e02c0ecfe95b2f4
 
+  preview_publish:
+    extra_groups:
+      # Corp network security group (from corp network inbound to instances)
+      # - sg-01d33232d3569b079
+      # Forward proxy access security group (from instances outbound to forward proxy)
+      # Jumphost access security group (from jumphost inbound to instances)
+      - sg-02e02c0ecfe95b2f4
+
   author_dispatcher:
     extra_groups:
       # Corp network security group (from corp network inbound to instances)
@@ -99,6 +116,14 @@ security_groups:
       - sg-02e02c0ecfe95b2f4
 
   publish_dispatcher:
+    extra_groups:
+      # Corp network security group (from corp network inbound to instances)
+      # - sg-01d33232d3569b079
+      # Forward proxy access security group (from instances outbound to forward proxy)
+      # Jumphost access security group (from jumphost inbound to instances)
+      - sg-02e02c0ecfe95b2f4
+
+  preview_publish_dispatcher:
     extra_groups:
       # Corp network security group (from corp network inbound to instances)
       # - sg-01d33232d3569b079
@@ -135,10 +160,16 @@ snapshots:
   publish:
     use_data_vol_snapshot: false
     data_vol_snapshot_id:
+  preview_publish:
+    use_data_vol_snapshot: false
+    data_vol_snapshot_id:
   author_dispatcher:
     use_data_vol_snapshot: false
     data_vol_snapshot_id: overwrite-me
   publish_dispatcher:
+    use_data_vol_snapshot: false
+    data_vol_snapshot_id: overwrite-me
+  preview_publish_dispatcher:
     use_data_vol_snapshot: false
     data_vol_snapshot_id: overwrite-me
 
@@ -212,7 +243,24 @@ publish_dispatcher:
   asg_cpu_low_eval_period: 2
   enable_random_termination: false
 
+preview_publish_dispatcher:
+  load_balancer:
+    tag_name: AEM Preview Publish Dispatcher Load Balancer
+  tag_name: AEM Preview Publish Dispatcher
+  elb_health_check: /system/health?tags=shallow
+  elb_scheme: internet-facing
+  allowed_client: '*.*.*.*'
+  asg_cpu_scaling_threshold: 49
+  asg_cpu_high_period: 300
+  asg_cpu_high_eval_period: 1
+  asg_cpu_low_period: 300
+  asg_cpu_low_eval_period: 2
+  enable_random_termination: false
+
 publish:
+  enable_random_termination: false
+
+preview_publish:
   enable_random_termination: false
 
 author:
@@ -251,6 +299,8 @@ dns_records:
     record_set_name: "{{ stack_prefix }}-author-dispatcher"
   publish_dispatcher:
     record_set_name: "{{ stack_prefix }}-publish-dispatcher"
+  preview_publish_dispatcher:
+    record_set_name: "{{ stack_prefix }}-preview-publish-dispatcher"
 
 messaging:
   asg_event_sqs_queue_name: aem-asg-event-queue
@@ -286,6 +336,23 @@ scheduled_jobs:
       minute: 0
 
   publish:
+    offline_compaction:
+      enable: true
+      weekday: 2
+      hour: 3
+      minute: 0
+    export:
+      enable: true
+      weekday: 0-7
+      hour: 2
+      minute: 0
+    live_snapshot:
+      enable: true
+      weekday: 0-7
+      hour: '*'
+      minute: 0
+
+  preview_publish:
     offline_compaction:
       enable: true
       weekday: 2

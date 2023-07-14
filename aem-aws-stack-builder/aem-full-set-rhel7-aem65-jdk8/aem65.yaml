@@ -3,6 +3,9 @@ aem:
   publish:
     run_modes:
       - dynamicmedia_scene7
+  preview_publish:
+    run_modes:
+      - dynamicmedia_scene7
   author:
     run_modes:
       - dynamicmedia_scene7

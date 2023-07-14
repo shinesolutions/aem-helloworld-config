@@ -13,3 +13,5 @@ ami_device:
     author_data_attached_name: /dev/xvdb
     publish_data_name: /dev/xvdc
     publish_data_attached_name: /dev/xvdc
+    preview_publish_data_name: /dev/xvdc
+    preview_publish_data_attached_name: /dev/xvdc
