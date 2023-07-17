@@ -261,6 +261,7 @@ publish:
   enable_random_termination: false
 
 preview_publish:
+  include_stack: true
   enable_random_termination: false
 
 author:
