@@ -15,6 +15,22 @@ publish:
   root_vol_size: 50
   data_vol_size: 100
 
+preview_publish_dispatcher:
+  asg_min_size: 2
+  asg_desired_capacity: 2
+  asg_max_size: 2
+  instance_type: t2.medium
+  root_vol_size: 50
+  data_vol_size: 100
+
+preview_publish:
+  asg_min_size: 2
+  asg_desired_capacity: 2
+  asg_max_size: 2
+  instance_type: m4.2xlarge
+  root_vol_size: 50
+  data_vol_size: 100
+
 author:
   instance_type: m4.2xlarge
   root_vol_size: 50

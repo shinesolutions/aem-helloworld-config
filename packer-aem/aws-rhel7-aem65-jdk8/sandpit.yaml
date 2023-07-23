@@ -1,6 +1,6 @@
 ---
-https_proxy: http://forward-proxy.infracatalog.srv:3128/
-http_proxy: http://forward-proxy.infracatalog.srv:3128/
+https_proxy:
+http_proxy:
 no_proxy: localhost,127.0.0.1,169.254.169.254,169.254.0.0/16,elb.amazonaws.com,10.12.0.0/16,aemopencloud.cms
 
 timezone:
