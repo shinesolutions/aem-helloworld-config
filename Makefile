@@ -113,10 +113,13 @@ gen-aem-aws-stack-builder:
 	$(call gen_aem_aws_stack_builder,aem65,rhel7,full-set,heavyweight,jdk8)
 	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,rhel7,full-set,heavyweight,jdk8,nb)
 	$(call gen_aem_aws_stack_builder_preview,aem65,rhel7,full-set,heavyweight,jdk8)
+	$(call gen_aem_aws_stack_builder_preview_testing_profile,aem65,rhel7,full-set,heavyweight,jdk8,sh)
+	$(call gen_aem_aws_stack_builder_preview_testing_profile,aem65,rhel7,full-set,heavyweight,jdk8,nb)
 	# AEM 6.5 RHEL7 FS Heavyweight JDK11
 	$(call gen_aem_aws_stack_builder,aem65,rhel7,full-set,heavyweight,jdk11)
 	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,rhel7,full-set,heavyweight,jdk11,ap)
 	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,rhel7,full-set,heavyweight,jdk11,sh)
+	$(call gen_aem_aws_stack_builder_preview_testing_profile,aem65,rhel7,full-set,heavyweight,jdk11,sh)
 	$(call gen_aem_aws_stack_builder_preview,aem65,rhel7,full-set,heavyweight,jdk11)
 	# AEM 6.5 RHEL7 Consolidated Heavyweight JDK8
 	$(call gen_aem_aws_stack_builder,aem65,rhel7,consolidated,heavyweight,jdk8)
@@ -163,6 +166,12 @@ define gen_aem_aws_stack_builder_preview
 	$(call gen_aem_aws_stack_builder,$(1),$(2),$(3)-preview,$(4),$(5))
 	cp aem-aws-stack-builder/src/apps/aem/$(3)-$(4).yaml aem-aws-stack-builder/aem-$(3)-preview-$(2)-$(1)-$(5)/
 	cp aem-aws-stack-builder/src/apps/aem/$(3).yaml aem-aws-stack-builder/aem-$(3)-preview-$(2)-$(1)-$(5)/
+endef
+
+define gen_aem_aws_stack_builder_preview_testing_profile
+	$(call gen_aem_aws_stack_builder_aoc_testing_profile,$(1),$(2),$(3)-preview,$(4),$(5),$(6))
+	cp aem-aws-stack-builder/src/apps/aem/$(3)-$(4).yaml aem-aws-stack-builder/aem-$(3)-preview-$(2)-$(1)-$(5)-$(6)/
+	cp aem-aws-stack-builder/src/apps/aem/$(3).yaml aem-aws-stack-builder/aem-$(3)-preview-$(2)-$(1)-$(5)-$(6)/
 endef
 
 define gen_aem_aws_stack_builder_aoc_testing_saml_profile
