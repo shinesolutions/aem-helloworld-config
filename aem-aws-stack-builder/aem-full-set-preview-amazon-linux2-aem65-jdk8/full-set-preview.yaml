@@ -21,6 +21,9 @@ security_groups:
       # Forward proxy access security group (from instances outbound to forward proxy)
       # Jumphost access security group (from jumphost inbound to instances)
       - sg-02e02c0ecfe95b2f4
+dns_records:
+  preview_publish_dispatcher:
+    record_set_name: "{{ stack_prefix }}-preview-publish-dispatcher"
 
 snapshots:
   preview_publish:
