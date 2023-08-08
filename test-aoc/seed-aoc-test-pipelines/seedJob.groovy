@@ -173,3 +173,25 @@ pipelineJob('test-aem-opencloud/test-sh5-rhel7-saml-internal-profile') {
         }
     }
 }
+
+pipelineJob('test-aem-opencloud/test-sh6-rhel7-preview-internal-profile') {
+    triggers {
+        cron("H 20 * * 2,4")
+    }
+    parameters {
+        stringParam('AOC_CONFIG_PROFILE_STACK_BUILDER', 'aem-full-set-preview-rhel7-aem65-jdk11-sh', 'Name of the stack-builder configuration profile.')
+    }
+    definition {
+        cpsScm {
+            scm {
+                git {
+                    remote {
+                        github('shinesolutions/aem-helloworld-config')
+                    }
+                    branch('main')
+                }
+            }
+            scriptPath('test-aoc/test-sh6-rhel7-preview-internal-profile/Jenkinsfile')
+        }
+    }
+}
