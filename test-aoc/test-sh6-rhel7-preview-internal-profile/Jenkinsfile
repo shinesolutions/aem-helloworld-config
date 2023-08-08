@@ -24,11 +24,11 @@ pipeline {
         choice(name: 'OS_VERSION', choices: ['rhel7', 'amazon-linux2', 'rhel8'], description: 'OS version to test')
         choice(name: 'JDK_VERSION', choices: ['11', '8'], description: 'JDK version to test')
         booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', defaultValue: 'true', description: 'If activated SLACK notifications will be send out.')
-        string(name: 'STACK_MANAGER_STACK_PREFIX', defaultValue: 'aoc-sm-sh3-' + date, description: 'Stack Manager Stack Prefix to create for the test.')
-        string(name: 'STACK_PREFIX', defaultValue: 'aoc-sh3-' + date, description: 'AEM Stack Stack Prefix to create for the test.')
+        string(name: 'STACK_MANAGER_STACK_PREFIX', defaultValue: 'aoc-sm-sh6-' + date, description: 'Stack Manager Stack Prefix to create for the test.')
+        string(name: 'STACK_PREFIX', defaultValue: 'aoc-sh6-' + date, description: 'AEM Stack Stack Prefix to create for the test.')
         string(name: 'AOC_CONFIG_PROFILE_PACKER_AEM', defaultValue: 'aws-rhel7-aem65-jdk11-sh', description: 'Name of the packer-aem configuration profile.')
         string(name: 'AOC_CONFIG_PROFILE_STACK_BUILDER', defaultValue: 'aem-full-set-preview-rhel7-aem65-jdk11-sh', description: 'Name of the stack-builder configuration profile.')
-        string(name: 'AOC_CONFIG_ARTIFACT_URL', defaultValue: 's3://aem-opencloud-manager/library/aws-rhel7-aem65-jdk11-sh3-internal-config-e2etest.tar.gz', description: 'URL to the AEM OpenCloud Configuration artifact.')
+        string(name: 'AOC_CONFIG_ARTIFACT_URL', defaultValue: 's3://aem-opencloud-manager/library/aws-rhel7-aem65-jdk11-sh6-internal-config-e2etest.tar.gz', description: 'URL to the AEM OpenCloud Configuration artifact.')
         string(name: 'AWS_LIBRARY_S3_BUCKET', defaultValue: 'aem-opencloud-manager', description: 'S3 bucket where the libraries are stored.')
         string(name: 'AWS_LIBRARY_S3_PATH', defaultValue: 'library', description: 'S3 path (of the specified S3 bucket) where the libraries are stored.')
         string(name: 'AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER', defaultValue: 'sandpit', description: 'Name of the AEM Stack Manager Messenger configuration profile.')
@@ -222,8 +222,8 @@ pipeline {
                           string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-fs-sec"),
                           string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "${params.AOC_CONFIG_ARTIFACT_URL}"),
                           string(name: 'AOC_AEM_STACK_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER', value: "${params.AOC_CONFIG_PROFILE_STACK_BUILDER}"),
-                          string(name: 'PUBLISH_DISPATCHER_RECORD_SET', value: "aoc-fs-sh3-publish-dispatcher"),
-                          string(name: 'AUTHOR_DISPATCHER_RECORD_SET', value: "aoc-fs-sh3-author-dispatcher"),
+                          string(name: 'PUBLISH_DISPATCHER_RECORD_SET', value: "aoc-fs-sh6-publish-dispatcher"),
+                          string(name: 'AUTHOR_DISPATCHER_RECORD_SET', value: "aoc-fs-sh6-author-dispatcher"),
                           string(name: 'PUBLISH_DISPATCHER_HOSTED_ZONE', value: "shineworks.io"),
                           string(name: 'AUTHOR_DISPATCHER_HOSTED_ZONE', value: "aemopencloud.cms"),
                           string(name: 'AOC_CONFIG_PROFILE_AEM_TEST_SUITE', value: "full-set"),
