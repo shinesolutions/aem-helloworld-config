@@ -53,5 +53,33 @@
         "aem_id": "publish"
       }
     ]
+  },
+  "preview-publish": {
+    "packages": [
+      {
+        "group": "shinesolutions",
+        "name": "aem-helloworld",
+        "filter": [
+          {
+            "root": "/apps/helloworld",
+            "rules": []
+          },
+          {
+            "root": "/content/helloworld",
+            "rules": [
+              {
+                "modifier": "exclude",
+                "pattern": ".*.\\d*\\.\\d*\\.(png|jpeg|gif)"
+              }
+            ]
+          },
+          {
+            "root": "/etc/designs/helloworld",
+            "rules": []
+          }
+        ],
+        "aem_id": "publish"
+      }
+    ]
   }
 }

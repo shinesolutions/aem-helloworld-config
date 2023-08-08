@@ -52,5 +52,27 @@
         "source": "https://github.com/shinesolutions/aem-helloworld-publish-dispatcher/releases/download/0.13.0/aem-helloworld-publish-dispatcher-0.13.0.zip"
       }
     ]
+  },
+  "preview-publish": {
+    "packages": [
+      {
+        "source": "https://repo.maven.apache.org/maven2/com/shinesolutions/aem-helloworld-content/0.0.2/aem-helloworld-content-0.0.2.zip",
+        "group": "shinesolutions",
+        "name": "aem-helloworld-content",
+        "version": "0.0.2",
+        "replicate": false,
+        "activate": false,
+        "force": false,
+        "aem_id": "publish"
+      }
+    ]
+  },
+  "preview-publish-dispatcher": {
+    "artifacts": [
+      {
+        "name": "aem-helloworld-publish-dispatcher",
+        "source": "https://github.com/shinesolutions/aem-helloworld-publish-dispatcher/releases/download/0.13.0/aem-helloworld-publish-dispatcher-0.13.0.zip"
+      }
+    ]
   }
 }

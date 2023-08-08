@@ -22,5 +22,17 @@
         "source": "s3://aem-opencloud/library/aem-helloworld-publish-dispatcher-enable-crxde-1.0.0.zip"
       }
     ]
+  },
+  "preview-publish": {
+    "packages": [
+    ]
+  },
+  "preview-publish-dispatcher": {
+    "artifacts": [
+      {
+        "name": "aem-publish-dispatcher-enable-crxde",
+        "source": "s3://aem-opencloud/library/aem-helloworld-publish-dispatcher-enable-crxde-1.0.0.zip"
+      }
+    ]
   }
 }
