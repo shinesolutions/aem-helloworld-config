@@ -9,3 +9,5 @@ ami_ids:
   orchestrator: ami-01b25ff35f82e8dbb
   publish: ami-0cb9fef33584bf34f
   publish_dispatcher: ami-05836a044f68d933b
+  preview_publish: ami-0cb9fef33584bf34f
+  preview_publish_dispatcher: ami-05836a044f68d933b

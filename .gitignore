@@ -4,6 +4,7 @@ logs/
 modules/
 stage/
 zzz-*.*
+core
 # End of AOC gitignore
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos,vscode

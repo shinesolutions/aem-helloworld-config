@@ -9,3 +9,5 @@ ami_ids:
   orchestrator: null
   publish: null
   publish_dispatcher: null
+  preview_publish: null
+  preview_publish_dispatcher: null

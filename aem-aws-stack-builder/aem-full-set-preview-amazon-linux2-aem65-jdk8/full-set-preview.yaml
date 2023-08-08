@@ -1,0 +1,84 @@
+---
+aem:
+  preview_publish:
+    run_modes: []
+    jvm_mem_opts: "-Xss4m -Xms4096m -Xmx8192m"
+    jvm_opts: "-XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps -XX:+PrintTenuringDistribution -XX:+PrintGCApplicationStoppedTime -XX:+HeapDumpOnOutOfMemoryError"
+    jmxremote:
+      port: 5983
+
+security_groups:
+  preview_publish_dispatcher_elb:
+    inbound_cidr_ip: 0.0.0.0/0
+    extra_groups:
+      - sg-0ee8d936618a7eb72
+  preview_publish:
+    extra_groups:
+      - sg-02e02c0ecfe95b2f4
+  preview_publish_dispatcher:
+    extra_groups:
+      # Corp network security group (from corp network inbound to instances)
+      # - sg-01d33232d3569b079
+      # Forward proxy access security group (from instances outbound to forward proxy)
+      # Jumphost access security group (from jumphost inbound to instances)
+      - sg-02e02c0ecfe95b2f4
+
+snapshots:
+  preview_publish:
+    use_data_vol_snapshot: false
+    data_vol_snapshot_id: overwrite-me
+  preview_publish_dispatcher:
+    use_data_vol_snapshot: false
+    data_vol_snapshot_id: overwrite-me
+
+preview_publish_dispatcher:
+  load_balancer:
+    tag_name: AEM Preview Publish Dispatcher Load Balancer
+  tag_name: AEM Preview Publish Dispatcher
+  elb_health_check: /system/health?tags=shallow
+  elb_scheme: internal
+  allowed_client: '*.*.*.*'
+  asg_cpu_scaling_threshold: 49
+  asg_cpu_high_period: 300
+  asg_cpu_high_eval_period: 1
+  asg_cpu_low_period: 300
+  asg_cpu_low_eval_period: 2
+  enable_random_termination: false
+
+preview_publish:
+  include_stack: true
+  enable_random_termination: false
+
+system_users:
+  preview_publish:
+    admin:
+      name: admin
+      path: overwrite-me
+    authentication-service:
+      name: authentication-service
+      path: /home/users/system
+      authorizable_keystore:
+        password:
+        certificate_chain:
+        private_key:
+        private_key_alias:
+    deployer:
+      name: deployer
+      path: /home/users/q
+    exporter:
+      name: exporter
+      path: /home/users/e
+    importer:
+      name: importer
+      path: /home/users/i
+    orchestrator:
+      name: orchestrator
+      path: /home/users/o
+    replicator:
+      name: replicator
+      path: /home/users/r
+
+dns_records:
+  preview_publish_dispatcher:
+    record_set_name: preview-publish-dispatcher
+    ttl: 300
