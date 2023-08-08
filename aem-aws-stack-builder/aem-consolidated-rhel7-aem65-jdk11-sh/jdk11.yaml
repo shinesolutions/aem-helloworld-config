@@ -5,6 +5,8 @@ aem:
     jvm_opts: "-XX:+PrintGCDetails -XX:+HeapDumpOnOutOfMemoryError"
   publish:
     jvm_opts: "-XX:+PrintGCDetails -XX:+HeapDumpOnOutOfMemoryError"
+  preview_publish:
+    jvm_opts: "-XX:+PrintGCDetails -XX:+HeapDumpOnOutOfMemoryError"
   # Truststore Password required if reconfiguration is enabled
   truststore:
     password: 43m0p3ncl0ud
