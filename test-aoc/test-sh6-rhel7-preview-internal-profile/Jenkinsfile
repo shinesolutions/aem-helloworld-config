@@ -156,6 +156,7 @@ pipeline {
                         build job: "aem-opencloud-${params.AOC_VERSION}/testing/aws/${params.AOC_CONFIG_PROFILE_STACK_BUILDER}-${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${params.AOC_CONFIG_PROFILE_AEM_TEST_SUITE}-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/full-set-platform",
                         parameters: [
                           booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
+                          booleanParam(name: 'PREVIEW_ENABLED', value: true),
                           string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-fs-platform" ),
                           string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-fs-plat"),
                           string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "${params.AOC_CONFIG_ARTIFACT_URL}"),
@@ -190,6 +191,7 @@ pipeline {
                         build job: "aem-opencloud-${params.AOC_VERSION}/testing/aws/${params.AOC_CONFIG_PROFILE_STACK_BUILDER}-${params.AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER}-${params.AOC_CONFIG_PROFILE_AEM_TEST_SUITE}-${params.AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER}/full-set-recovery",
                         parameters: [
                           booleanParam(name: 'ENABLE_SLACK_NOTIFICATIONS', value: "${params.ENABLE_SLACK_NOTIFICATIONS}"),
+                          booleanParam(name: 'PREVIEW_ENABLED', value: true),
                           string(name: 'STACK_PREFIX', value: "${params.STACK_PREFIX}-fs-rec" ),
                           string(name: 'STACK_MANAGER_STACK_PREFIX', value: "${params.STACK_MANAGER_STACK_PREFIX}-fs-recovery"),
                           string(name: 'AOC_CONFIG_ARTIFACT_URL', value: "${params.AOC_CONFIG_ARTIFACT_URL}"),
