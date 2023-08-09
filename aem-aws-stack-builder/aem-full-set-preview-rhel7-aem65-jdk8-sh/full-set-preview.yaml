@@ -24,6 +24,7 @@ security_groups:
 dns_records:
   preview_publish_dispatcher:
     record_set_name: "{{ stack_prefix }}-preview-publish-dispatcher"
+    ttl: 300
 
 snapshots:
   preview_publish:
@@ -79,8 +80,3 @@ system_users:
     replicator:
       name: replicator
       path: /home/users/r
-
-dns_records:
-  preview_publish_dispatcher:
-    record_set_name: preview-publish-dispatcher
-    ttl: 300
