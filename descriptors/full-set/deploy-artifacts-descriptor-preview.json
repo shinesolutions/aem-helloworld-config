@@ -1,0 +1,89 @@
+{
+  "author-primary": {
+    "packages": [
+      {
+        "source": "https://repo.maven.apache.org/maven2/com/shinesolutions/aem-helloworld-content/0.0.2/aem-helloworld-content-0.0.2.zip",
+        "group": "shinesolutions",
+        "name": "aem-helloworld-content",
+        "version": "0.0.2",
+        "replicate": false,
+        "activate": false,
+        "force": false,
+        "aem_id": "author"
+      },
+      {
+        "source": "https://github.com/shinesolutions/aem-helloworld-osgi-config/releases/download/1.0-SNAPSHOT/aem-helloworld-osgi-config-package-sandpit-1.0-SNAPSHOT.zip",
+        "group": "shinesolutions",
+        "name": "aem-helloworld-osgi-config-package-sandpit",
+        "version": "0.0.1-SNAPSHOT",
+        "replicate": false,
+        "activate": false,
+        "force": false,
+        "aem_id": "author"
+      },
+      {
+        "source": "s3://aem-aws-stack-builder/library/eaem-publish-page-to-review-env-content-0.0.1-SNAPSHOT.zip",
+        "group": "Experience AEM",
+        "name": "eaem-publish-page-to-review-env-content",
+        "version": "1.0-SNAPSHOT",
+        "replicate": false,
+        "activate": false,
+        "force": false,
+        "aem_id": "author"
+      }
+
+    ]
+  },
+  "author-dispatcher": {
+    "artifacts": [
+      {
+        "name": "aem-helloworld-author-dispatcher",
+        "source": "https://github.com/shinesolutions/aem-helloworld-author-dispatcher/releases/download/0.12.2/aem-helloworld-author-dispatcher-0.12.2.zip"
+      }
+    ]
+  },
+  "publish": {
+    "packages": [
+      {
+        "source": "https://repo.maven.apache.org/maven2/com/shinesolutions/aem-helloworld-content/0.0.2/aem-helloworld-content-0.0.2.zip",
+        "group": "shinesolutions",
+        "name": "aem-helloworld-content",
+        "version": "0.0.2",
+        "replicate": false,
+        "activate": false,
+        "force": false,
+        "aem_id": "publish"
+      }
+    ]
+  },
+  "publish-dispatcher": {
+    "artifacts": [
+      {
+        "name": "aem-helloworld-publish-dispatcher",
+        "source": "https://github.com/shinesolutions/aem-helloworld-publish-dispatcher/releases/download/0.13.0/aem-helloworld-publish-dispatcher-0.13.0.zip"
+      }
+    ]
+  },
+  "preview-publish": {
+    "packages": [
+      {
+        "source": "https://repo.maven.apache.org/maven2/com/shinesolutions/aem-helloworld-content/0.0.2/aem-helloworld-content-0.0.2.zip",
+        "group": "shinesolutions",
+        "name": "aem-helloworld-content",
+        "version": "0.0.2",
+        "replicate": false,
+        "activate": false,
+        "force": false,
+        "aem_id": "publish"
+      }
+    ]
+  },
+  "preview-publish-dispatcher": {
+    "artifacts": [
+      {
+        "name": "aem-helloworld-preview-publish-dispatcher",
+        "source": "https://github.com/shinesolutions/aem-helloworld-preview-publish-dispatcher/archive/refs/heads/main.zip"
+      }
+    ]
+  }
+}
