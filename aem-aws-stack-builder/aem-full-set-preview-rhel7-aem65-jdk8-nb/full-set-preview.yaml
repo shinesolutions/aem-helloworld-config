@@ -51,6 +51,9 @@ preview_publish_dispatcher:
 preview_publish:
   include_stack: true
   enable_random_termination: false
+  asg_min_size: 2
+  asg_desired_capacity: 2
+  asg_max_size: 2
 
 system_users:
   preview_publish:
