@@ -71,7 +71,7 @@
     "artifacts": [
       {
         "name": "aem-helloworld-preview-publish-dispatcher",
-        "source": "https://github.com/shinesolutions/aem-helloworld-preview-publish-dispatcher/archive/refs/heads/main.zip"
+        "source": "https://github.com/shinesolutions/aem-helloworld-preview-publish-dispatcher/releases/download/0.1.0/aem-helloworld-preview-publish-dispatcher-0.1.0.zip"
       }
     ]
   }
