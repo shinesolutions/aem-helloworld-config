@@ -13,7 +13,7 @@ pipeline {
         }
     }
     triggers {
-        cron("H 13 * * 2,4")
+        cron("H 13 * * 1")
     }
     environment {
         TMPDIR = "/tmp/shinesolutions/aem-opencloud-manager"

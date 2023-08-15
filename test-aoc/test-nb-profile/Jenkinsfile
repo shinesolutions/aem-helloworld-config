@@ -19,9 +19,9 @@ pipeline {
             args params.JENKINS_AGENT_DOCKER_ARGS
         }
     }
-    triggers {
-        cron("H 14 * * 1,3,5")
-    }
+    // triggers {
+    //     cron("H 14 * * 1,3,5")
+    // }
     environment {
         TMPDIR = "/tmp/shinesolutions/aem-opencloud-manager"
     }
