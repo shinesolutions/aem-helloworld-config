@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added Jenkinsfiles to run End2End Testsing of AEM OpenCloud RS-52
 - Added packer-aem and stack-builder profiles for AOC End to End Testing.
 - Added `vulnerable_paths.txt` in aem-test-suite configuration to test AEM endpoints.
+- Added content-sync config for operational tasks pipeline
 
 ### Changed
 - Updated parameters for new sandpit AWS account
