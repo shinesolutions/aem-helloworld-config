@@ -1,5 +1,5 @@
 ---
-permission_type: b
+permission_type: c
 
 main:
   stack_name: aem-stack-manager-main-stack
