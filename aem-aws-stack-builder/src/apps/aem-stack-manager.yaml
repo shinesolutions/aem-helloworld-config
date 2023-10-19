@@ -6,6 +6,12 @@ main:
 
 stack_manager:
   s3_prefix: stack-manager
+  ssm_service_role_name: aoc-sm-vlt-AEMStackManagerSSMRole
+  ssm_service_role_arn: arn:aws:iam::291046903199:role/aoc-sm-vlt-AEMStackManagerSSMRole
+  lambda_service_role_name: aoc-sm-vlt-AEMStackManagerLambdaRole
+  lambda_service_role_arn: arn:aws:iam::291046903199:role/aoc-sm-vlt-AEMStackManagerLambdaRole
+  snapshot_lambda_service_role_name: aoc-sm-vlt-AEMStackManagerLambdaRole
+  snapshot_lambda_service_role_arn: arn:aws:iam::291046903199:role/aoc-sm-vlt-AEMStackManagerLambdaRol
   purge:
     live_snapshots:
       schedule: '10 20 1/3 * ? *'
