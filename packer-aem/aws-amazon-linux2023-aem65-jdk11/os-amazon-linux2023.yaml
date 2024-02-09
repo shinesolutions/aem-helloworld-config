@@ -1,0 +1,6 @@
+---
+os_type: amazon-linux2023
+
+aws:
+  user: ec2-user
+  source_ami: ami-02eec49345a878486

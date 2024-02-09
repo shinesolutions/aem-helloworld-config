@@ -1,0 +1,32 @@
+---
+aws:
+  certificate_arn: "s3://packer-aem-aoc/adobeaemcloud/aem65_jdk11_cert.crt"
+  certificate_key_arn: "s3://packer-aem-aoc/adobeaemcloud/aem65_jdk11_cert.der"
+  tags:
+    - Key: Project
+      Value: AEM OpenCloud
+    - Key: Owner
+      Value: Shine Solutions AEM Team
+    - Key: Cost Centre
+      Value: 12345
+    - Key: jdk_version
+      Value: 11
+aem:
+  ssl_method: granite
+  truststore_password_parameter: aem-opencloud/aoc-awsres-211012/aem-keystore-password
+  author:
+    jvm_opts:
+      - '-XX:+PrintGCDetails'
+      - '-XX:+HeapDumpOnOutOfMemoryError'
+  publish:
+    jvm_opts:
+      - '-XX:+PrintGCDetails'
+      - '-XX:+HeapDumpOnOutOfMemoryError'
+  jdk:
+    base_url: s3://packer-aem-aoc/adobeaemcloud
+    filename: jdk-11.0.9_linux-x64_bin.rpm
+# This parameter is for Java Component Orchestrator & Chaos Monkey
+# Both do not support Java 11 hence why we need to use Java 8
+java:
+  base_url: s3://packer-aem-aoc/adobeaemcloud
+  filename: jdk-8u251-linux-x64.rpm

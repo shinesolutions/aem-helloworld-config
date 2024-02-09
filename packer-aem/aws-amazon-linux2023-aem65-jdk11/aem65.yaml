@@ -1,0 +1,6 @@
+---
+aem:
+  profile: aem65_sp14
+
+aws:
+  aem_license: /aem-opencloud/aoc-awsres-211012/aem-license
