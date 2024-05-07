@@ -34,7 +34,7 @@ pipeline {
         string(name: 'AOC_CONFIG_PROFILE_AEM_STACK_MANAGER_MESSENGER', defaultValue: 'sandpit', description: 'Name of the AEM Stack Manager Messenger configuration profile.')
         string(name: 'AOC_CONFIG_PROFILE_AEM_TEST_SUITE', defaultValue: 'sandpit', description: 'Name of the AEM Test Suite configuration profile.')
         string(name: 'AOC_STACK_MANAGER_CONFIG_PROFILE_AEM_AWS_STACK_BUILDER', defaultValue: 'aem-stack-manager-sandpit', description: 'Name of the AEM AWS Stack Builder configuration profile.')
-        string(name: 'JENKINS_AGENT_DOCKER_IMAGE', defaultValue: 'shinesolutions/aem-platform-buildenv:latest', description: 'The name of Docker image to be used as Jenkins build pipeline agent.')
+        string(name: 'JENKINS_AGENT_DOCKER_IMAGE', defaultValue: 'shinesolutions/aem-platform-buildenv:3.2.0', description: 'The name of Docker image to be used as Jenkins build pipeline agent.')
         string(name: 'JENKINS_AGENT_DOCKER_ARGS', defaultValue: "--user root -e AWS_DEFAULT_REGION=ap-southeast-2 -e https_proxy=http://forward-proxy.infracatalog.srv:3128/ -e http_proxy=http://forward-proxy.infracatalog.srv:3128/ -e no_proxy=localhost,127.0.0.1,169.254.169.254,169.254.0.0/16,elb.amazonaws.com,10.0.0.0/12,aemopencloud.cms,infracatalog.srv", description: 'The CLI args for Jenkins to use when running Docker CLI.')
 
     }
