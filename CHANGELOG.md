@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated configuration for aem-test-suite
 - Renamed packer-aem profiles
 - Updated jdk 8u371 and aem-profile aem65_sp16
+- Lock shinesolutions/aem-platform-buildenv image to v3.2.0
 
 ### Removed
 - Removed `inbound_from_bastion_host_security_group` configuration since it's no longer needed in aem-aws-stack-builder 4.34.0
