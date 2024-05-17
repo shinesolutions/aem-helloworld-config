@@ -128,7 +128,7 @@ s3:
   data_bucket_name: aem-aws-stack-builder
 
 certificate_manager:
-  ssl_certificate_arn: 'arn:aws:acm:ap-southeast-2:291046903199:certificate/0b91da36-fbe0-4888-88ed-d793dcbf3e69'
+  ssl_certificate_arn: 'arn:aws:acm:ap-southeast-2:291046903199:certificate/9f83bb61-5c6d-4491-86fc-b73332f6b0ca'
 
 snapshots:
   author:
