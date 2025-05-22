@@ -1,7 +1,7 @@
 ---
 aws:
   certificate_arn: "s3://packer-aem-aoc/adobeaemcloud/aem65_jdk11_cert.crt"
-  certificate_key_arn: "s3://packer-aem-aoc/adobeaemcloud/aem65_jdk11_cert.der"
+  certificate_key_arn: "s3://packer-aem-aoc/adobeaemcloud/aem65_jdk11_cert.pem"
   tags:
     - Key: Project
       Value: AEM OpenCloud
