@@ -24,3 +24,5 @@ chaos_monkey:
 
 monitoring:
   include_stack: true
+
+install_cloudwatch_metric_agent: true
