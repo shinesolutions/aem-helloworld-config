@@ -9,3 +9,5 @@ aws:
 
 docker:
   source: 'amazonlinux:2'
+
+install_cloudwatch_metric_agent: true
