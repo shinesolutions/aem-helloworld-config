@@ -1,6 +1,6 @@
 ---
 aws:
-  certificate_arn: "s3://packer-aem-aoc/adobeaemcloud/aem65_jdk11_cert.der"
+  certificate_arn: "s3://packer-aem-aoc/adobeaemcloud/aem65_jdk11_cert.pem"
   certificate_key_arn: "s3://packer-aem-aoc/adobeaemcloud/aem65_jdk11_key.pem"
   tags:
     - Key: Project
