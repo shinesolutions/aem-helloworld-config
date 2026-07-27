@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added content-sync config for operational tasks pipeline
 
 ### Changed
+- Simplify GitHub Actions release workflows to not use custom action
 - Updated parameters for new sandpit AWS account
 - Update Jumphost access security group (from jumphost inbound to instances) with the resource `shn-awsres-03`
 - Updated AMI IDs for the aem65_sp3-rhel7-jdk8
