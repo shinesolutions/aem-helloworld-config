@@ -51,6 +51,7 @@ gen-packer-aem:
 	$(call gen_packer_aem,aws,amazon-linux2,aem65,jdk8)
 	$(call gen_packer_aem,aws,amazon-linux2,aem65,jdk11)
 	$(call gen_packer_aem_aoc_testing_profiles,aws,amazon-linux2,aem65,jdk11,sh)
+	$(call gen_packer_aem,aws,amazon-linux2023,aem65,jdk11)
 	$(call gen_packer_aem_experimental,docker,centos7,aem64,jdk8,experimental)
 	$(call gen_packer_aem_experimental,docker,centos7,aem65,jdk8,experimental)
 	$(call gen_packer_aem_experimental,docker,centos7,aem65,jdk11,experimental)

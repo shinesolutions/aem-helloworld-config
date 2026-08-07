@@ -1,0 +1,6 @@
+---
+aws:
+  encryption:
+    ebs_volume:
+      enable: true
+      kms_key_id: arn:aws:kms:ap-southeast-2:291046903199:key/d920e490-987a-47fc-ab91-7d99a2954bac
