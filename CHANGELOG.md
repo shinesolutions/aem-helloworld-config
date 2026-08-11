@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 ### Added
+- Add actionlint (via actionlint-py) and mdl (markdownlint) checks to lint target
 - Added CodePipeline/CodeBuild configuration
 - Added users ssh keys for aem-opencloud env
 - Added aem-security pipeline stage in AOC End to End Testing RS-89
