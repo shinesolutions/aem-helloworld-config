@@ -142,6 +142,8 @@ gen-aem-aws-stack-builder:
 	# AEM 6.5 AL2 Consolidated Ligthweight JDK11
 	$(call gen_aem_aws_stack_builder,aem65,amazon-linux2,consolidated,lightweight,jdk11)
 	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,amazon-linux2,consolidated,lightweight,jdk11,sh)
+	# AEM 6.5 AL2023 FS Lightweight JDK11
+	$(call gen_aem_aws_stack_builder,aem65,amazon-linux2023,full-set,lightweight,jdk11)
 	# AEM Stack Manager
 	$(call gen_aem_aws_stack_builder_aem_stack_manager,sandpit)
 	# AEM CDN
@@ -231,6 +233,7 @@ gen-aem-aws-stack-builder-ami-ids: stage
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem64,jdk8)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem65,jdk8)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem65,jdk11)
+	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2023,aem65,jdk11)
 	make gen-aem-aws-stack-builder
 
 define gen_aem_aws_stack_builder_ami_ids

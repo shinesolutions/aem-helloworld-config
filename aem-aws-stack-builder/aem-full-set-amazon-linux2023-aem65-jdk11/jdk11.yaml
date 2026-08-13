@@ -1,0 +1,23 @@
+---
+aem:
+  post_start_sleep_seconds: 180
+  author:
+    jvm_opts: "-XX:+PrintGCDetails -XX:+HeapDumpOnOutOfMemoryError"
+  publish:
+    jvm_opts: "-XX:+PrintGCDetails -XX:+HeapDumpOnOutOfMemoryError"
+  preview_publish:
+    jvm_opts: "-XX:+PrintGCDetails -XX:+HeapDumpOnOutOfMemoryError"
+  # Truststore Password required if reconfiguration is enabled
+  truststore:
+    password: 43m0p3ncl0ud
+
+reconfiguration:
+  enable_truststore_removal: false
+  enable_truststore_migration: false
+  certificate_arn: "s3://packer-aem-aoc/adobeaemcloud/aem65_jdk11_cert.crt"
+  certificate_key_arn: "s3://packer-aem-aoc/adobeaemcloud/aem65_jdk11_cert.der"
+  ssl_keystore_password: 43m0p3ncl0ud
+  author:
+    aem_ssl_method: granite
+  publish:
+    aem_ssl_method: granite
