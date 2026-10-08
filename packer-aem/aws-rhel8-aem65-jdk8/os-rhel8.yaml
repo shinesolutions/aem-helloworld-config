@@ -1,7 +1,0 @@
----
-os_type: rhel8
-
-aws:
-  user: ec2-user
-  # RHEL-8.0.0_HVM-20190618-x86_64-1-Hourly2-GP2
-  source_ami: ami-0975ce566eec139c3

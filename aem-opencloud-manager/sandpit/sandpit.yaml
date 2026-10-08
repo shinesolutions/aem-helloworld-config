@@ -34,6 +34,8 @@ aem_opencloud:
 jenkins:
   host: jenkins.shineworks.io
   port: 80
+  username: admin
+  password: Tm$x9CuQ3KddQP4XB^BU
   agent:
     # yamllint disable-line rule:line-length
     docker_args: "--user root -e AWS_DEFAULT_REGION=ap-southeast-2 -e https_proxy=http://forward-proxy.infracatalog.srv:3128/ -e http_proxy=http://forward-proxy.infracatalog.srv:3128/ -e no_proxy=localhost,127.0.0.1,169.254.169.254,169.254.0.0/16,elb.amazonaws.com,10.0.0.0/12,aemopencloud.cms,infracatalog.srv"
