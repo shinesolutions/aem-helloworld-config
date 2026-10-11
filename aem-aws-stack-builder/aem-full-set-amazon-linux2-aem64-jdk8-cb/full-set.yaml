@@ -71,6 +71,7 @@ security_groups:
       # Corp network security group (from corp network inbound to instances)
       # - sg-01d33232d3569b079
       # Forward proxy access security group (from instances outbound to forward proxy)
+      - sg-0a4a182d7fa094691
       # Jumphost access security group (from jumphost inbound to instances)
       - sg-02e02c0ecfe95b2f4
 
