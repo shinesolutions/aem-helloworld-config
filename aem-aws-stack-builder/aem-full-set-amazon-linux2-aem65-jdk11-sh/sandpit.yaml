@@ -36,3 +36,16 @@ cron:
   http_proxy: http://forward-proxy.infracatalog.srv:3128
   https_proxy: http://forward-proxy.infracatalog.srv:3128
   no_proxy: localhost,127.0.0.1,169.254.169.254,169.254.0.0/16,elb.amazonaws.com,10.12.0.0/16,aemopencloud.cms
+
+security_groups:
+  private_subnet_internet_outbound_cidr_ip: 0.0.0.0/0
+  author_publish_dispatcher:
+    inbound_cidr_ip: 10.11.48.0/20
+    extra_groups:
+      # Corp network security group (from corp network inbound to instances)
+      # - sg-01d33232d3569b079
+      # Forward proxy access security group (from instances outbound to forward proxy)
+      # Jumphost access security group (from jumphost inbound to instances)
+      - sg-02e02c0ecfe95b2f4
+  secure_shell:
+    inbound_cidr_ip: 10.11.48.0/20
