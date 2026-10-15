@@ -1,0 +1,15 @@
+---
+https_proxy: http://forward-proxy.infracatalog.srv:3128/
+http_proxy: http://forward-proxy.infracatalog.srv:3128/
+no_proxy: localhost,127.0.0.1,169.254.169.254,169.254.0.0/16,elb.amazonaws.com,10.12.0.0/16,aemopencloud.cms
+
+timezone:
+  region: Australia
+  locality: Melbourne
+
+aem:
+  author:
+    jvm_mem_opts: "-Xss4m -Xms4096m -Xmx8192m"
+  publish:
+    jvm_mem_opts: "-Xss4m -Xms4096m -Xmx8192m"
+  enable_custom_image_provisioner: true

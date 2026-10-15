@@ -1,0 +1,11 @@
+---
+os_type: amazon-linux2023
+
+aws:
+  user: ec2-user
+  # Amazon Linux 2023 al2023-ami-kernel-default-x86_64
+  # aws ssm get-parameters --names /aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64 --region ap-southeast-2
+  source_ami: ami-059a26205fdaa13ea
+
+docker:
+  source: 'amazonlinux:2023'
