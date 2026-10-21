@@ -3,10 +3,10 @@
 # AMI IDs for AEM profile aem65_sp14 on OS type amazon-linux2023 with Java version jdk11
 ami_ids:
   author: ami-0f14377bd768617b7
-  author_dispatcher: ami-0748c8ceee6920d8f
+  author_dispatcher: ami-0e95a4d3be45b9ac4
   chaos_monkey: ami-0362c5c517c5e21f0
   orchestrator: ami-0362c5c517c5e21f0
   publish: ami-0248ddc0ec1b6346a
-  publish_dispatcher: ami-0748c8ceee6920d8f
+  publish_dispatcher: ami-0e95a4d3be45b9ac4
   preview_publish: ami-0248ddc0ec1b6346a
-  preview_publish_dispatcher: ami-0748c8ceee6920d8f
+  preview_publish_dispatcher: ami-0e95a4d3be45b9ac4
