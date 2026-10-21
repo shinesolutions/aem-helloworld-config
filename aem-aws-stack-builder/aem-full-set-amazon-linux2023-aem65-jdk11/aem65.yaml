@@ -11,4 +11,4 @@ aem:
 library:
   aem_password_reset_version: 1.1.0
   oak_run_version: 1.10.1
-  aem_aws_stack_provisioner_version: beny-1.0.0
+  aem_aws_stack_provisioner_version: beny-1.0.3
