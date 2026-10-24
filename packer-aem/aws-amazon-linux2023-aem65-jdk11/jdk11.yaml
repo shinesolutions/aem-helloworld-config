@@ -24,7 +24,8 @@ aem:
       - '-XX:+HeapDumpOnOutOfMemoryError'
   jdk:
     base_url: s3://packer-aem-aoc/adobeaemcloud
-    filename: jdk-11.0.9_linux-x64_bin.rpm
+    # filename: jdk-11.0.9_linux-x64_bin.rpm
+    filename: jdk-11.0.32_linux-x64_bin.rpm
 # This parameter is for Java Component Orchestrator & Chaos Monkey
 # aem_curator::install_java only installs Oracle JDK 21, which AEM Orchestrator 5 requires
 java:
