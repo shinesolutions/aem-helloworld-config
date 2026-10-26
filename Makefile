@@ -34,29 +34,8 @@ lint:
 ################################################################################
 
 gen-packer-aem:
-	$(call gen_packer_aem,aws,rhel7,aem64,jdk8)
-	$(call gen_packer_aem,aws,rhel7,aem65,jdk8)
-	$(call gen_packer_aem_aoc_testing_profiles,aws,rhel7,aem65,jdk8,nb)
-	$(call gen_packer_aem,aws,rhel7,aem65,jdk11)
-	$(call gen_packer_aem_aoc_testing_profiles,aws,rhel7,aem65,jdk11,ap)
-	$(call gen_packer_aem_aoc_testing_profiles,aws,rhel7,aem65,jdk11,sh)
-	$(call gen_packer_aem,aws,rhel8,aem64,jdk8)
-	$(call gen_packer_aem,aws,rhel8,aem65,jdk8)
-	$(call gen_packer_aem,aws,rhel8,aem65,jdk11)
-	$(call gen_packer_aem_experimental,aws,centos7,aem64,jdk8,experimental)
-	$(call gen_packer_aem_experimental,aws,centos7,aem65,jdk8,experimental)
-	$(call gen_packer_aem_experimental,aws,centos7,aem65,jdk11,experimental)
-	$(call gen_packer_aem,aws,amazon-linux2,aem64,jdk8)
-	$(call gen_packer_aem,aws,amazon-linux2,aem64,jdk8,cb)
-	$(call gen_packer_aem,aws,amazon-linux2,aem65,jdk8)
 	$(call gen_packer_aem,aws,amazon-linux2,aem65,jdk11)
-	$(call gen_packer_aem_aoc_testing_profiles,aws,amazon-linux2,aem65,jdk11,sh)
-	$(call gen_packer_aem_experimental,docker,centos7,aem64,jdk8,experimental)
-	$(call gen_packer_aem_experimental,docker,centos7,aem65,jdk8,experimental)
-	$(call gen_packer_aem_experimental,docker,centos7,aem65,jdk11,experimental)
-	$(call gen_packer_aem_experimental,docker,amazon-linux2,aem64,jdk8,experimental)
-	$(call gen_packer_aem_experimental,docker,amazon-linux2,aem65,jdk8,experimental)
-	$(call gen_packer_aem_experimental,docker,amazon-linux2,aem65,jdk11,experimental)
+	$(call gen_packer_aem,aws,amazon-linux2023,aem65,jdk11)
 	$(call gen_packer_aem_aws_resources,sandpit)
 
 define gen_packer_aem
@@ -103,49 +82,15 @@ endef
 ################################################################################
 
 gen-aem-aws-stack-builder:
-	$(call gen_aem_aws_stack_builder,aem64,rhel7,full-set,lightweight,jdk8)
-	$(call gen_aem_aws_stack_builder,aem64,rhel7,consolidated,lightweight,jdk8)
-	$(call gen_aem_aws_stack_builder,aem64,amazon-linux2,full-set,lightweight,jdk8)
-	$(call gen_aem_aws_stack_builder,aem64,amazon-linux2,full-set,lightweight,jdk8,cb)
-	$(call gen_aem_aws_stack_builder,aem64,amazon-linux2,consolidated,lightweight,jdk8)
-	$(call gen_aem_aws_stack_builder,aem64,amazon-linux2,consolidated,lightweight,jdk8,cb)
-	# AEM 6.5 RHEL7 FS Heavyweight JDK8
-	$(call gen_aem_aws_stack_builder,aem65,rhel7,full-set,heavyweight,jdk8)
-	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,rhel7,full-set,heavyweight,jdk8,nb)
-	$(call gen_aem_aws_stack_builder_preview,aem65,rhel7,full-set,heavyweight,jdk8)
-	$(call gen_aem_aws_stack_builder_preview_testing_profile,aem65,rhel7,full-set,heavyweight,jdk8,sh)
-	$(call gen_aem_aws_stack_builder_preview_testing_profile,aem65,rhel7,full-set,heavyweight,jdk8,nb)
-	# AEM 6.5 RHEL7 FS Heavyweight JDK11
-	$(call gen_aem_aws_stack_builder,aem65,rhel7,full-set,heavyweight,jdk11)
-	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,rhel7,full-set,heavyweight,jdk11,ap)
-	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,rhel7,full-set,heavyweight,jdk11,sh)
-	$(call gen_aem_aws_stack_builder_preview_testing_profile,aem65,rhel7,full-set,heavyweight,jdk11,sh)
-	$(call gen_aem_aws_stack_builder_preview,aem65,rhel7,full-set,heavyweight,jdk11)
-	# AEM 6.5 RHEL7 Consolidated Heavyweight JDK8
-	$(call gen_aem_aws_stack_builder,aem65,rhel7,consolidated,heavyweight,jdk8)
-	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,rhel7,consolidated,heavyweight,jdk8,nb)
-	# AEM 6.5 RHEL7 Consolidated Heavyweight JDK11
-	$(call gen_aem_aws_stack_builder,aem65,rhel7,consolidated,heavyweight,jdk11)
-	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,rhel7,consolidated,heavyweight,jdk11,ap)
-	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,rhel7,consolidated,heavyweight,jdk11,sh)
-	$(call gen_aem_aws_stack_builder_aoc_testing_saml_profile,aem65,rhel7,consolidated,heavyweight,jdk11,sh)
-	# AEM 6.5 AL2 FS Ligthweight JDK8
-	$(call gen_aem_aws_stack_builder,aem65,amazon-linux2,full-set,lightweight,jdk8)
-	$(call gen_aem_aws_stack_builder_preview,aem65,amazon-linux2,full-set,lightweight,jdk8)
 	# AEM 6.5 AL2 FS Ligthweight JDK11
 	$(call gen_aem_aws_stack_builder,aem65,amazon-linux2,full-set,lightweight,jdk11)
-	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,amazon-linux2,full-set,lightweight,jdk11,sh)
-	$(call gen_aem_aws_stack_builder_preview,aem65,amazon-linux2,full-set,lightweight,jdk11)
-	# AEM 6.5 AL2 Consolidated Ligthweight JDK8
-	$(call gen_aem_aws_stack_builder,aem65,amazon-linux2,consolidated,lightweight,jdk8)
-	# AEM 6.5 AL2 Consolidated Ligthweight JDK11
-	$(call gen_aem_aws_stack_builder,aem65,amazon-linux2,consolidated,lightweight,jdk11)
-	$(call gen_aem_aws_stack_builder_aoc_testing_profile,aem65,amazon-linux2,consolidated,lightweight,jdk11,sh)
+	# AEM 6.5 AL2023 FS Ligthweight JDK11
+	$(call gen_aem_aws_stack_builder,aem65,amazon-linux2023,full-set,lightweight,jdk11)
 	# AEM Stack Manager
 	$(call gen_aem_aws_stack_builder_aem_stack_manager,sandpit)
 	# AEM CDN
 	$(call gen_aem_aws_stack_builder_cdn,sandpit)
-	# AEM Ressources
+	# AEM Resources
 	$(call gen_aem_aws_stack_builder_aws_resources,sandpit)
 
 define gen_aem_aws_stack_builder
@@ -221,14 +166,6 @@ endef
 
 gen-aem-aws-stack-builder-ami-ids: stage
 	rm -f aem-aws-stack-builder/src/apps/aem/*-stack-builder-ami-ids.yaml
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem64,jdk8)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem65,jdk8)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,rhel7,aem65,jdk11)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem64,jdk8)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem65,jdk8)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,centos7,aem65,jdk11)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem64,jdk8)
-	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem65,jdk8)
 	$(call gen_aem_aws_stack_builder_ami_ids,aws,amazon-linux2,aem65,jdk11)
 	make gen-aem-aws-stack-builder
 
