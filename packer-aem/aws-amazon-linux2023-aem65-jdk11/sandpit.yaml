@@ -12,4 +12,7 @@ aem:
     jvm_mem_opts: "-Xss4m -Xms4096m -Xmx8192m"
   publish:
     jvm_mem_opts: "-Xss4m -Xms4096m -Xmx8192m"
+  dispatcher:
+    version: 4.3.8
+    ssl_version: 3.0
   enable_custom_image_provisioner: true
