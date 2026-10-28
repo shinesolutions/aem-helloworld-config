@@ -23,6 +23,8 @@ lint:
 	  aem-aws-stack-builder/*/*.yaml \
 	  aem-aws-stack-builder/*/*/*.yaml \
 	  aem-aws-stack-builder/*/*/*/*.yaml
+	actionlint -shellcheck= .github/workflows/*.yaml
+	markdownlint-cli2 README.md
 
 	for file in descriptors/*/*; do \
 	  echo "Validating JSON file: $$file"; \

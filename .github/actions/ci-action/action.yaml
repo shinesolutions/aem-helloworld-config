@@ -1,4 +1,5 @@
 name: 'CI'
+description: 'Run the CI checks for this repository'
 runs:
   using: 'docker'
   image: 'Dockerfile'

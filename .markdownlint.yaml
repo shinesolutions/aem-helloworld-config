@@ -1,0 +1,12 @@
+---
+# Enable all rules
+default: true
+MD003:
+  style: setext_with_atx
+MD041: false
+MD013:
+  line_length: 700
+MD029:
+  style: one_or_ordered
+MD033:
+  allowed_elements: [img, br]

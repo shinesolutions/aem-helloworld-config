@@ -59,7 +59,7 @@ Naming convention
 -----------------
 
 | Directory | Description |
-|-----------|-------------|
+| ----------- | ------------- |
 | `packer-aem/` | Contains [Packer AEM configurations](https://github.com/shinesolutions/packer-aem/blob/master/docs/configuration.md). [Example](https://github.com/shinesolutions/aem-helloworld-config/tree/master/packer-aem/src) |
 | `packer-aem/src/` | Contains common Packer AEM YAML configuration files. [Example](https://github.com/shinesolutions/aem-helloworld-config/tree/master/packer-aem/src) |
 | `packer-aem/aws-resources-<profile>/` | Contains YAML configuration files for a given Packer AEM AWS resources profile. The directory should be named with `aws-resources-` prefix, e.g. `aws-resources-sandpit`. This directory should contain files copied from `packer-aem/src/` which are relevant for AWS resources profile. [Example](https://github.com/shinesolutions/aem-helloworld-config/tree/master/packer-aem/aws-resources-sandpit) |
