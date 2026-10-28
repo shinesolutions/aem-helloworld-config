@@ -1,3 +1,3 @@
 #!/bin/bash
-source /home/.virtualenvs/py36/bin/activate
+source /home/.virtualenvs/py312/bin/activate
 make ci
