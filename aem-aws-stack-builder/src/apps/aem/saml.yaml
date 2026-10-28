@@ -1,3 +1,4 @@
+---
 aem:
   enable_saml: true
   # Parameters for managing AEM Authorizable Keystore
