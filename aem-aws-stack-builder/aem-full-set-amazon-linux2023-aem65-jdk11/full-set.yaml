@@ -232,6 +232,9 @@ orchestrator:
   data_vol_size: 75
   enable_random_termination: false
 
+chaos_engine:
+  include_stack: false
+
 chaos_monkey:
   instance_type: t2.micro
   root_vol_size: 30
