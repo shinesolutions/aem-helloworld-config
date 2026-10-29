@@ -212,10 +212,10 @@ publish_dispatcher:
   asg_cpu_high_eval_period: 1
   asg_cpu_low_period: 300
   asg_cpu_low_eval_period: 2
-  enable_random_termination: false
+  enable_random_termination: true
 
 publish:
-  enable_random_termination: false
+  enable_random_termination: true
 
 author:
   # 'instance_profile' used in Permission Type C only
@@ -232,13 +232,22 @@ orchestrator:
   data_vol_size: 75
   enable_random_termination: false
 
+# AEM Chaos Engine, which replaces Chaos Monkey. Set include_stack to true to
+# test it. It only logs its decisions while dry_run is true. Targets are the
+# author_dispatcher, publish and publish_dispatcher components whose
+# enable_random_termination is true.
 chaos_engine:
   include_stack: false
+  dry_run: true
+  # Dry run only: every run passes the probability roll and reports a real
+  # decision. Set it back to 1.0 (one attempt per day) with dry_run: false.
+  daily_probability: 6
 
 chaos_monkey:
   instance_type: t2.micro
   root_vol_size: 30
-  include_stack: true
+  # Replaced by the AEM Chaos Engine, which reads the same enable_random_termination flags
+  include_stack: false
   enable_random_termination: false
   termination_settings:
     calendar_open_hour: '9'
