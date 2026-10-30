@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added content-sync config for operational tasks pipeline
 
 ### Changed
+- Prepare the AEM Chaos Engine in the AEM Full-Set profiles, disabled and in dry run, with publish and publish-dispatcher as targets, and turn off Chaos Monkey, which it replaces #AOC-I231
 - Simplify GitHub Actions release workflows to not use custom action
 - Updated parameters for new sandpit AWS account
 - Update Jumphost access security group (from jumphost inbound to instances) with the resource `shn-awsres-03`
