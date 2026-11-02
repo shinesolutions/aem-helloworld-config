@@ -5,7 +5,7 @@ author:
   port:
   verify_ssl: false
   debug: false
-  use_proxy: false
+  use_proxy: true
 publish:
   protocol: https
   host:
