@@ -20,8 +20,8 @@ aem:
   enable_bak_files_cleanup: false
   enable_upgrade_tools: false
   bak_files_cleanup_max_age_in_days: 30
-  deployment_delay_in_seconds: 10
-  deployment_check_retries: 60
+  deployment_delay_in_seconds: 60
+  deployment_check_retries: 120
   deployment_check_delay_in_seconds: 5
   login_ready_max_tries: 120
   login_ready_base_sleep_seconds: 15
