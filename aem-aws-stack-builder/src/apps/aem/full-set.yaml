@@ -237,7 +237,7 @@ orchestrator:
 # author_dispatcher, publish and publish_dispatcher components whose
 # enable_random_termination is true.
 chaos_engine:
-  include_stack: false
+  include_stack: true
   dry_run: true
   # Dry run only: every run passes the probability roll and reports a real
   # decision. Set it back to 1.0 (one attempt per day) with dry_run: false.
