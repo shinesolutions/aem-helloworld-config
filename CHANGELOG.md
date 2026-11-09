@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added packer-aem and stack-builder profiles for AOC End to End Testing.
 - Added `vulnerable_paths.txt` in aem-test-suite configuration to test AEM endpoints.
 - Added content-sync config for operational tasks pipeline
+- Added CodeQL code scanning workflow and README badge
 
 ### Changed
 - Prepare the AEM Chaos Engine in the AEM Full-Set profiles, disabled and in dry run, with publish and publish-dispatcher as targets, and turn off Chaos Monkey, which it replaces #AOC-I231
