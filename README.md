@@ -1,4 +1,5 @@
 [![Build Status](https://github.com/shinesolutions/aem-helloworld-config/workflows/CI/badge.svg)](https://github.com/shinesolutions/aem-helloworld-config/actions?query=workflow%3ACI)
+[![Code Scanning Status](https://github.com/shinesolutions/aem-helloworld-config/workflows/CodeQL/badge.svg)](https://github.com/shinesolutions/aem-helloworld-config/actions?query=workflow%3ACodeQL)
 
 AEM Hello World Config
 ----------------------
