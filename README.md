@@ -50,7 +50,6 @@ If you want to use your own AMI IDs:
       author: <your_author_ami_id>
       author_dispatcher: <your_author_dispatcher_ami_id>
       author_publish_dispatcher: <your_author_publish_dispatcher_ami_id>
-      chaos_monkey: <your_chaos_monkey_ami_id>
       orchestrator: <your_orchestrator_ami_id>
       publish: <your_publish_ami_id>
       publish_dispatcher: <your_publish_dispatcher_ami_id>

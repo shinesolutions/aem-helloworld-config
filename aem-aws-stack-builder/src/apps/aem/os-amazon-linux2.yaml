@@ -19,9 +19,6 @@ author_publish_dispatcher:
 orchestrator:
   instance_type: t3.small
 
-chaos_monkey:
-  instance_type: t3.micro
-
 monitoring:
   include_stack: true
 
