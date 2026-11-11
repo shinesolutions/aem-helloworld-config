@@ -116,14 +116,6 @@ security_groups:
       # Jumphost access security group (from jumphost inbound to instances)
       - sg-02e02c0ecfe95b2f4
 
-  chaos_monkey:
-    extra_groups:
-      # Corp network security group (from corp network inbound to instances)
-      # - sg-01d33232d3569b079
-      # Forward proxy access security group (from instances outbound to forward proxy)
-      # Jumphost access security group (from jumphost inbound to instances)
-      - sg-02e02c0ecfe95b2f4
-
 s3:
   data_bucket_name: aem-aws-stack-builder
 
@@ -243,19 +235,12 @@ chaos_engine:
   # decision. Set it back to 1.0 (one attempt per day) with dry_run: false.
   daily_probability: 6
 
+# Chaos Monkey is replaced by the AEM Chaos Engine above. AEM AWS Stack Builder
+# versions before 10.0.0 include Chaos Monkey by default, so this keeps it off
+# with them; 10.0.0 and later ignore it. Remove once only AEM AWS Stack Builder
+# 10.0.0 or later is used.
 chaos_monkey:
-  instance_type: t2.micro
-  root_vol_size: 30
-  # Replaced by the AEM Chaos Engine, which reads the same enable_random_termination flags
   include_stack: false
-  enable_random_termination: false
-  termination_settings:
-    calendar_open_hour: '9'
-    calendar_close_hour: '15'
-    calendar_timezone: 'Australia/Sydney'
-    scheduler_frequency_in_minutes: '5'
-    asg_probability: '1.0'
-    asg_max_terminations_per_day: '1.0'
 
 dns_records:
   route53_hosted_zone_name: aemopencloud.cms.

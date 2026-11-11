@@ -36,6 +36,3 @@ security_groups:
 
   orchestrator:
     tag_name: AEM Orchestrator Security Group
-
-  chaos_monkey:
-    tag_name: AEM Chaos Monkey Security Group
