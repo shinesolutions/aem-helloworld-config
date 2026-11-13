@@ -303,7 +303,7 @@ scheduled_jobs:
 
   aem_orchestrator:
     stack_manager_pair:
-      stack_prefix: aoc-sm-v9-1-0
+      stack_prefix: aoc-sm-v9-2-0
     offline_compaction_snapshot:
       enable: true
       weekday: 1

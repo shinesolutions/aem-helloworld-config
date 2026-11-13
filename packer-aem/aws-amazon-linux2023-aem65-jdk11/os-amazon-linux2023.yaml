@@ -8,6 +8,7 @@ aws:
   # source_ami: ami-059a26205fdaa13ea
   # source_ami: ami-0720cb7af233b0529
   # source_ami: ami-0c82c1a90be4dccc1
+  # source_ami: ami-0e182bd8728384e40
   source_ami: ami-0e9262cbb2344d5ee
 
 docker:
