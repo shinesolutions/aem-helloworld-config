@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added CodeQL code scanning workflow and README badge
 
 ### Changed
+- Update base AL23 AMI
 - Bake AEM 6.5 AMIs with packer-aem profile aem65_sp26 (AEM 6.5 Service Pack 26)
 - Enable the AEM Chaos Engine in the AEM Full-Set profiles in dry run, with author-dispatcher, publish and publish-dispatcher as targets, and turn off Chaos Monkey, which it replaces #AOC-I231
 - Simplify GitHub Actions release workflows to not use custom action
