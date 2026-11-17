@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added CodeQL code scanning workflow and README badge
 
 ### Changed
+- Upgrade AEM Platform BuildEnv to 6.6.0
 - Upgrade actions/checkout to v7
 - Run CI with cliffano/command-docker-action instead of a Dockerfile-based local action
 - Speed up CI: skip CI for release tags, same-repo pull requests and version bump commits, cancel superseded branch runs, and add job timeouts
