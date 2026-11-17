@@ -28,5 +28,11 @@ jobs:
     timeout-minutes: 30
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: ./.github/actions/ci-action
+    - uses: actions/checkout@v7
+    - uses: cliffano/command-docker-action@v2.1.0
+      with:
+        command: |
+          source /home/.virtualenvs/py312/bin/activate
+          make ci
+        image: shinesolutions/aem-platform-buildenv:6.4.1
+        shell: bash
