@@ -26,7 +26,8 @@ aem:
     base_url: s3://packer-aem-aoc/adobeaemcloud
     filename: jdk-11.0.32_linux-x64_bin.rpm
 # This parameter is for Java Component Orchestrator
-# aem_curator::install_java only installs Oracle JDK 21, which AEM Orchestrator 5 requires
+# aem_curator::install_java installs Amazon Corretto 21 (AEM Orchestrator 5
+# requires Java 21) rather than Oracle JDK 21, whose updates from 21.0.13 need a
+# commercial license. 21.0.13.1.2 has the Java4Shell fix (CVE-2026-114938)
 java:
-  base_url: s3://packer-aem-aoc/adobeaemcloud
-  filename: jdk-21.0.12_linux-x64_bin.rpm
+  corretto_version: 21.0.13.1.2
