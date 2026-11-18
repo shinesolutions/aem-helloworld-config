@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - packer-aem's Java AMI configuration installs Amazon Corretto 21.0.13.1.2 (`java.corretto_version`) instead of the Oracle JDK 21.0.12 RPM, as Oracle JDK 21 updates from 21.0.13 need a commercial license; 21.0.13.1.2 has the Java4Shell fix (CVE-2026-114938)
+- Update packer-aem's Amazon Linux 2023 source AMI to ami-013f66a12d3857f32 (release 2023.12.20261117.0), the first release whose repo has Amazon Corretto 21.0.13.1.2
 - Upgrade AEM Platform BuildEnv to 6.6.0
 - Upgrade actions/checkout to v7
 - Run CI with cliffano/command-docker-action instead of a Dockerfile-based local action

@@ -9,7 +9,10 @@ aws:
   # source_ami: ami-0720cb7af233b0529
   # source_ami: ami-0c82c1a90be4dccc1
   # source_ami: ami-0e182bd8728384e40
-  source_ami: ami-0e9262cbb2344d5ee
+  # source_ami: ami-0e9262cbb2344d5ee
+  # 2023.12.20261117.0, the first release whose repo has Amazon Corretto
+  # 21.0.13.1.2 (java.corretto_version)
+  source_ami: ami-013f66a12d3857f32
 
 docker:
   source: 'amazonlinux:2023'
