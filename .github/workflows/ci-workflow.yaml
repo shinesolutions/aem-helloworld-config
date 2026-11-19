@@ -34,5 +34,5 @@ jobs:
         command: |
           source /home/.virtualenvs/py312/bin/activate
           make ci
-        image: shinesolutions/aem-platform-buildenv:6.6.0
+        image: shinesolutions/aem-platform-buildenv:6.7.0
         shell: bash
